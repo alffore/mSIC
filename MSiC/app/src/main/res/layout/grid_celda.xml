@@ -11,5 +11,6 @@
         android:id="@+id/textViewGM"
         android:layout_weight="0.10"
         android:autoText="false"
-        android:gravity="center_vertical|center_horizontal" />
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_gravity="center_horizontal" />
 </LinearLayout>
