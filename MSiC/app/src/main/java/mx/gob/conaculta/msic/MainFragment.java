@@ -23,7 +23,7 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_principal, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_menutemas, container, false);
 
         GridView gridview = (GridView) rootView.findViewById(R.id.gridView);
 

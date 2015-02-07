@@ -1,65 +1,57 @@
 package mx.gob.conaculta.msic;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
-import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
 
-import android.view.MenuItem;
+
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.widget.Toast;
+
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.SupportMapFragment;
+
 
 /**
+ *
  * Created by alfonso on 07/02/15.
+ *
+ *
+ * Revisar modelo en https://github.com/googlemaps/android-maps-utils
  */
-public class MapaActivity extends ActionBarActivity {
+public class MapaActivity extends FragmentActivity {
 
+    private GoogleMap mMap;
+
+    protected int getLayoutId() {
+        return R.layout.fragment_mapa;
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.activity_mapa);
-
-
-
-       /*if (savedInstanceState == null) {
-
-            FragmentManager fragmentManager= getFragmentManager();
-            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-            MapaFragment mapaF = new MapaFragment();
-
-            fragmentTransaction.add(R.id.map, mapaF);
-            fragmentTransaction.commit();
-        }*/
-
-       /* setContentView(R.layout.activity_mapa);
-        if (savedInstanceState == null) {
-            int commit = getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new MapaFragment())
-                    .commit();
-        }*/
+        setContentView(getLayoutId());
+        setUpMapIfNeeded();
     }
 
-
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.menu_mapa, menu);
-        return true;
+    protected void onResume() {
+        super.onResume();
+        setUpMapIfNeeded();
     }
 
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        int id = item.getItemId();
-
-        if (id == R.id.action_settings) {
-            return true;
+    private void setUpMapIfNeeded() {
+        if (mMap != null) {
+            return;
         }
+        mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
+        if (mMap != null) {
+            Toast.makeText(this, "Listo para acción" , Toast.LENGTH_SHORT).show();
+        }
+    }
 
 
-        return super.onOptionsItemSelected(item);
+
+    protected GoogleMap getMap() {
+        setUpMapIfNeeded();
+        return mMap;
     }
 }
