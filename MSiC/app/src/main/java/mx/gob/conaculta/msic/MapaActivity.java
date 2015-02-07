@@ -7,7 +7,9 @@ import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 
 /**
@@ -42,9 +44,10 @@ public class MapaActivity extends FragmentActivity {
         if (mMap != null) {
             return;
         }
-        mMap = ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMap();
+        mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
         if (mMap != null) {
             Toast.makeText(this, "Listo para acción" , Toast.LENGTH_SHORT).show();
+            pintaMarker();
         }
     }
 
@@ -53,5 +56,12 @@ public class MapaActivity extends FragmentActivity {
     protected GoogleMap getMap() {
         setUpMapIfNeeded();
         return mMap;
+    }
+
+
+    protected void pintaMarker(){
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(19.495139,-99.251436))
+                .title("Casa"));
     }
 }
