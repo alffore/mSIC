@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MSiC</string>
+    <string name="action_mapa">Ubicación en Mapa</string>
+    <string name="action_settings">Configuración</string>
+    <string name="activity_mapa_name">Ubicación en Mapa</string>
+</resources>

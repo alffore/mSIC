@@ -2,7 +2,11 @@
 <resources>
 
     <string name="app_name">MSiC</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
 
+    <string name="activity_mapa_name">Location Map</string>
+
+    <string name="hello_world" translatable="false">Hello world!</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_mapa">Map Location</string>
 </resources>

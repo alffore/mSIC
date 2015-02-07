@@ -13,10 +13,10 @@ import android.widget.Toast;
 /**
  * Created by alfonso on 01/02/15.
  */
-public class PrincipalFragment extends Fragment {
+public class MainFragment extends Fragment {
 
 
-    public PrincipalFragment(){
+    public MainFragment(){
 
     }
 

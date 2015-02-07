@@ -68,15 +68,29 @@ ADDED from AndroidManifest.xml:27:17
 	android:name
 		ADDED from AndroidManifest.xml:27:25
 category#android.intent.category.LAUNCHER
-ADDED from AndroidManifest.xml:29:17
+ADDED from AndroidManifest.xml:28:17
 	android:name
-		ADDED from AndroidManifest.xml:29:27
-meta-data#com.google.android.maps.v2.API_KEY
-ADDED from AndroidManifest.xml:37:9
+		ADDED from AndroidManifest.xml:28:27
+activity#mx.gob.conaculta.msic.MapaActivity
+ADDED from AndroidManifest.xml:31:9
+	android:label
+		ADDED from AndroidManifest.xml:32:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:34:13
+	android:name
+		ADDED from AndroidManifest.xml:33:13
+meta-data#android.support.PARENT_ACTIVITY
+ADDED from AndroidManifest.xml:35:13
 	android:value
-		ADDED from AndroidManifest.xml:39:13
+		ADDED from AndroidManifest.xml:37:17
 	android:name
-		ADDED from AndroidManifest.xml:38:13
+		ADDED from AndroidManifest.xml:36:17
+meta-data#com.google.android.maps.v2.API_KEY
+ADDED from AndroidManifest.xml:44:9
+	android:value
+		ADDED from AndroidManifest.xml:46:13
+	android:name
+		ADDED from AndroidManifest.xml:45:13
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
 MERGED from com.android.support:appcompat-v7:21.0.3:15:5

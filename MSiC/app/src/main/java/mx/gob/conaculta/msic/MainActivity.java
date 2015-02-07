@@ -1,15 +1,14 @@
 package mx.gob.conaculta.msic;
 
+
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
+
 import android.os.Bundle;
-import android.view.LayoutInflater;
+
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
+
 
 
 
@@ -19,11 +18,11 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.demo_map);
+
         setContentView(R.layout.activity_main);
         if (savedInstanceState == null) {
             int commit = getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PrincipalFragment())
+                    .add(R.id.container, new MainFragment())
                     .commit();
         }
     }
@@ -45,6 +44,13 @@ public class MainActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            return true;
+        }
+
+        if(id == R.id.action_mapa){
+
+            Intent intent = new Intent(this, MapaActivity.class);
+            startActivity(intent);
             return true;
         }
 
