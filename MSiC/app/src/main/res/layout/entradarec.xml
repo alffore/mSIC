@@ -30,14 +30,14 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Nombre"
-            android:id="@+id/textNombre" />
+            android:id="@+id/textNombreRec" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Extra"
-            android:id="@+id/textExtra" />
+            android:id="@+id/textExtraRec" />
     </LinearLayout>
 
 </LinearLayout>
