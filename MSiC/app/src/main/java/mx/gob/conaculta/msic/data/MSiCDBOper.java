@@ -46,7 +46,10 @@ public class MSiCDBOper {
         mSiCDBHelper.close();
     }
 
-
+    /**
+     *
+     * @return
+     */
     public List<Recurso> obtenTodos(){
 
         List<Recurso> lrec = new ArrayList<Recurso>();
@@ -61,8 +64,57 @@ public class MSiCDBOper {
         return lrec;
     }
 
+    /**
+     *
+     * @param stipo
+     * @return
+     */
+    public List<Recurso> obtenxTipo(String stipo){
+        List<Recurso> lrec = new ArrayList<Recurso>();
 
-    
+        String sWhere="tipo=?";
+        String sArgs[]={stipo};
+
+        Cursor cursor = database.query(InfraPatEntry.TABLE_NAME,allColumns, sWhere, sArgs, null, null, null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            lrec.add(this.cursor2recurso(cursor));
+            cursor.moveToNext();
+        }
+
+        return lrec;
+    }
+
+    /**
+     *
+     * @param lat0
+     * @param lon0
+     * @param lat1
+     * @param lon1
+     * @return
+     */
+    public List<Recurso> obtenxLatLon(double lat0,double lon0,double lat1,double lon1){
+        List<Recurso> lrec = new ArrayList<Recurso>();
+
+        String sWhere="latitud <= ? AND latitud >= ? AND longitud <= ? AND longitud >= ?";
+        String sArgs[]={};
+
+        Cursor cursor = database.query(InfraPatEntry.TABLE_NAME,allColumns, sWhere, sArgs, null, null, null);
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            lrec.add(this.cursor2recurso(cursor));
+            cursor.moveToNext();
+        }
+
+        return lrec;
+    }
+
+
+    /**
+     *
+     * @param cu
+     * @return
+     */
     private Recurso cursor2recurso(Cursor cu){
 
         Recurso rec = new Recurso();
