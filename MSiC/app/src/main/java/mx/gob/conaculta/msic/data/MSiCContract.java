@@ -20,7 +20,7 @@ public class MSiCContract {
 
 
         //id del recurso
-        public static final String COLUMN_SRID="sr_id";
+        public static final String COLUMN_SRID="srId";
 
         //tipo de recurso
         public static final String COLUMN_TYPE ="tipo";
@@ -35,6 +35,6 @@ public class MSiCContract {
         public static final String COLUMN_LON="longitud";
 
         //serial_renic
-        public static final String COLUMN_SR="sr_sr";
+        public static final String COLUMN_SR="sMsr";
     }
 }

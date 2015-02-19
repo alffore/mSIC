@@ -2,9 +2,12 @@
   <dictionary name="alfonso">
     <words>
       <w>acción</w>
+      <w>borra</w>
       <w>conaculta</w>
       <w>dbsic</w>
+      <w>guarda</w>
       <w>infrapat</w>
+      <w>inserta</w>
       <w>latitud</w>
       <w>listado</w>
       <w>listo</w>
@@ -18,6 +21,7 @@
       <w>recurso</w>
       <w>recursos</w>
       <w>recusos</w>
+      <w>squery</w>
       <w>srid</w>
       <w>teatro</w>
       <w>temas</w>

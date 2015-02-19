@@ -124,15 +124,31 @@ public class MSiCDBOper {
         rec.lon=cu.getDouble(1);
 
         rec.sNombre=cu.getString(2);
-        rec.sr_id=cu.getInt(3);
+        rec.srId =cu.getInt(3);
         rec.sTipo=cu.getString(4);
 
         return rec;
     }
 
 
+    /**
+     *
+     * @param rec
+     * @return
+     */
     public boolean guardaRecurso(Recurso rec){
 
+        //borramos
+        final String SQUERY_BORRA="DELETE FROM "+InfraPatEntry.TABLE_NAME+" WHERE "+
+                InfraPatEntry.COLUMN_TYPE+"='"+rec.sTipo+"' AND "+
+                InfraPatEntry.COLUMN_SRID+"="+rec.srId;
+
+        database.execSQL(SQUERY_BORRA);
+
+        //insertamos
+        final String SQUERY_INSERTA="INSERT INTO "+InfraPatEntry.TABLE_NAME+" ("+") VALUES ("+")";
+
+        database.execSQL(SQUERY_INSERTA);
 
         return true;
     }

@@ -130,20 +130,20 @@ public class RecRecursosTask extends AsyncTask<String, Void, String[]> {
     private String[] obtenRecursosFromJson(String recusosJsonStr) throws JSONException{
 
         JSONArray recursosJson = new JSONArray(recusosJsonStr);
-
+        msicdbo.openDB();
         for(int i=0; i<recursosJson.length();i++){
             JSONObject recursos = recursosJson.getJSONObject(i);
 
             Recurso rec= new Recurso();
 
             rec.sTipo=recursos.getString("tipo");
-            rec.sr_id=recursos.getInt("id");
+            rec.srId =recursos.getInt("id");
 
 
             msicdbo.guardaRecurso(rec);
 
         }
-
+        msicdbo.closeDB();
 
         return null;
     }

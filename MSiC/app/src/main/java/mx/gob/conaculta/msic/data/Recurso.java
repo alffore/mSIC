@@ -9,9 +9,9 @@ public class Recurso {
 
     public String sTipo;
 
-    public int sr_id;
+    public int srId;
 
-    public int sr_sr;
+    public int sMsr;
 
     public double lat;
 
