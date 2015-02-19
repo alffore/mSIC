@@ -11,6 +11,8 @@ public class Recurso {
 
     public int sr_id;
 
+    public int sr_sr;
+
     public double lat;
 
     public double lon;

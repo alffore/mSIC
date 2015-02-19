@@ -41,6 +41,7 @@ public class MSiCDBHelper extends SQLiteOpenHelper {
                 InfraPatEntry.COLUMN_TYPE + " TEXT NOT NULL, "+
                 InfraPatEntry.COLUMN_NAME +" TEXT NOT NULL, "+
                 InfraPatEntry.COLUMN_LAT+" REAL, "+
+                InfraPatEntry.COLUMN_SR+" INTEGER NOT NULL, "+
                 InfraPatEntry.COLUMN_LON+" REAL );";
 
         db.execSQL(SQL_CREATE_INFRAPAT_TABLE);

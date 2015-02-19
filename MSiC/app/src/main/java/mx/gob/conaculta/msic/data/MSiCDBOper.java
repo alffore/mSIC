@@ -130,4 +130,10 @@ public class MSiCDBOper {
         return rec;
     }
 
+
+    public boolean guardaRecurso(Recurso rec){
+
+
+        return true;
+    }
 }

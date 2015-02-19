@@ -34,6 +34,7 @@ public class MSiCContract {
         //longitud
         public static final String COLUMN_LON="longitud";
 
-
+        //serial_renic
+        public static final String COLUMN_SR="sr_sr";
     }
 }
