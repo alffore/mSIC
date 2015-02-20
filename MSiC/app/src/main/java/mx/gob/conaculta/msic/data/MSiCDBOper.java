@@ -141,7 +141,7 @@ public class MSiCDBOper {
         final String SQUERY_BORRA = "DELETE FROM " + InfraPatEntry.TABLE_NAME + " WHERE " +
                 InfraPatEntry.COLUMN_TYPE + "='" + jrec.getString("tipo") + "' AND " +
                 InfraPatEntry.COLUMN_SRID + "=" + jrec.getInt("id");
-        
+
         database.execSQL(SQUERY_BORRA);
 
         //insertamos

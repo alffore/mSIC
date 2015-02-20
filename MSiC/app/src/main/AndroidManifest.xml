@@ -37,6 +37,16 @@
                 android:value="mx.gob.conaculta.msic.MainActivity" />
         </activity>
 
+        <activity
+            android:label="@string/activity_listado_name"
+            android:name="mx.gob.conaculta.msic.ListadoRecActivity"
+            android:parentActivityName="mx.gob.conaculta.msic.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mx.gob.conaculta.msic.MainActivity" />
+        </activity>
+
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

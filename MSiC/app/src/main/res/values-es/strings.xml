@@ -4,4 +4,6 @@
     <string name="action_mapa">Ubicación en Mapa</string>
     <string name="action_settings">Configuración</string>
     <string name="activity_mapa_name">Ubicación en Mapa</string>
+    <string name="action_listado">Listado</string>
+    <string name="activity_listado_name">Listado</string>
 </resources>

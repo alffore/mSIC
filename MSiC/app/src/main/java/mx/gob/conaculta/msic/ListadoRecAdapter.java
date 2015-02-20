@@ -31,7 +31,6 @@ public class ListadoRecAdapter extends CursorAdapter {
      * @param flags
      */
     public ListadoRecAdapter(Context context, Cursor c, int flags) {
-
         super(context, c, flags);
     }
 
