@@ -45,7 +45,6 @@ public class ListadoRecActivity extends ActionBarActivity {
         }
 
         if(id == R.id.action_mapa){
-
             Intent intent = new Intent(this, MapaActivity.class);
             startActivity(intent);
             return true;

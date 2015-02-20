@@ -14,12 +14,17 @@ import android.widget.TextView;
 public class ListadoRecAdapter extends CursorAdapter {
 
 
+    /**
+     * Clase para manejar los componentes de la entrada de la lista
+     */
     public static class ViewHolder{
 
         public final TextView textNombreRec;
+        public final TextView textExtraRec;
 
         public ViewHolder(View view){
             textNombreRec= (TextView) view.findViewById(R.id.textNombreRec);
+            textExtraRec=(TextView) view.findViewById(R.id.textExtraRec);
         }
     }
 
@@ -48,6 +53,12 @@ public class ListadoRecAdapter extends CursorAdapter {
 
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
+        ViewHolder viewHolder = (ViewHolder) view.getTag();
 
+        String sNombreRec=cursor.getString(0);
+        viewHolder.textNombreRec.setText(sNombreRec);
+
+        String sExtraRec=cursor.getString(1);
+        viewHolder.textExtraRec.setText(sExtraRec);
     }
 }

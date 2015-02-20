@@ -13,6 +13,8 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import mx.gob.conaculta.msic.data.MSiCLoader;
+
 
 /**
  * Created by alfonso on 08/02/15.
@@ -32,15 +34,14 @@ public class ListadoRecFragment extends Fragment implements LoaderManager.Loader
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_listadorec, container, false);
 
+        getLoaderManager().initLoader(1, null, this);
 
         return rootView;
     }
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-
-
-        return null;
+        return new MSiCLoader(this.getActivity());
     }
 
     @Override
