@@ -7,6 +7,8 @@ public class Recurso {
 
     public String sNombre;
 
+    public String sAdscripcion;
+
     public String sTipo;
 
     public int srId;

@@ -25,29 +25,26 @@ import mx.gob.conaculta.msic.data.Recurso;
  */
 public class RecRecursosTask extends AsyncTask<String, Void, String[]> {
 
-    private final String LOG_TAG =RecRecursosTask.class.getSimpleName();
+    private final String LOG_TAG = RecRecursosTask.class.getSimpleName();
 
     private final Context mContext;
 
-    private  MSiCDBOper msicdbo=null;
+    private MSiCDBOper msicdbo = null;
 
     /**
-     *
      * @param context
      */
-    public RecRecursosTask(Context context){
-        mContext=context;
-        msicdbo= new MSiCDBOper(context);
+    public RecRecursosTask(Context context) {
+        mContext = context;
+        msicdbo = new MSiCDBOper(context);
     }
-
-
 
 
     @Override
     protected String[] doInBackground(String... params) {
 
 
-        if(params.length==0){
+        if (params.length == 0) {
             return null;
         }
 
@@ -55,47 +52,47 @@ public class RecRecursosTask extends AsyncTask<String, Void, String[]> {
         BufferedReader reader = null;
 
 
-        String recursosJsonStr=null;
+        String recursosJsonStr = null;
 
         try {
 
             final String DBSIC_BASE_URL =
                     "http://sic.gob.mx/msic/infra2.php?";
 
-            final String MSR_PARAM="msr";
+            final String MSR_PARAM = "msr";
 
             Uri uriRec = Uri.parse(DBSIC_BASE_URL).buildUpon()
-                    .appendQueryParameter(MSR_PARAM,params[0])
+                    .appendQueryParameter(MSR_PARAM, params[0])
                     .build();
 
             URL url = new URL(uriRec.toString());
 
-            urlConnection=(HttpURLConnection)url.openConnection();
+            urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
             urlConnection.connect();
 
 
             InputStream inputStream = urlConnection.getInputStream();
-            StringBuffer buffer =new StringBuffer();
+            StringBuffer buffer = new StringBuffer();
 
-            if(inputStream==null){
+            if (inputStream == null) {
                 return null;
             }
 
-            reader =new BufferedReader(new InputStreamReader(inputStream));
+            reader = new BufferedReader(new InputStreamReader(inputStream));
 
             String line;
-            while((line=reader.readLine())!=null){
-                buffer.append(line+"\n");
+            while ((line = reader.readLine()) != null) {
+                buffer.append(line + "\n");
             }
 
-            if(buffer.length()==0){
+            if (buffer.length() == 0) {
                 return null;
             }
 
-            recursosJsonStr=buffer.toString();
+            recursosJsonStr = buffer.toString();
 
-        }catch (IOException e) {
+        } catch (IOException e) {
             return null;
         } finally {
             if (urlConnection != null) {
@@ -110,10 +107,10 @@ public class RecRecursosTask extends AsyncTask<String, Void, String[]> {
             }
         }
 
-        try{
-            return  obtenRecursosFromJson(recursosJsonStr);
+        try {
+            return obtenRecursosFromJson(recursosJsonStr);
         } catch (JSONException e) {
-            Log.e(LOG_TAG,e.getMessage(),e);
+            Log.e(LOG_TAG, e.getMessage(), e);
             e.printStackTrace();
         }
 
@@ -122,27 +119,18 @@ public class RecRecursosTask extends AsyncTask<String, Void, String[]> {
 
 
     /**
-     *
      * @param recusosJsonStr
      * @return
      * @throws JSONException
      */
-    private String[] obtenRecursosFromJson(String recusosJsonStr) throws JSONException{
+    private String[] obtenRecursosFromJson(String recusosJsonStr) throws JSONException {
 
         JSONArray recursosJson = new JSONArray(recusosJsonStr);
         msicdbo.openDB();
-        for(int i=0; i<recursosJson.length();i++){
-            JSONObject recursos = recursosJson.getJSONObject(i);
 
-            Recurso rec= new Recurso();
+        for (int i = 0; i < recursosJson.length(); i++)
+            msicdbo.guardaJSONRec(recursosJson.getJSONObject(i));
 
-            rec.sTipo=recursos.getString("tipo");
-            rec.srId =recursos.getInt("id");
-
-
-            msicdbo.guardaRecurso(rec);
-
-        }
         msicdbo.closeDB();
 
         return null;
