@@ -11,14 +11,17 @@ import android.support.v4.content.CursorLoader;
  */
 public class MSiCLoader extends CursorLoader {
 
-    public MSiCLoader(Context context) {
+    private MSiCDBOper msicdbo;
+
+    public MSiCLoader(Context context,MSiCDBOper msicdbo) {
         super(context);
+        this.msicdbo=msicdbo;
     }
 
 
     @Override
     public Cursor loadInBackground() {
 
-        return null;
+        return msicdbo.obtenCursorAll();
     }
 }

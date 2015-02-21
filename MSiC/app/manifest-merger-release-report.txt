@@ -85,12 +85,20 @@ ADDED from AndroidManifest.xml:35:13
 		ADDED from AndroidManifest.xml:37:17
 	android:name
 		ADDED from AndroidManifest.xml:36:17
-meta-data#com.google.android.maps.v2.API_KEY
-ADDED from AndroidManifest.xml:44:9
-	android:value
-		ADDED from AndroidManifest.xml:46:13
+activity#mx.gob.conaculta.msic.ListadoRecActivity
+ADDED from AndroidManifest.xml:40:9
+	android:label
+		ADDED from AndroidManifest.xml:41:13
+	android:parentActivityName
+		ADDED from AndroidManifest.xml:43:13
 	android:name
-		ADDED from AndroidManifest.xml:45:13
+		ADDED from AndroidManifest.xml:42:13
+meta-data#com.google.android.maps.v2.API_KEY
+ADDED from AndroidManifest.xml:54:9
+	android:value
+		ADDED from AndroidManifest.xml:56:13
+	android:name
+		ADDED from AndroidManifest.xml:55:13
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
 MERGED from com.android.support:appcompat-v7:21.0.3:15:5
