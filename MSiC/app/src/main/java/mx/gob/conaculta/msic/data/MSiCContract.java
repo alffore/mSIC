@@ -37,5 +37,9 @@ public class MSiCContract {
 
         //serial_renic
         public static final String COLUMN_MSR ="msr";
+
+
+        public  static final String COLUMN_INFOP="infop";
+
     }
 }

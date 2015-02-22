@@ -22,7 +22,7 @@ public class MSiCDBOper {
     private SQLiteDatabase database;
 
 
-    private String[] allColumns = {InfraPatEntry._ID,InfraPatEntry.COLUMN_LAT, InfraPatEntry.COLUMN_LON, InfraPatEntry.COLUMN_NAME, InfraPatEntry.COLUMN_SRID, InfraPatEntry.COLUMN_TYPE, InfraPatEntry.COLUMN_ADS};
+    private String[] allColumns = {InfraPatEntry._ID, InfraPatEntry.COLUMN_LAT, InfraPatEntry.COLUMN_LON, InfraPatEntry.COLUMN_NAME, InfraPatEntry.COLUMN_SRID, InfraPatEntry.COLUMN_TYPE, InfraPatEntry.COLUMN_ADS};
 
     /**
      * @param context
@@ -65,10 +65,9 @@ public class MSiCDBOper {
     }
 
     /**
-     *
      * @return
      */
-    public Cursor obtenCursorAll(){
+    public Cursor obtenCursorAll() {
         return database.query(InfraPatEntry.TABLE_NAME, allColumns, null, null, null, null, null);
     }
 
@@ -152,26 +151,28 @@ public class MSiCDBOper {
 
         database.execSQL(SQUERY_BORRA);
 
-        //insertamos
-        final String SQUERY_INSERTA = "INSERT INTO " + InfraPatEntry.TABLE_NAME + " (" +
-                InfraPatEntry.COLUMN_ADS + "," +
-                InfraPatEntry.COLUMN_MSR + "," +
-                InfraPatEntry.COLUMN_SRID + "," +
-                InfraPatEntry.COLUMN_TYPE + "," +
-                InfraPatEntry.COLUMN_LON + "," +
-                InfraPatEntry.COLUMN_LAT + "," +
-                InfraPatEntry.COLUMN_NAME + "," +
-                ") VALUES ('" +
-                jrec.getString(InfraPatEntry.COLUMN_ADS) + "'," +
-                jrec.getInt(InfraPatEntry.COLUMN_MSR) + "," +
-                jrec.getInt(InfraPatEntry.COLUMN_SRID) + ",'" +
-                jrec.getString(InfraPatEntry.COLUMN_TYPE) + "'," +
-                jrec.getString(InfraPatEntry.COLUMN_LON) + "," +
-                jrec.getString(InfraPatEntry.COLUMN_LAT) + ",'" +
-                jrec.getString(InfraPatEntry.COLUMN_NAME) + "')";
+        if(jrec.getString(InfraPatEntry.COLUMN_INFOP).equals("t")) {
 
-        database.execSQL(SQUERY_INSERTA);
+            //insertamos
+            final String SQUERY_INSERTA = "INSERT INTO " + InfraPatEntry.TABLE_NAME + " (" +
+                    InfraPatEntry.COLUMN_ADS + "," +
+                    InfraPatEntry.COLUMN_MSR + "," +
+                    InfraPatEntry.COLUMN_SRID + "," +
+                    InfraPatEntry.COLUMN_TYPE + "," +
+                    InfraPatEntry.COLUMN_LON + "," +
+                    InfraPatEntry.COLUMN_LAT + "," +
+                    InfraPatEntry.COLUMN_NAME + "," +
+                    ") VALUES ('" +
+                    jrec.getString(InfraPatEntry.COLUMN_ADS) + "'," +
+                    jrec.getInt(InfraPatEntry.COLUMN_MSR) + "," +
+                    jrec.getInt(InfraPatEntry.COLUMN_SRID) + ",'" +
+                    jrec.getString(InfraPatEntry.COLUMN_TYPE) + "'," +
+                    jrec.getString(InfraPatEntry.COLUMN_LON) + "," +
+                    jrec.getString(InfraPatEntry.COLUMN_LAT) + ",'" +
+                    jrec.getString(InfraPatEntry.COLUMN_NAME) + "')";
 
+            database.execSQL(SQUERY_INSERTA);
+        }
 
         return true;
     }

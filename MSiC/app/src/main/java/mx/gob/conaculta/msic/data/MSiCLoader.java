@@ -13,6 +13,11 @@ public class MSiCLoader extends CursorLoader {
 
     private MSiCDBOper msicdbo;
 
+    /**
+     *
+     * @param context
+     * @param msicdbo
+     */
     public MSiCLoader(Context context,MSiCDBOper msicdbo) {
         super(context);
         this.msicdbo=msicdbo;
@@ -21,7 +26,7 @@ public class MSiCLoader extends CursorLoader {
 
     @Override
     public Cursor loadInBackground() {
-
         return msicdbo.obtenCursorAll();
     }
+
 }
