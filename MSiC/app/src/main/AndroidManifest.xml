@@ -56,4 +56,27 @@
             android:value="AIzaSyAPRRMSvZpV2AnMloS-7KVFkpjWcB5Jx2c"/>
     </application>
 
+
+    <!-- SyncAdapter's dummy authentication service -->
+    <service android:name=".sync.MSiCAuthenticatorService">
+        <intent-filter>
+            <action android:name="android.accounts.AccountAuthenticator" />
+        </intent-filter>
+        <meta-data
+            android:name="android.accounts.AccountAuthenticator"
+            android:resource="@xml/authenticator" />
+    </service>
+
+    <!-- The SyncAdapter service -->
+    <service
+        android:name=".sync.MSiCSyncService"
+        android:exported="true"
+        >
+        <intent-filter>
+            <action android:name="android.content.SyncAdapter" />
+        </intent-filter>
+        <meta-data
+            android:name="android.content.SyncAdapter"
+            android:resource="@xml/syncadapter" />
+    </service>
 </manifest>

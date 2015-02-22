@@ -12,10 +12,8 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import mx.gob.conaculta.msic.data.MSiCContract;
 import mx.gob.conaculta.msic.data.MSiCDBOper;
 import mx.gob.conaculta.msic.data.MSiCLoader;
-import mx.gob.conaculta.msic.data.MSiCContract.InfraPatEntry;
 
 
 /**
