@@ -79,9 +79,16 @@ public class ListadoRecFragment extends Fragment implements LoaderManager.Loader
         });
 
 
-        getLoaderManager().initLoader(1, null, this);
+
 
         return rootView;
+    }
+
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        getLoaderManager().initLoader(1, null, this);
+        super.onActivityCreated(savedInstanceState);
     }
 
     @Override

@@ -12,7 +12,7 @@ import android.view.MenuItem;
 /**
  * Created by alfonso on 08/02/15.
  */
-public class ListadoRecActivity extends ActionBarActivity implements  ListadoRecFragment.Callback{
+public class ListadoRecActivity extends ActionBarActivity implements ListadoRecFragment.Callback {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +44,7 @@ public class ListadoRecActivity extends ActionBarActivity implements  ListadoRec
             return true;
         }
 
-        if(id == R.id.action_mapa){
+        if (id == R.id.action_mapa) {
             Intent intent = new Intent(this, MapaActivity.class);
             startActivity(intent);
             return true;
@@ -55,6 +55,6 @@ public class ListadoRecActivity extends ActionBarActivity implements  ListadoRec
 
     @Override
     public void onItemSelected(int _id) {
-        
+
     }
 }
