@@ -12,7 +12,7 @@ import android.view.MenuItem;
 /**
  * Created by alfonso on 08/02/15.
  */
-public class ListadoRecActivity extends ActionBarActivity {
+public class ListadoRecActivity extends ActionBarActivity implements  ListadoRecFragment.Callback{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,4 +53,8 @@ public class ListadoRecActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onItemSelected(int _id) {
+        
+    }
 }
