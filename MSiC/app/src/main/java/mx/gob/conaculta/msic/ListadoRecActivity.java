@@ -45,8 +45,8 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
         }
 
         if (id == R.id.action_mapa) {
-            Intent intent = new Intent(this, MapaActivity.class);
-            startActivity(intent);
+            /*Intent intent = new Intent(this, MapaActivity.class);
+            startActivity(intent);*/
             return true;
         }
 
