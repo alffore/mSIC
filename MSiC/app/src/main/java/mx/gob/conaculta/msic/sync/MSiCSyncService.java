@@ -8,7 +8,7 @@ import android.util.Log;
 /**
  * Created by alfonso on 21/02/15.
  */
-public class MSiCSyncService extends Service{
+public class MSiCSyncService extends Service {
     private static final Object sSyncAdapterLock = new Object();
     private static MSiCSyncAdapter mSiCSyncAdapter = null;
 

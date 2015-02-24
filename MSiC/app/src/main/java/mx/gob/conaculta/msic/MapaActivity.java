@@ -1,7 +1,6 @@
 package mx.gob.conaculta.msic;
 
 
-
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
@@ -13,10 +12,9 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 
 /**
- *
  * Created by alfonso on 07/02/15.
- *
- *
+ * <p/>
+ * <p/>
  * Revisar modelo en https://github.com/googlemaps/android-maps-utils
  */
 public class MapaActivity extends FragmentActivity {
@@ -46,11 +44,10 @@ public class MapaActivity extends FragmentActivity {
         }
         mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
         if (mMap != null) {
-            Toast.makeText(this, "Listo para acción" , Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Listo para acción", Toast.LENGTH_SHORT).show();
             pintaMarker();
         }
     }
-
 
 
     protected GoogleMap getMap() {
@@ -59,9 +56,9 @@ public class MapaActivity extends FragmentActivity {
     }
 
 
-    protected void pintaMarker(){
+    protected void pintaMarker() {
         mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(19.495139,-99.251436))
+                .position(new LatLng(19.495139, -99.251436))
                 .title("Casa"));
     }
 }

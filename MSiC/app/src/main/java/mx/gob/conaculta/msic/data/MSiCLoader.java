@@ -14,13 +14,12 @@ public class MSiCLoader extends CursorLoader {
     private MSiCDBOper msicdbo;
 
     /**
-     *
      * @param context
      * @param msicdbo
      */
-    public MSiCLoader(Context context,MSiCDBOper msicdbo) {
+    public MSiCLoader(Context context, MSiCDBOper msicdbo) {
         super(context);
-        this.msicdbo=msicdbo;
+        this.msicdbo = msicdbo;
     }
 
 

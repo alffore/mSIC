@@ -3,6 +3,7 @@ package mx.gob.conaculta.msic.data;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -18,6 +19,7 @@ import mx.gob.conaculta.msic.data.MSiCContract.InfraPatEntry;
  */
 public class MSiCDBOper {
 
+    public final String LOG_TAG = MSiCDBOper.class.getSimpleName();
     private MSiCDBHelper mSiCDBHelper;
     private SQLiteDatabase database;
 
@@ -29,7 +31,7 @@ public class MSiCDBOper {
      */
     public MSiCDBOper(Context context) {
 
-        mSiCDBHelper = new MSiCDBHelper(context, "", null, 1);
+        mSiCDBHelper = new MSiCDBHelper(context, "", null, 2);
 
     }
 
@@ -149,9 +151,10 @@ public class MSiCDBOper {
                 InfraPatEntry.COLUMN_TYPE + "='" + jrec.getString(InfraPatEntry.COLUMN_TYPE) + "' AND " +
                 InfraPatEntry.COLUMN_SRID + "=" + jrec.getInt(InfraPatEntry.COLUMN_SRID);
 
-        database.execSQL(SQUERY_BORRA);
+        //database.execSQL(SQUERY_BORRA);
+        Log.d(LOG_TAG, "Borra: " + SQUERY_BORRA);
 
-        if(jrec.getString(InfraPatEntry.COLUMN_INFOP).equals("t")) {
+        if (jrec.getBoolean(InfraPatEntry.COLUMN_INFOP)) {
 
             //insertamos
             final String SQUERY_INSERTA = "INSERT INTO " + InfraPatEntry.TABLE_NAME + " (" +
@@ -171,7 +174,7 @@ public class MSiCDBOper {
                     jrec.getString(InfraPatEntry.COLUMN_LAT) + ",'" +
                     jrec.getString(InfraPatEntry.COLUMN_NAME) + "')";
 
-            database.execSQL(SQUERY_INSERTA);
+            // database.execSQL(SQUERY_INSERTA);
         }
 
         return true;

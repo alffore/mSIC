@@ -7,10 +7,8 @@ import android.preference.PreferenceActivity;
 /**
  * Created by alfonso on 01/02/15.
  */
-public class PreferenciasActivity  extends PreferenceActivity
-        implements Preference.OnPreferenceChangeListener{
-
-
+public class PreferenciasActivity extends PreferenceActivity
+        implements Preference.OnPreferenceChangeListener {
 
 
     @Override

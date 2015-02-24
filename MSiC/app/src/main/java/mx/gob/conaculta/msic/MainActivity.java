@@ -9,6 +9,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+
+import mx.gob.conaculta.msic.location.GeoLoc;
+
 import mx.gob.conaculta.msic.sync.MSiCSyncAdapter;
 
 
@@ -16,6 +19,9 @@ import mx.gob.conaculta.msic.sync.MSiCSyncAdapter;
  *
  */
 public class MainActivity extends ActionBarActivity {
+
+
+    protected GeoLoc geoLoc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +33,8 @@ public class MainActivity extends ActionBarActivity {
                     .add(R.id.container, new MainFragment())
                     .commit();
         }
+
+        buildGoogleApiClient();
     }
 
 
@@ -49,22 +57,23 @@ public class MainActivity extends ActionBarActivity {
             return true;
         }
 
-        if(id == R.id.action_mapa){
+        if (id == R.id.action_mapa) {
 
            /* Intent intent = new Intent(this, MapaActivity.class);
             startActivity(intent);*/
             return true;
         }
 
-        if(id == R.id.action_listado){
-            Intent intent = new Intent(this,ListadoRecActivity.class);
+        if (id == R.id.action_listado) {
+            Intent intent = new Intent(this, ListadoRecActivity.class);
             startActivity(intent);
             return true;
         }
 
 
-        if(id==R.id.action_refresh){
-            MSiCSyncAdapter.syncImmediately(this);
+        if (id == R.id.action_refresh) {
+            //MSiCSyncAdapter.syncImmediately(this);
+            new RecRecursosTask(this).execute("0");
             return true;
         }
 
@@ -72,4 +81,24 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
+    protected synchronized void buildGoogleApiClient() {
+
+        geoLoc = new GeoLoc(this);
+
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        geoLoc.mGoogleApiClient.connect();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (geoLoc.mGoogleApiClient.isConnected()) {
+            geoLoc.mGoogleApiClient.disconnect();
+        }
+    }
 }

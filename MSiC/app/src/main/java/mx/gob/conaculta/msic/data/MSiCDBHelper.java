@@ -16,10 +16,9 @@ public class MSiCDBHelper extends SQLiteOpenHelper {
 
 
     // If you change the database schema, you must increment the database version.
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     /**
-     *
      * @param context
      * @param name
      * @param factory
@@ -37,13 +36,13 @@ public class MSiCDBHelper extends SQLiteOpenHelper {
 
         final String SQL_CREATE_INFRAPAT_TABLE = "CREATE TABLE " + InfraPatEntry.TABLE_NAME + " (" +
                 InfraPatEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                InfraPatEntry.COLUMN_SRID+ " INTEGER NOT NULL, "+
-                InfraPatEntry.COLUMN_TYPE + " TEXT NOT NULL, "+
-                InfraPatEntry.COLUMN_NAME +" TEXT NOT NULL, "+
-                InfraPatEntry.COLUMN_ADS+" TEXT, "+
-                InfraPatEntry.COLUMN_LAT+" REAL, "+
-                InfraPatEntry.COLUMN_MSR +" INTEGER NOT NULL, "+
-                InfraPatEntry.COLUMN_LON+" REAL );";
+                InfraPatEntry.COLUMN_SRID + " INTEGER NOT NULL, " +
+                InfraPatEntry.COLUMN_TYPE + " TEXT NOT NULL, " +
+                InfraPatEntry.COLUMN_NAME + " TEXT NOT NULL, " +
+                InfraPatEntry.COLUMN_ADS + " TEXT, " +
+                InfraPatEntry.COLUMN_LAT + " REAL, " +
+                InfraPatEntry.COLUMN_MSR + " INTEGER NOT NULL, " +
+                InfraPatEntry.COLUMN_LON + " REAL );";
 
         db.execSQL(SQL_CREATE_INFRAPAT_TABLE);
 

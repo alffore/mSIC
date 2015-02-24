@@ -19,7 +19,6 @@ import java.net.URL;
 import mx.gob.conaculta.msic.data.MSiCDBOper;
 
 
-
 /**
  * Created by alfonso on 08/02/15.
  */

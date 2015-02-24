@@ -79,8 +79,6 @@ public class ListadoRecFragment extends Fragment implements LoaderManager.Loader
         });
 
 
-
-
         return rootView;
     }
 

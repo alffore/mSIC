@@ -16,7 +16,7 @@ import android.widget.Toast;
 public class MainFragment extends Fragment {
 
 
-    public MainFragment(){
+    public MainFragment() {
 
     }
 
