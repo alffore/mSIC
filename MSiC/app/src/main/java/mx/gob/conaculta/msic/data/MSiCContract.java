@@ -9,6 +9,7 @@ public class MSiCContract {
 
     public static final String CONTENT_AUTHORITY = "mx.gob.conaculta.msic";
 
+
     /**
      *
      */
