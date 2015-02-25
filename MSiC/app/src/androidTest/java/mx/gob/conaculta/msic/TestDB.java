@@ -10,8 +10,8 @@ import java.util.Map;
 import java.util.Set;
 
 import mx.gob.conaculta.msic.data.MSiCDBHelper;
-
 import mx.gob.conaculta.msic.data.MSiCContract.InfraPatEntry;
+
 /**
  * Created by alfonso on 24/02/15.
  */

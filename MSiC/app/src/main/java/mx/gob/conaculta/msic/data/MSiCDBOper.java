@@ -139,7 +139,7 @@ public class MSiCDBOper {
 
 
     /**
-     * Metodo que guarda el recurso recuperado en un objeto JSON
+     * Método que guarda el recurso recuperado en un objeto JSON
      *
      * @param jrec
      * @return
@@ -169,9 +169,9 @@ public class MSiCDBOper {
                     jrec.getString(InfraPatEntry.COLUMN_ADS) + "'," +
                     jrec.getInt(InfraPatEntry.COLUMN_MSR) + "," +
                     jrec.getInt(InfraPatEntry.COLUMN_SRID) + ",'" +
-                    jrec.getString(InfraPatEntry.COLUMN_TYPE) + "'," +
-                    jrec.getString(InfraPatEntry.COLUMN_LON) + "," +
-                    jrec.getString(InfraPatEntry.COLUMN_LAT) + ",'" +
+                    jrec.getString(InfraPatEntry.COLUMN_TYPE) + "','" +
+                    jrec.getString(InfraPatEntry.COLUMN_LON) + "','" +
+                    jrec.getString(InfraPatEntry.COLUMN_LAT) + "','" +
                     jrec.getString(InfraPatEntry.COLUMN_NAME) + "')";
 
             // database.execSQL(SQUERY_INSERTA);
