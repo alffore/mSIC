@@ -151,7 +151,7 @@ public class MSiCDBOper {
                 InfraPatEntry.COLUMN_TYPE + "='" + jrec.getString(InfraPatEntry.COLUMN_TYPE) + "' AND " +
                 InfraPatEntry.COLUMN_SRID + "=" + jrec.getInt(InfraPatEntry.COLUMN_SRID);
 
-        //database.execSQL(SQUERY_BORRA);
+        database.execSQL(SQUERY_BORRA);
         Log.d(LOG_TAG, "Borra: " + SQUERY_BORRA);
 
         if (jrec.getBoolean(InfraPatEntry.COLUMN_INFOP)) {
@@ -174,7 +174,8 @@ public class MSiCDBOper {
                     jrec.getString(InfraPatEntry.COLUMN_LAT) + "','" +
                     jrec.getString(InfraPatEntry.COLUMN_NAME) + "')";
 
-            // database.execSQL(SQUERY_INSERTA);
+             database.execSQL(SQUERY_INSERTA);
+            Log.d(LOG_TAG, "Inserta: " + SQUERY_INSERTA);
         }
 
         return true;
