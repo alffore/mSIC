@@ -30,6 +30,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="Nombre"
+            android:textColor="?android:attr/textColorPrimary"
             android:id="@+id/textNombreRec" />
 
         <TextView

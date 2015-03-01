@@ -13,19 +13,29 @@ public class MSiCLoader extends CursorLoader {
 
     private MSiCDBOper msicdbo;
 
+    private String stema;
+
     /**
      * @param context
      * @param msicdbo
      */
-    public MSiCLoader(Context context, MSiCDBOper msicdbo) {
+    public MSiCLoader(Context context, MSiCDBOper msicdbo,String stema) {
         super(context);
+
         this.msicdbo = msicdbo;
+
+
+        this.stema=stema;
     }
 
 
     @Override
     public Cursor loadInBackground() {
-        return msicdbo.obtenCursorAll();
+        if(stema.isEmpty()) {
+            return msicdbo.obtenCursorAll();
+        }else{
+            return msicdbo.obtenCursor(stema);
+        }
     }
 
 }

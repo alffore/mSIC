@@ -74,6 +74,14 @@ public class MSiCDBOper {
         return database.query(InfraPatEntry.TABLE_NAME, allColumns, null, null, null, null, null);
     }
 
+    public Cursor obtenCursor(String stema) {
+
+        String sWhere="tipo='?'";
+        String sArgs[]={stema};
+
+        return database.query(InfraPatEntry.TABLE_NAME, allColumns, sWhere, sArgs, null, null, null);
+    }
+
     /**
      * @param stipo
      * @return

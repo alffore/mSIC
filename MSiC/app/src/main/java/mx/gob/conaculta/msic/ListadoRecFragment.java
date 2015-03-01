@@ -27,6 +27,7 @@ public class ListadoRecFragment extends Fragment implements LoaderManager.Loader
 
     private MSiCDBOper msicdbo;
     private int mposition;
+    private String stema;
 
 
     /**
@@ -57,6 +58,14 @@ public class ListadoRecFragment extends Fragment implements LoaderManager.Loader
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
+        Bundle arguments = getArguments();
+
+        if (arguments != null) {
+            this.stema = arguments.getString(MSICConst.STEMA);
+        }
+
 
         listadoRecAdapter = new ListadoRecAdapter(getActivity(), null, 0);
 
@@ -91,7 +100,7 @@ public class ListadoRecFragment extends Fragment implements LoaderManager.Loader
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        return new MSiCLoader(this.getActivity(), msicdbo);
+        return new MSiCLoader(this.getActivity(), msicdbo,stema);
     }
 
     @Override

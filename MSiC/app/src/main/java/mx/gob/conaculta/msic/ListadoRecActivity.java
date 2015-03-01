@@ -19,9 +19,18 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listadorec);
+
+
+        String stema=getIntent().getStringExtra(MSICConst.STEMA);
+        Bundle arguments = new Bundle();
+        arguments.putString(MSICConst.STEMA, stema);
+
+        ListadoRecFragment listadoRecFragment=new ListadoRecFragment();
+        listadoRecFragment.setArguments(arguments);
+
         if (savedInstanceState == null) {
             int commit = getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new ListadoRecFragment())
+                    .add(R.id.container, listadoRecFragment)
                     .commit();
         }
     }

@@ -66,6 +66,7 @@ public class MainActivity extends ActionBarActivity {
 
         if (id == R.id.action_listado) {
             Intent intent = new Intent(this, ListadoRecActivity.class);
+            intent.putExtra(MSICConst.STEMA,"museo");
             startActivity(intent);
             return true;
         }
