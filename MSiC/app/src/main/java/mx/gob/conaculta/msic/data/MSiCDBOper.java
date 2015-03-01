@@ -24,7 +24,8 @@ public class MSiCDBOper {
     private SQLiteDatabase database;
 
 
-    private String[] allColumns = {InfraPatEntry._ID, InfraPatEntry.COLUMN_LAT, InfraPatEntry.COLUMN_LON, InfraPatEntry.COLUMN_NAME, InfraPatEntry.COLUMN_SRID, InfraPatEntry.COLUMN_TYPE, InfraPatEntry.COLUMN_ADS};
+    private String[] allColumns = {InfraPatEntry._ID, InfraPatEntry.COLUMN_LAT, InfraPatEntry.COLUMN_LON,
+            InfraPatEntry.COLUMN_NAME, InfraPatEntry.COLUMN_SRID, InfraPatEntry.COLUMN_TYPE, InfraPatEntry.COLUMN_ADS};
 
     /**
      * @param context
@@ -164,7 +165,7 @@ public class MSiCDBOper {
                     InfraPatEntry.COLUMN_TYPE + "," +
                     InfraPatEntry.COLUMN_LON + "," +
                     InfraPatEntry.COLUMN_LAT + "," +
-                    InfraPatEntry.COLUMN_NAME + "," +
+                    InfraPatEntry.COLUMN_NAME  +
                     ") VALUES ('" +
                     jrec.getString(InfraPatEntry.COLUMN_ADS) + "'," +
                     jrec.getInt(InfraPatEntry.COLUMN_MSR) + "," +
@@ -177,6 +178,19 @@ public class MSiCDBOper {
              database.execSQL(SQUERY_INSERTA);
             Log.d(LOG_TAG, "Inserta: " + SQUERY_INSERTA);
         }
+
+        return true;
+    }
+
+    /**
+     * Método que borra toda la tabla
+     * @return
+     */
+    public boolean borraT(){
+
+        final String SQUERY_BORRAT="DELETE FROM "+InfraPatEntry.TABLE_NAME;
+
+        database.execSQL(SQUERY_BORRAT);
 
         return true;
     }

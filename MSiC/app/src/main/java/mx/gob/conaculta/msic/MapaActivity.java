@@ -44,7 +44,7 @@ public class MapaActivity extends FragmentActivity {
         }
         mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
         if (mMap != null) {
-            Toast.makeText(this, "Listo para acción", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Listo para la acción", Toast.LENGTH_SHORT).show();
             pintaMarker();
         }
     }

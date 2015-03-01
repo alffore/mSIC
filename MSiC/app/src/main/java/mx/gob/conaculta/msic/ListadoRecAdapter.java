@@ -54,10 +54,15 @@ public class ListadoRecAdapter extends CursorAdapter {
     public void bindView(View view, Context context, Cursor cursor) {
         ViewHolder viewHolder = (ViewHolder) view.getTag();
 
-        String sNombreRec = cursor.getString(0);
+        String sNombreRec = cursor.getString(3);
         viewHolder.textNombreRec.setText(sNombreRec);
 
-        String sExtraRec = cursor.getString(1);
+        String sExtraRec = cursor.getString(6);
         viewHolder.textExtraRec.setText(sExtraRec);
+    }
+
+    @Override
+    public int getViewTypeCount() {
+        return 1;
     }
 }

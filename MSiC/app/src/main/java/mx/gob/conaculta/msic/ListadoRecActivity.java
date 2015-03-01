@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 /**
  * Created by alfonso on 08/02/15.
@@ -56,5 +57,6 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
     @Override
     public void onItemSelected(int _id) {
 
+        Toast.makeText(this,"Se recibio objeto:"+_id,Toast.LENGTH_SHORT).show();
     }
 }
