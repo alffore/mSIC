@@ -1,7 +1,6 @@
 package mx.gob.conaculta.msic;
 
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 
 import android.os.Bundle;
@@ -21,9 +20,9 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
         setContentView(R.layout.activity_listadorec);
 
 
-        String stema=getIntent().getStringExtra(MSICConst.STEMA);
+        String stema=getIntent().getStringExtra(MSiCConst.STEMA);
         Bundle arguments = new Bundle();
-        arguments.putString(MSICConst.STEMA, stema);
+        arguments.putString(MSiCConst.STEMA, stema);
 
         ListadoRecFragment listadoRecFragment=new ListadoRecFragment();
         listadoRecFragment.setArguments(arguments);

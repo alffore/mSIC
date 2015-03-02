@@ -1,6 +1,7 @@
 package mx.gob.conaculta.msic;
 
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -32,6 +33,12 @@ public class MainFragment extends Fragment {
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                 Toast.makeText(getActivity(), "" + position, Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(getActivity(), ListadoRecActivity.class);
+                intent.putExtra(MSiCConst.STEMA,MSiCConst.MT_ARRAY_MOD[position]);
+                startActivity(intent);
+
+
             }
         });
 

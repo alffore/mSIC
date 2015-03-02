@@ -12,8 +12,6 @@ import android.view.MenuItem;
 
 import mx.gob.conaculta.msic.location.GeoLoc;
 
-import mx.gob.conaculta.msic.sync.MSiCSyncAdapter;
-
 
 /**
  *
@@ -66,7 +64,7 @@ public class MainActivity extends ActionBarActivity {
 
         if (id == R.id.action_listado) {
             Intent intent = new Intent(this, ListadoRecActivity.class);
-            intent.putExtra(MSICConst.STEMA,"museo");
+            intent.putExtra(MSiCConst.STEMA,"museo");
             startActivity(intent);
             return true;
         }

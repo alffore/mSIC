@@ -76,7 +76,7 @@ public class MSiCDBOper {
 
     public Cursor obtenCursor(String stema) {
 
-        String sWhere="tipo='?'";
+        String sWhere="tipo=?";
         String sArgs[]={stema};
 
         return database.query(InfraPatEntry.TABLE_NAME, allColumns, sWhere, sArgs, null, null, null);

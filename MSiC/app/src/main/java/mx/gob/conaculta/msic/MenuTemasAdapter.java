@@ -15,8 +15,6 @@ public class MenuTemasAdapter extends ArrayAdapter {
 
     Context context;
 
-    private static final String[] MT_ARRAY = {"Museo", "Teatro", "Casas y Centros Culturales", "Librerías", "Galerías", "Bibliotecas"};
-
 
     public MenuTemasAdapter(Context context) {
         super(context, 0);
@@ -24,7 +22,7 @@ public class MenuTemasAdapter extends ArrayAdapter {
     }
 
     public int getCount() {
-        return MT_ARRAY.length;
+        return MSiCConst.MT_ARRAY.length;
     }
 
     @Override
@@ -37,7 +35,7 @@ public class MenuTemasAdapter extends ArrayAdapter {
 
             TextView tv = (TextView) row.findViewById(R.id.textViewGM);
 
-            tv.setText(MT_ARRAY[position]);
+            tv.setText(MSiCConst.MT_ARRAY[position]);
 
         }
 
