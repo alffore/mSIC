@@ -10,6 +10,8 @@ import android.webkit.WebView;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import mx.gob.conaculta.msic.utils.MSiCConst;
+
 
 public class FichaActivity extends ActionBarActivity {
 
@@ -23,15 +25,17 @@ public class FichaActivity extends ActionBarActivity {
 
     }
 
-
+    /**
+     *
+     */
     private void cargaFicha(){
-        Uri builtUri = Uri.parse(MSiCConst.SURL_SIC_FICHA).buildUpon()
+        Uri fichaUri = Uri.parse(MSiCConst.SURL_SIC_FICHA).buildUpon()
                 .appendQueryParameter(MSiCConst.STEMA, getIntent().getStringExtra(MSiCConst.STEMA))
                 .appendQueryParameter(MSiCConst.SIDSIC, getIntent().getStringExtra(MSiCConst.SIDSIC))
                 .build();
 
         try {
-            URL url = new URL(builtUri.toString());
+            URL url = new URL(fichaUri.toString());
             WebView myWebView = (WebView) findViewById(R.id.webview);
             myWebView.loadUrl(url.toString());
         } catch (MalformedURLException e) {

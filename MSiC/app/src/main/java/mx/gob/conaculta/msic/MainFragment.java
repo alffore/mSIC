@@ -11,6 +11,8 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import mx.gob.conaculta.msic.utils.MSiCConst;
+
 /**
  * Created by alfonso on 01/02/15.
  */

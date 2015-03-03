@@ -1,4 +1,4 @@
-package mx.gob.conaculta.msic;
+package mx.gob.conaculta.msic.utils;
 
 /**
  * Created by alfonso on 01/03/15.

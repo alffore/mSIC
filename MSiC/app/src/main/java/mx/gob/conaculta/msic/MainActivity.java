@@ -11,6 +11,7 @@ import android.view.MenuItem;
 
 
 import mx.gob.conaculta.msic.location.GeoLoc;
+import mx.gob.conaculta.msic.utils.MSiCConst;
 
 
 /**

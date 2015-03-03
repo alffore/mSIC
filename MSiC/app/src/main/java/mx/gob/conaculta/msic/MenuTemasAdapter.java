@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import mx.gob.conaculta.msic.utils.MSiCConst;
+
 /**
  * Created by alfonso on 01/02/15.
  */

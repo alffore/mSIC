@@ -1,4 +1,4 @@
-package mx.gob.conaculta.msic;
+package mx.gob.conaculta.msic.utils;
 
 import mx.gob.conaculta.msic.data.Recurso;
 
