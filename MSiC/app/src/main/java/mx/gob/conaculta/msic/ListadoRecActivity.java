@@ -1,6 +1,9 @@
 package mx.gob.conaculta.msic;
 
 
+import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 
 import android.os.Bundle;
@@ -63,8 +66,19 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
     }
 
     @Override
-    public void onItemSelected(int _id) {
+    public void onItemSelected(Cursor cursor) {
 
-        Toast.makeText(this,"Se recibio objeto:"+_id,Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Se recibio objeto:"+cursor.getString(4)+" "+cursor.getString(5),Toast.LENGTH_SHORT).show();
+
+        /*String url = "http://sic.gob.mx/ficha.php?table="+cursor.getString(5)+"&table_id="+cursor.getString(4);
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);*/
+
+        Intent intent = new Intent(this,FichaActivity.class);
+        intent.putExtra(MSiCConst.STEMA,cursor.getString(5));
+        intent.putExtra(MSiCConst.SIDSIC,cursor.getString(4));
+        startActivity(intent);
+
     }
 }

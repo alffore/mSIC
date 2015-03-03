@@ -39,7 +39,7 @@ public class ListadoRecFragment extends Fragment implements LoaderManager.Loader
         /**
          * DetailFragmentCallback for when an item has been selected.
          */
-        public void onItemSelected(int _id);
+        public void onItemSelected(Cursor cursor);
     }
 
 
@@ -81,7 +81,7 @@ public class ListadoRecFragment extends Fragment implements LoaderManager.Loader
                 Cursor cursor = listadoRecAdapter.getCursor();
                 if (cursor != null && cursor.moveToPosition(position)) {
                     ((Callback) getActivity())
-                            .onItemSelected(cursor.getInt(0));
+                            .onItemSelected(cursor);
                 }
                 mposition = position;
             }

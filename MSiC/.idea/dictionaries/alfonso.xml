@@ -4,8 +4,10 @@
       <w>acción</w>
       <w>adscripcion</w>
       <w>borra</w>
+      <w>carga</w>
       <w>conaculta</w>
       <w>dbsic</w>
+      <w>ficha</w>
       <w>guarda</w>
       <w>infop</w>
       <w>infrapat</w>
@@ -27,12 +29,15 @@
       <w>recursos</w>
       <w>recusos</w>
       <w>servicio</w>
+      <w>sidsic</w>
       <w>squery</w>
       <w>srid</w>
       <w>stema</w>
+      <w>surl</w>
       <w>teatro</w>
       <w>temas</w>
       <w>tipo</w>
+      <w>webview</w>
     </words>
   </dictionary>
 </component>

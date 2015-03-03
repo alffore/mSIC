@@ -42,4 +42,16 @@
             android:id="@+id/textExtraRec" />
     </LinearLayout>
 
+
+
+    <FrameLayout
+        android:layout_width="60dp"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageIconMapa"
+            android:layout_weight="0.10" />
+        </FrameLayout>
+
 </LinearLayout>
