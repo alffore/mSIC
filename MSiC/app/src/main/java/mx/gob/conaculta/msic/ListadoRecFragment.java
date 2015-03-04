@@ -56,16 +56,23 @@ public class ListadoRecFragment extends Fragment implements LoaderManager.Loader
         msicdbo.openDB();
     }
 
+    /**
+     *
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
 
-        Bundle arguments = getArguments();
+       /* Bundle arguments = getArguments();
 
         if (arguments != null) {
             this.stema = arguments.getString(MSiCConst.STEMA);
-        }
+        }*/
 
 
         listadoRecAdapter = new ListadoRecAdapter(getActivity(), null, 0);
@@ -95,13 +102,13 @@ public class ListadoRecFragment extends Fragment implements LoaderManager.Loader
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
-        getLoaderManager().initLoader(1, null, this);
+        getLoaderManager().initLoader(1, getArguments(), this);
         super.onActivityCreated(savedInstanceState);
     }
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        return new MSiCLoader(this.getActivity(), msicdbo,stema);
+        return new MSiCLoader(this.getActivity(), msicdbo);
     }
 
     @Override

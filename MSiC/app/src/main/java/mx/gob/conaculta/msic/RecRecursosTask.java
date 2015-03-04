@@ -17,6 +17,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 import mx.gob.conaculta.msic.data.MSiCDBOper;
+import mx.gob.conaculta.msic.utils.MSiCConst;
 
 
 /**
@@ -55,13 +56,8 @@ public class RecRecursosTask extends AsyncTask<String, Void, String[]> {
 
         try {
 
-            final String DBSIC_BASE_URL =
-                    "http://sic.gob.mx/msic/infra2.php?";
-
-            final String MSR_PARAM = "msr";
-
-            Uri uriRec = Uri.parse(DBSIC_BASE_URL).buildUpon()
-                    .appendQueryParameter(MSR_PARAM, params[0])
+            Uri uriRec = Uri.parse(MSiCConst.SDBSIC_BASE_URL).buildUpon()
+                    .appendQueryParameter(MSiCConst.SMSR, params[0])
                     .build();
 
             URL url = new URL(uriRec.toString());

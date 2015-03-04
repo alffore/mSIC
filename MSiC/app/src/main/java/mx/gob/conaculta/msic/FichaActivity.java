@@ -29,7 +29,7 @@ public class FichaActivity extends ActionBarActivity {
      *
      */
     private void cargaFicha(){
-        Uri fichaUri = Uri.parse(MSiCConst.SURL_SIC_FICHA).buildUpon()
+        Uri fichaUri = Uri.parse(MSiCConst.SFICHA_BASE_URL).buildUpon()
                 .appendQueryParameter(MSiCConst.STEMA, getIntent().getStringExtra(MSiCConst.STEMA))
                 .appendQueryParameter(MSiCConst.SIDSIC, getIntent().getStringExtra(MSiCConst.SIDSIC))
                 .build();

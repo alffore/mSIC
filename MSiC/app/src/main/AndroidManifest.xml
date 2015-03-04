@@ -80,8 +80,7 @@
         <activity
             android:name=".FichaActivity"
             android:label="@string/title_activity_ficha"
-            android:parentActivityName=".ListadoRecActivity"
-            >
+            android:parentActivityName=".ListadoRecActivity">
         </activity>
     </application>
 

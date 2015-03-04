@@ -1,7 +1,9 @@
 package mx.gob.conaculta.msic;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.support.v7.app.ActionBarActivity;
 
@@ -18,6 +20,8 @@ import mx.gob.conaculta.msic.utils.MSiCConst;
  */
 public class ListadoRecActivity extends ActionBarActivity implements ListadoRecFragment.Callback {
 
+    private SharedPreferences mpref;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +31,11 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
         String stema=getIntent().getStringExtra(MSiCConst.STEMA);
         Bundle arguments = new Bundle();
         arguments.putString(MSiCConst.STEMA, stema);
+
+        mpref= getSharedPreferences(MSiCConst.SSPREF, Context.MODE_MULTI_PROCESS);
+        SharedPreferences.Editor ed = mpref.edit();
+        ed.putString(MSiCConst.STEMA, stema);
+
 
         ListadoRecFragment listadoRecFragment=new ListadoRecFragment();
         listadoRecFragment.setArguments(arguments);
