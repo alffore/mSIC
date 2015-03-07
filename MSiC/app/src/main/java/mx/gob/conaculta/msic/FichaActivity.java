@@ -16,6 +16,10 @@ import mx.gob.conaculta.msic.utils.MSiCConst;
 public class FichaActivity extends ActionBarActivity {
 
 
+    /**
+     *
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +33,7 @@ public class FichaActivity extends ActionBarActivity {
      *
      */
     private void cargaFicha(){
-        Uri fichaUri = Uri.parse(MSiCConst.SFICHA_BASE_URL).buildUpon()
+        Uri fichaUri = Uri.parse(MSiCConst.SFICHA_URL).buildUpon()
                 .appendQueryParameter(MSiCConst.STEMA, getIntent().getStringExtra(MSiCConst.STEMA))
                 .appendQueryParameter(MSiCConst.SIDSIC, getIntent().getStringExtra(MSiCConst.SIDSIC))
                 .build();
@@ -45,8 +49,11 @@ public class FichaActivity extends ActionBarActivity {
 
     }
 
-
-
+    /**
+     *
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -54,6 +61,11 @@ public class FichaActivity extends ActionBarActivity {
         return true;
     }
 
+    /**
+     *
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

@@ -6,12 +6,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
  * Created by alfonso on 08/02/15.
  */
 public class ListadoRecAdapter extends CursorAdapter {
+
+private Context context2;
 
 
     /**
@@ -21,11 +25,20 @@ public class ListadoRecAdapter extends CursorAdapter {
 
         public final TextView textNombreRec;
         public final TextView textExtraRec;
+        public final ImageView iv_mapa;
+
 
         public ViewHolder(View view) {
             textNombreRec = (TextView) view.findViewById(R.id.textNombreRec);
             textExtraRec = (TextView) view.findViewById(R.id.textExtraRec);
+            iv_mapa = (ImageView) view.findViewById(R.id.imageIconMapa);
+
         }
+    }
+
+
+    public interface OnImageClickListener {
+        public void onClick(View view, Object data); // Object data [Optional]
     }
 
 
@@ -36,6 +49,7 @@ public class ListadoRecAdapter extends CursorAdapter {
      */
     public ListadoRecAdapter(Context context, Cursor c, int flags) {
         super(context, c, flags);
+        context2 =context;
     }
 
 
@@ -51,7 +65,7 @@ public class ListadoRecAdapter extends CursorAdapter {
     }
 
     @Override
-    public void bindView(View view, Context context, Cursor cursor) {
+    public void bindView(View view, final Context context, final Cursor cursor) {
         ViewHolder viewHolder = (ViewHolder) view.getTag();
 
         String sNombreRec = cursor.getString(3);
@@ -59,10 +73,24 @@ public class ListadoRecAdapter extends CursorAdapter {
 
         String sExtraRec = cursor.getString(6);
         viewHolder.textExtraRec.setText(sExtraRec);
+
+        viewHolder.iv_mapa.setId(cursor.getInt(0));
+
+        viewHolder.iv_mapa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((OnImageClickListener)context).onClick(v,null);
+            }
+        });
+
+
+
     }
 
     @Override
     public int getViewTypeCount() {
         return 1;
     }
+
+
 }

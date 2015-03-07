@@ -10,7 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import mx.gob.conaculta.msic.data.MSiCDBOper;
 import mx.gob.conaculta.msic.data.MSiCLoader;
@@ -28,7 +30,8 @@ public class ListadoRecFragment extends Fragment implements LoaderManager.Loader
 
     private MSiCDBOper msicdbo;
     private int mposition;
-    private String stema;
+
+
 
 
     /**
@@ -91,13 +94,20 @@ public class ListadoRecFragment extends Fragment implements LoaderManager.Loader
                     ((Callback) getActivity())
                             .onItemSelected(cursor);
                 }
+
+
+
                 mposition = position;
             }
         });
 
 
+
+
         return rootView;
     }
+
+
 
 
     @Override

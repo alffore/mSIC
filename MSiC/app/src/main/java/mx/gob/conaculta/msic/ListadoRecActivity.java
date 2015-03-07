@@ -11,6 +11,7 @@ import android.os.Bundle;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import mx.gob.conaculta.msic.utils.MSiCConst;
@@ -18,7 +19,7 @@ import mx.gob.conaculta.msic.utils.MSiCConst;
 /**
  * Created by alfonso on 08/02/15.
  */
-public class ListadoRecActivity extends ActionBarActivity implements ListadoRecFragment.Callback {
+public class ListadoRecActivity extends ActionBarActivity implements ListadoRecFragment.Callback,ListadoRecAdapter.OnImageClickListener {
 
     private SharedPreferences mpref;
 
@@ -90,5 +91,11 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
         intent.putExtra(MSiCConst.SIDSIC,cursor.getString(4));
         startActivity(intent);
 
+    }
+
+    @Override
+    public void onClick(View view, Object data) {
+        //Toast.makeText(this,"Se recibio objeto para Mapa:"+((Cursor)data).getPosition(),Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Se recibio objeto para Mapa: "+ view.getId(),Toast.LENGTH_SHORT).show();
     }
 }
