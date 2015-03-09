@@ -5,10 +5,16 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import mx.gob.conaculta.msic.data.MSiCDBOper;
+import mx.gob.conaculta.msic.data.Recurso;
+import mx.gob.conaculta.msic.utils.MSiCConst;
 
 
 /**
@@ -19,7 +25,11 @@ import com.google.android.gms.maps.model.MarkerOptions;
  */
 public class MapaActivity extends FragmentActivity {
 
-    private GoogleMap mMap;
+    protected GoogleMap mMap;
+
+    private MSiCDBOper mSiCDBOper;
+
+    private String sid;
 
     protected int getLayoutId() {
         return R.layout.fragment_mapa;
@@ -28,6 +38,10 @@ public class MapaActivity extends FragmentActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        sid=this.getIntent().getStringExtra(MSiCConst.SID);
+
+
         setContentView(getLayoutId());
         setUpMapIfNeeded();
     }
@@ -45,7 +59,7 @@ public class MapaActivity extends FragmentActivity {
         mMap = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
         if (mMap != null) {
             Toast.makeText(this, "Listo para la acción", Toast.LENGTH_SHORT).show();
-            pintaMarker();
+            pintaMarker2();
         }
     }
 
@@ -60,5 +74,31 @@ public class MapaActivity extends FragmentActivity {
         mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(19.495139, -99.251436))
                 .title("Casa"));
+    }
+
+
+    protected void pintaMarker2() {
+
+        mSiCDBOper=new MSiCDBOper(this);
+
+        mSiCDBOper.openDB();
+
+        Toast.makeText(this, "SID: "+sid, Toast.LENGTH_LONG).show();
+
+       Recurso rec=mSiCDBOper.obtenRecId(sid);
+
+
+        mMap.addMarker(new MarkerOptions()
+                .position(new LatLng(rec.lat,rec.lon))
+                .title(rec.sNombre));
+
+        CameraPosition cameraPosition = new CameraPosition.Builder()
+                .target(new LatLng(rec.lat,rec.lon))
+                .zoom(17)
+                .build();
+
+        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+
+        mSiCDBOper.closeDB();
     }
 }

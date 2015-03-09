@@ -53,6 +53,13 @@ private Context context2;
     }
 
 
+    /**
+     *
+     * @param context
+     * @param cursor
+     * @param parent
+     * @return
+     */
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
 
@@ -64,6 +71,12 @@ private Context context2;
         return view;
     }
 
+    /**
+     *
+     * @param view
+     * @param context
+     * @param cursor
+     */
     @Override
     public void bindView(View view, final Context context, final Cursor cursor) {
         ViewHolder viewHolder = (ViewHolder) view.getTag();
@@ -87,6 +100,10 @@ private Context context2;
 
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public int getViewTypeCount() {
         return 1;

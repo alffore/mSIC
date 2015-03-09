@@ -8,6 +8,7 @@ public class MSiCConst {
     public static final String STEMA = "tabla";
     public static final String SIDSIC = "id";
     public static final String SMSR = "msr";
+    public static final String SID="sid";
 
 
     public static final String[] MT_ARRAY = {"Museo", "Teatro", "Casas y Centros Culturales", "Librerías", "Galerías", "Bibliotecas"};

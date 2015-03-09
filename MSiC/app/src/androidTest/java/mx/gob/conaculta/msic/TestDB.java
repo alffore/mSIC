@@ -55,6 +55,22 @@ public class TestDB extends AndroidTestCase {
     }
 
 
+public void testSelectRec() throws Throwable{
+    MSiCDBHelper dbHelper = new MSiCDBHelper(mContext,null,null,0);
+    SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+
+    String[] allColumns = {InfraPatEntry._ID, InfraPatEntry.COLUMN_LAT, InfraPatEntry.COLUMN_LON,
+            InfraPatEntry.COLUMN_NAME, InfraPatEntry.COLUMN_SRID, InfraPatEntry.COLUMN_TYPE, InfraPatEntry.COLUMN_ADS};
+
+    String sWhere=InfraPatEntry._ID+"=?";
+    String sArgs[]={"1"};
+
+    Cursor cursor=db.query(InfraPatEntry.TABLE_NAME,allColumns,sWhere,sArgs,null,null,null);
+    cursor.moveToFirst();
+}
+
+
 
     static ContentValues createRecursoValues() {
         // Create a new map of values, where column names are the keys

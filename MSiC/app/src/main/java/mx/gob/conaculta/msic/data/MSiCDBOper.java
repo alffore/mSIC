@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -22,6 +23,7 @@ public class MSiCDBOper {
     public final String LOG_TAG = MSiCDBOper.class.getSimpleName();
     private MSiCDBHelper mSiCDBHelper;
     private SQLiteDatabase database;
+    private Context context;
 
 
     private String[] allColumns = {InfraPatEntry._ID, InfraPatEntry.COLUMN_LAT, InfraPatEntry.COLUMN_LON,
@@ -31,7 +33,7 @@ public class MSiCDBOper {
      * @param context
      */
     public MSiCDBOper(Context context) {
-
+this.context=context;
         mSiCDBHelper = new MSiCDBHelper(context, "", null, 2);
 
     }
@@ -125,6 +127,23 @@ public class MSiCDBOper {
         return lrec;
     }
 
+    /**
+     *
+     * @param sid
+     * @return
+     */
+    public Recurso obtenRecId(String sid){
+
+        final String SQUERY= "SELECT * FROM "+InfraPatEntry.TABLE_NAME+" WHERE "+InfraPatEntry._ID+"="+sid;
+
+        Toast.makeText(context,"Query: "+SQUERY,Toast.LENGTH_SHORT).show();
+
+        Cursor cursor= database.rawQuery(SQUERY,null);
+        cursor.moveToFirst();
+
+        return cursor2recurso(cursor);
+    }
+
 
     /**
      * @param cu
@@ -135,13 +154,13 @@ public class MSiCDBOper {
         Recurso rec = new Recurso();
 
 
-        rec.lat = cu.getDouble(0);
-        rec.lon = cu.getDouble(1);
+        rec.lat = cu.getDouble(1);
+        rec.lon = cu.getDouble(2);
 
-        rec.sNombre = cu.getString(2);
-        rec.srId = cu.getInt(3);
-        rec.sTipo = cu.getString(4);
-        rec.sAdscripcion = cu.getString(5);
+        rec.sNombre = cu.getString(3);
+        rec.srId = cu.getInt(4);
+        rec.sTipo = cu.getString(5);
+        rec.sAdscripcion = cu.getString(6);
 
         return rec;
     }
