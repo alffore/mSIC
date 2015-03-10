@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.support.v4.content.CursorLoader;
 
+import mx.gob.conaculta.msic.ListadoRecActivity;
 import mx.gob.conaculta.msic.utils.MSiCConst;
 
 /**
@@ -16,7 +17,6 @@ public class MSiCLoader extends CursorLoader {
 
     private MSiCDBOper msicdbo;
 
-    private String stema;
 
     private SharedPreferences mpref;
 
@@ -30,16 +30,16 @@ public class MSiCLoader extends CursorLoader {
         this.msicdbo = msicdbo;
 
         mpref=context.getSharedPreferences(MSiCConst.SSPREF,Context.MODE_MULTI_PROCESS);
-        this.stema=mpref.getString(MSiCConst.STEMA,"");
+        //this.stema=mpref.getString(MSiCConst.STEMA,"");
     }
 
 
     @Override
     public Cursor loadInBackground() {
-        if(stema.isEmpty()) {
+        if(ListadoRecActivity.stema.isEmpty()) {
             return msicdbo.obtenCursorAll();
         }else{
-            return msicdbo.obtenCursor(stema);
+            return msicdbo.obtenCursor(ListadoRecActivity.stema);
         }
     }
 

@@ -85,7 +85,7 @@ public class MapaActivity extends FragmentActivity {
 
         Toast.makeText(this, "SID: "+sid, Toast.LENGTH_LONG).show();
 
-       Recurso rec=mSiCDBOper.obtenRecId(sid);
+       Recurso rec=mSiCDBOper.obtenRecId2(sid);
 
 
         mMap.addMarker(new MarkerOptions()
@@ -94,7 +94,7 @@ public class MapaActivity extends FragmentActivity {
 
         CameraPosition cameraPosition = new CameraPosition.Builder()
                 .target(new LatLng(rec.lat,rec.lon))
-                .zoom(17)
+                .zoom(15)
                 .build();
 
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));

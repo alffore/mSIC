@@ -17,7 +17,7 @@ public class MSiCConst {
 
     public static final String SDBSIC_BASE_URL = "http://msic.conaculta.gob.mx/app/infra2.php?";
 
-    public static final String SFICHA_URL = "http://sic.gob.mx/msic/ficha.php?";
+    public static final String SFICHA_URL = "http://msic.conaculta.gob.mx/ficha.php?";
 
 
     public static final String SSPREF = "msicpref";

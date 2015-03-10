@@ -21,6 +21,8 @@ import mx.gob.conaculta.msic.utils.MSiCConst;
  */
 public class ListadoRecActivity extends ActionBarActivity implements ListadoRecFragment.Callback,ListadoRecAdapter.OnImageClickListener {
 
+    public static String stema;
+
     private SharedPreferences mpref;
 
     @Override
@@ -29,7 +31,7 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
         setContentView(R.layout.activity_listadorec);
 
 
-        String stema=getIntent().getStringExtra(MSiCConst.STEMA);
+        stema=getIntent().getStringExtra(MSiCConst.STEMA);
         Bundle arguments = new Bundle();
         arguments.putString(MSiCConst.STEMA, stema);
 

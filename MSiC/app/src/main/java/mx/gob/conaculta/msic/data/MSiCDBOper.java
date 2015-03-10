@@ -33,7 +33,7 @@ public class MSiCDBOper {
      * @param context
      */
     public MSiCDBOper(Context context) {
-this.context=context;
+        this.context = context;
         mSiCDBHelper = new MSiCDBHelper(context, "", null, 2);
 
     }
@@ -78,8 +78,8 @@ this.context=context;
 
     public Cursor obtenCursor(String stema) {
 
-        String sWhere="tipo=?";
-        String sArgs[]={stema};
+        String sWhere = "tipo=?";
+        String sArgs[] = {stema};
 
         return database.query(InfraPatEntry.TABLE_NAME, allColumns, sWhere, sArgs, null, null, null);
     }
@@ -128,17 +128,27 @@ this.context=context;
     }
 
     /**
-     *
      * @param sid
      * @return
      */
-    public Recurso obtenRecId(String sid){
+    public Recurso obtenRecId(String sid) {
 
-        final String SQUERY= "SELECT * FROM "+InfraPatEntry.TABLE_NAME+" WHERE "+InfraPatEntry._ID+"="+sid;
+        final String SQUERY = "SELECT * FROM " + InfraPatEntry.TABLE_NAME + " WHERE " + InfraPatEntry._ID + "='" + sid + "'";
 
-        Toast.makeText(context,"Query: "+SQUERY,Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, "Query: " + SQUERY, Toast.LENGTH_SHORT).show();
 
-        Cursor cursor= database.rawQuery(SQUERY,null);
+        Cursor cursor = database.rawQuery(SQUERY, null);
+        cursor.moveToFirst();
+
+        return cursor2recurso(cursor);
+    }
+
+
+    public Recurso obtenRecId2(String sid) {
+        String sWhere = InfraPatEntry._ID + "=?";
+        String sArgs[] = {sid};
+
+        Cursor cursor = database.query(InfraPatEntry.TABLE_NAME, allColumns, sWhere, sArgs, null, null, null);
         cursor.moveToFirst();
 
         return cursor2recurso(cursor);
@@ -153,7 +163,7 @@ this.context=context;
 
         Recurso rec = new Recurso();
 
-
+        rec.id = cu.getInt(0);
         rec.lat = cu.getDouble(1);
         rec.lon = cu.getDouble(2);
 
@@ -192,7 +202,7 @@ this.context=context;
                     InfraPatEntry.COLUMN_TYPE + "," +
                     InfraPatEntry.COLUMN_LON + "," +
                     InfraPatEntry.COLUMN_LAT + "," +
-                    InfraPatEntry.COLUMN_NAME  +
+                    InfraPatEntry.COLUMN_NAME +
                     ") VALUES ('" +
                     jrec.getString(InfraPatEntry.COLUMN_ADS) + "'," +
                     jrec.getInt(InfraPatEntry.COLUMN_MSR) + "," +
@@ -202,7 +212,7 @@ this.context=context;
                     jrec.getString(InfraPatEntry.COLUMN_LAT) + "','" +
                     jrec.getString(InfraPatEntry.COLUMN_NAME) + "')";
 
-             database.execSQL(SQUERY_INSERTA);
+            database.execSQL(SQUERY_INSERTA);
             Log.d(LOG_TAG, "Inserta: " + SQUERY_INSERTA);
         }
 
@@ -211,11 +221,12 @@ this.context=context;
 
     /**
      * Método que borra toda la tabla
+     *
      * @return
      */
-    public boolean borraT(){
+    public boolean borraT() {
 
-        final String SQUERY_BORRAT="DELETE FROM "+InfraPatEntry.TABLE_NAME;
+        final String SQUERY_BORRAT = "DELETE FROM " + InfraPatEntry.TABLE_NAME;
 
         database.execSQL(SQUERY_BORRAT);
 

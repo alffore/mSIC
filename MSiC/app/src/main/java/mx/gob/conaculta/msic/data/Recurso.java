@@ -5,6 +5,8 @@ package mx.gob.conaculta.msic.data;
  */
 public class Recurso {
 
+    public int id;
+
     public String sNombre;
 
     public String sAdscripcion;
