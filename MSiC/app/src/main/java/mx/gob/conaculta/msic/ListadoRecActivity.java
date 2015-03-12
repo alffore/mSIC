@@ -1,7 +1,6 @@
 package mx.gob.conaculta.msic;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -24,7 +23,6 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
 
     public static String stema;
 
-    private SharedPreferences mpref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

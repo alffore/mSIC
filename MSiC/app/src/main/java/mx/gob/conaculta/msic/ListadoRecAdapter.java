@@ -15,7 +15,7 @@ import android.widget.TextView;
  */
 public class ListadoRecAdapter extends CursorAdapter {
 
-private Context context2;
+
 
 
     /**
@@ -49,7 +49,7 @@ private Context context2;
      */
     public ListadoRecAdapter(Context context, Cursor c, int flags) {
         super(context, c, flags);
-        context2 =context;
+
     }
 
 

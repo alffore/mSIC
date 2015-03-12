@@ -48,7 +48,6 @@ public class FichaActivity extends ActionBarActivity {
             e.printStackTrace();
         }
 
-
     }
 
     /**

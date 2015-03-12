@@ -1,7 +1,6 @@
 package mx.gob.conaculta.msic;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
@@ -12,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.Toast;
+
 
 import mx.gob.conaculta.msic.utils.MSiCConst;
 
@@ -49,7 +48,6 @@ public class MainFragment extends Fragment {
                 editor.apply();
 
                 Intent intent = new Intent(getActivity(), ListadoRecActivity.class);
-                //intent.putExtra(MSiCConst.STEMA,MSiCConst.MT_ARRAY_MOD[position]);
                 startActivity(intent);
 
 
