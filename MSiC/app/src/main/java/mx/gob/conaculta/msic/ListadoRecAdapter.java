@@ -89,6 +89,7 @@ private Context context2;
 
         viewHolder.iv_mapa.setId(cursor.getInt(0));
 
+
         viewHolder.iv_mapa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

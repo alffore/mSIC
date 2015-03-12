@@ -1,7 +1,10 @@
 package mx.gob.conaculta.msic;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -19,7 +22,10 @@ import mx.gob.conaculta.msic.utils.MSiCConst;
 public class MainFragment extends Fragment {
 
 
+
+
     public MainFragment() {
+
 
     }
 
@@ -36,8 +42,14 @@ public class MainFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
                // Toast.makeText(getActivity(), "" + position, Toast.LENGTH_SHORT).show();
 
+
+                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString(MSiCConst.STEMA,MSiCConst.MT_ARRAY_MOD[position]);
+                editor.apply();
+
                 Intent intent = new Intent(getActivity(), ListadoRecActivity.class);
-                intent.putExtra(MSiCConst.STEMA,MSiCConst.MT_ARRAY_MOD[position]);
+                //intent.putExtra(MSiCConst.STEMA,MSiCConst.MT_ARRAY_MOD[position]);
                 startActivity(intent);
 
 

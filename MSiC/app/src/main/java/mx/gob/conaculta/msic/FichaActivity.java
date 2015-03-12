@@ -42,6 +42,8 @@ public class FichaActivity extends ActionBarActivity {
             URL url = new URL(fichaUri.toString());
             WebView myWebView = (WebView) findViewById(R.id.webview);
             myWebView.loadUrl(url.toString());
+
+
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
