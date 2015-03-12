@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
+import mx.gob.conaculta.msic.data.MSiCDBOper;
 import mx.gob.conaculta.msic.location.GeoLoc;
 import mx.gob.conaculta.msic.utils.MSiCConst;
 
@@ -73,7 +74,13 @@ public class MainActivity extends ActionBarActivity {
 
         if (id == R.id.action_refresh) {
             //MSiCSyncAdapter.syncImmediately(this);
-            new RecRecursosTask(this).execute("0");
+
+            MSiCDBOper mSiCDBOper = new MSiCDBOper(this);
+            mSiCDBOper.openDB();
+            String msrMax= String.valueOf(mSiCDBOper.obtenMSRultimo());
+            mSiCDBOper.closeDB();
+
+            new RecRecursosTask(this).execute(msrMax);
             return true;
         }
 

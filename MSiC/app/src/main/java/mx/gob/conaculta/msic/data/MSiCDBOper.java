@@ -124,6 +124,7 @@ public class MSiCDBOper {
             cursor.moveToNext();
         }
 
+        cursor.close();
         return lrec;
     }
 
@@ -232,4 +233,33 @@ public class MSiCDBOper {
 
         return true;
     }
+
+    /**
+     * @return
+     */
+    public long obtenMSRultimo() {
+
+        long cuenta = 0;
+
+        Cursor cursor = database.rawQuery("SELECT COUNT(*) FROM " + InfraPatEntry.TABLE_NAME, null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+            if (cursor.getInt(0) > 0) {
+
+                String[] sa = {"MAX(msr)"};
+
+                cursor = database.query(InfraPatEntry.TABLE_NAME, sa, null, null, null, null, null);
+                cursor.moveToFirst();
+
+                cuenta = cursor.getLong(0);
+            }
+        }
+
+        cursor.close();
+        return cuenta;
+
+    }
+
+
 }

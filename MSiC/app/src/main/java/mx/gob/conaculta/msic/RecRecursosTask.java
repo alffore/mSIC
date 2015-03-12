@@ -29,6 +29,8 @@ public class RecRecursosTask extends AsyncTask<String, Void, String[]> {
 
     private final Context mContext;
 
+
+
     private MSiCDBOper msicdbo = null;
 
     /**
@@ -42,6 +44,7 @@ public class RecRecursosTask extends AsyncTask<String, Void, String[]> {
 
     @Override
     protected String[] doInBackground(String... params) {
+
 
 
         if (params.length == 0) {
@@ -130,4 +133,6 @@ public class RecRecursosTask extends AsyncTask<String, Void, String[]> {
 
         return null;
     }
+
+
 }
