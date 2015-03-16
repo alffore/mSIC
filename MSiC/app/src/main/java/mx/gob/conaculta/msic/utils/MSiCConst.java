@@ -22,4 +22,10 @@ public class MSiCConst {
 
     public static final String SSPREF = "msicpref";
 
+
+
+    public static final double RT=6300000.00;
+
+    public static final String SLAT="lat";
+    public static final String SLON="lon";
 }

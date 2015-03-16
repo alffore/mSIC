@@ -27,7 +27,7 @@ import mx.gob.conaculta.msic.utils.MSiCConst;
  * <p/>
  * Revisar modelo en https://github.com/googlemaps/android-maps-utils
  */
-public class MapaActivity extends FragmentActivity implements OnInfoWindowClickListener {
+public class MapaRecActivity extends FragmentActivity implements OnInfoWindowClickListener {
 
     protected GoogleMap mMap;
 
@@ -69,7 +69,7 @@ public class MapaActivity extends FragmentActivity implements OnInfoWindowClickL
 
 
         if (mMap != null) {
-            Toast.makeText(this, "Listo para la acción", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(this, "Listo para la acción", Toast.LENGTH_SHORT).show();
             pintaMarker2();
         }
     }
@@ -78,13 +78,6 @@ public class MapaActivity extends FragmentActivity implements OnInfoWindowClickL
     protected GoogleMap getMap() {
         setUpMapIfNeeded();
         return mMap;
-    }
-
-
-    protected void pintaMarker() {
-        mMap.addMarker(new MarkerOptions()
-                .position(new LatLng(19.495139, -99.251436))
-                .title("Casa"));
     }
 
 
@@ -115,10 +108,10 @@ public class MapaActivity extends FragmentActivity implements OnInfoWindowClickL
 
     @Override
     public void onInfoWindowClick(Marker marker) {
-
+        //Toast.makeText(this, rec.sTipo+" "+String.valueOf(rec.srId), Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, FichaActivity.class);
         intent.putExtra(MSiCConst.STEMA, rec.sTipo);
-        intent.putExtra(MSiCConst.SIDSIC, rec.srId);
+        intent.putExtra(MSiCConst.SIDSIC, String.valueOf(rec.srId));
         startActivity(intent);
 
     }

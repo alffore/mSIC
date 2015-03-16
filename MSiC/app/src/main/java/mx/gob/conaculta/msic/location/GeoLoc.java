@@ -1,8 +1,10 @@
 package mx.gob.conaculta.msic.location;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.location.Location;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -10,6 +12,8 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.*;
 import com.google.android.gms.location.LocationServices;
+
+import mx.gob.conaculta.msic.utils.MSiCConst;
 
 /**
  * Created by alfonso on 23/02/15.
@@ -42,6 +46,11 @@ public class GeoLoc implements ConnectionCallbacks, OnConnectionFailedListener {
         // in rare cases when a location is not available.
         mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
         if (mLastLocation != null) {
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putFloat(MSiCConst.SLAT, (float) mLastLocation.getLatitude());
+            editor.putFloat(MSiCConst.SLON,(float) mLastLocation.getLongitude());
+            editor.apply();
 
             Toast.makeText(context,"Lat:"+mLastLocation.getLatitude()+" Lon:"+mLastLocation.getLongitude(),Toast.LENGTH_SHORT).show();
 

@@ -101,8 +101,8 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
         //Toast.makeText(this,"Se recibio objeto para Mapa:"+((Cursor)data).getPosition(),Toast.LENGTH_SHORT).show();
         Toast.makeText(this, "Se recibio objeto para Mapa: " + view.getId(), Toast.LENGTH_SHORT).show();
 
-        /*Intent intent = new Intent(this,MapaActivity.class);
+        Intent intent = new Intent(this,MapaRecActivity.class);
         intent.putExtra(MSiCConst.SID,String.valueOf(view.getId()));
-        startActivity(intent);*/
+        startActivity(intent);
     }
 }

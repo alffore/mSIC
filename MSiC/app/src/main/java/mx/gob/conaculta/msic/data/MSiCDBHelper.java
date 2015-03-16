@@ -30,7 +30,10 @@ public class MSiCDBHelper extends SQLiteOpenHelper {
 
     }
 
-
+    /**
+     *
+     * @param db
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="mx.gob.conaculta.msic" >
+    package="mx.gob.conaculta.msic">
 
     <meta-data
         android:name="com.google.android.gms.version"
@@ -14,37 +14,37 @@
     <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
 
     <!-- SyncAdapter's dummy authentication service -->
-  <!--  <service android:name=".sync.MSiCAuthenticatorService" >
-        <intent-filter>
-            <action android:name="android.accounts.AccountAuthenticator" />
-        </intent-filter>
+    <!--  <service android:name=".sync.MSiCAuthenticatorService" >
+          <intent-filter>
+              <action android:name="android.accounts.AccountAuthenticator" />
+          </intent-filter>
 
-        <meta-data
-            android:name="android.accounts.AccountAuthenticator"
-            android:resource="@xml/authenticator" />
-    </service>-->
+          <meta-data
+              android:name="android.accounts.AccountAuthenticator"
+              android:resource="@xml/authenticator" />
+      </service>-->
 
     <!-- The SyncAdapter service -->
-  <!--  <service
-        android:name=".sync.MSiCSyncService"
-        android:exported="true" >
-        <intent-filter>
-            <action android:name="android.content.SyncAdapter" />
-        </intent-filter>
+    <!--  <service
+          android:name=".sync.MSiCSyncService"
+          android:exported="true" >
+          <intent-filter>
+              <action android:name="android.content.SyncAdapter" />
+          </intent-filter>
 
-        <meta-data
-            android:name="android.content.SyncAdapter"
-            android:resource="@xml/syncadapter" />
-    </service>-->
+          <meta-data
+              android:name="android.content.SyncAdapter"
+              android:resource="@xml/syncadapter" />
+      </service>-->
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -52,9 +52,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MapaActivity"
+            android:name=".MapaRecActivity"
             android:label="@string/activity_mapa_name"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="mx.gob.conaculta.msic.MainActivity" />
@@ -63,7 +63,7 @@
         <activity
             android:name=".ListadoRecActivity"
             android:label="@string/activity_listado_name"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="mx.gob.conaculta.msic.MainActivity" />
@@ -71,11 +71,8 @@
 
         <activity
             android:name=".FichaActivity"
-            android:label="@string/title_activity_ficha"
-            android:parentActivityName=".ListadoRecActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="mx.gob.conaculta.msic.ListadoRecActivity" />
+            android:label="@string/title_activity_ficha">
+
         </activity>
 
 
@@ -84,11 +81,12 @@
             android:value="@integer/google_play_services_version" />
 
 
-           <!-- <meta-data
+        <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyAPRRMSvZpV2AnMloS-7KVFkpjWcB5Jx2c"/>-->
+            android:value="AIzaSyAPRRMSvZpV2AnMloS-7KVFkpjWcB5Jx2c" />
 
 
     </application>
 
 </manifest>
+

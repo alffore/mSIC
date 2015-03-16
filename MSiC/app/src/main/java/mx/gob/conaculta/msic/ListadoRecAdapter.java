@@ -1,7 +1,9 @@
 package mx.gob.conaculta.msic;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,13 +12,17 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import mx.gob.conaculta.msic.utils.MSiCConst;
+import mx.gob.conaculta.msic.utils.Utiles;
+
 /**
  * Created by alfonso on 08/02/15.
  */
 public class ListadoRecAdapter extends CursorAdapter {
 
 
-
+float lat_pos;
+    float lon_pos;
 
     /**
      * Clase para manejar los componentes de la entrada de la lista
@@ -50,6 +56,9 @@ public class ListadoRecAdapter extends CursorAdapter {
     public ListadoRecAdapter(Context context, Cursor c, int flags) {
         super(context, c, flags);
 
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        lat_pos=preferences.getFloat(MSiCConst.SLAT,0.0f);
+        lon_pos=preferences.getFloat(MSiCConst.SLON,0.0f);
     }
 
 
@@ -82,7 +91,18 @@ public class ListadoRecAdapter extends CursorAdapter {
         ViewHolder viewHolder = (ViewHolder) view.getTag();
 
         String sNombreRec = cursor.getString(3);
+
+        double lat =cursor.getDouble(1);
+        double lon=cursor.getDouble(2);
+
+        if(lat>0.0 && lon!=0.0 && lat_pos!=0.0f && lon_pos!=0.0f) {
+            sNombreRec += Utiles.salidaDist(Utiles.distPP(lat, lon, lat_pos, lon_pos));
+        }
+
+
         viewHolder.textNombreRec.setText(sNombreRec);
+
+
 
         String sExtraRec = cursor.getString(6);
         viewHolder.textExtraRec.setText(sExtraRec);
@@ -100,6 +120,9 @@ public class ListadoRecAdapter extends CursorAdapter {
 
 
     }
+
+
+
 
     /**
      *
