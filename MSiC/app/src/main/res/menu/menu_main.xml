@@ -12,5 +12,5 @@
         android:orderInCategory="200" app:showAsAction="never" />
 
     <item android:id="@+id/action_refresh" android:title="@string/action_refresh"
-        android:orderInCategory="250" app:showAsAction="never" />
+        android:orderInCategory="250" app:showAsAction="always" />
 </menu>
