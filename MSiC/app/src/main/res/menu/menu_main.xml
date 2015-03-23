@@ -9,8 +9,11 @@
         android:orderInCategory="150" app:showAsAction="never" />
 
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="200" app:showAsAction="never" />
+        android:orderInCategory="200" app:showAsAction="always" />
 
     <item android:id="@+id/action_refresh" android:title="@string/action_refresh"
         android:orderInCategory="250" app:showAsAction="always" />
+
+    <item android:id="@+id/action_multimapa" android:title="@string/action_mmapa"
+        android:orderInCategory="260" app:showAsAction="always" />
 </menu>

@@ -1,10 +1,10 @@
-package mx.gob.conaculta.msic;
+package mx.gob.conaculta.msic.maps;
 
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.widget.Toast;
+
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -17,6 +17,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
 
 
+import mx.gob.conaculta.msic.FichaActivity;
+import mx.gob.conaculta.msic.R;
 import mx.gob.conaculta.msic.data.MSiCDBOper;
 import mx.gob.conaculta.msic.data.Recurso;
 import mx.gob.conaculta.msic.utils.MSiCConst;
@@ -70,7 +72,7 @@ public class MapaRecActivity extends FragmentActivity implements OnInfoWindowCli
 
         if (mMap != null) {
            // Toast.makeText(this, "Listo para la acción", Toast.LENGTH_SHORT).show();
-            pintaMarker2();
+            pintaMarker();
         }
     }
 
@@ -80,8 +82,10 @@ public class MapaRecActivity extends FragmentActivity implements OnInfoWindowCli
         return mMap;
     }
 
-
-    protected void pintaMarker2() {
+    /**
+     *
+     */
+    protected void pintaMarker() {
 
         mSiCDBOper = new MSiCDBOper(this);
 
@@ -98,7 +102,7 @@ public class MapaRecActivity extends FragmentActivity implements OnInfoWindowCli
 
         CameraPosition cameraPosition = new CameraPosition.Builder()
                 .target(new LatLng(rec.lat, rec.lon))
-                .zoom(15)
+                .zoom(14)
                 .build();
 
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
@@ -106,6 +110,10 @@ public class MapaRecActivity extends FragmentActivity implements OnInfoWindowCli
         mSiCDBOper.closeDB();
     }
 
+    /**
+     *
+     * @param marker
+     */
     @Override
     public void onInfoWindowClick(Marker marker) {
         //Toast.makeText(this, rec.sTipo+" "+String.valueOf(rec.srId), Toast.LENGTH_LONG).show();

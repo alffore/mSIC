@@ -16,7 +16,8 @@
     <string name="sync_account_type" translatable="false">msic.conaculta.gob.mx</string>
     <string name="content_authority" translatable="false">mx.gob.conaculta.msic.app</string>
     <string name="title_activity_ficha">Record</string>
-    <string name="action_problema">Problem</string>
+    <string name="action_problema">Problems</string>
+    <string name="action_mmapa" translatable="false">MultiMapa</string>
 
 
 </resources>

@@ -1,5 +1,6 @@
 package mx.gob.conaculta.msic;
 
+
 import android.content.Context;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -27,24 +28,26 @@ public class RecRecursosTask extends AsyncTask<String, Void, String[]> {
 
     private final String LOG_TAG = RecRecursosTask.class.getSimpleName();
 
-    private final Context mContext;
 
+    private final Context mContext;
 
 
     private MSiCDBOper msicdbo = null;
 
+
     /**
+     *
      * @param context
      */
     public RecRecursosTask(Context context) {
         mContext = context;
-        msicdbo = new MSiCDBOper(context);
+        msicdbo = new MSiCDBOper(mContext);
+
     }
 
 
     @Override
     protected String[] doInBackground(String... params) {
-
 
 
         if (params.length == 0) {

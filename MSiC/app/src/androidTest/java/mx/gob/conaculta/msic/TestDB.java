@@ -6,11 +6,16 @@ import android.database.sqlite.SQLiteDatabase;
 import android.test.AndroidTestCase;
 import android.util.Log;
 
+import com.google.android.gms.maps.model.LatLng;
+
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 
 import mx.gob.conaculta.msic.data.MSiCDBHelper;
 import mx.gob.conaculta.msic.data.MSiCContract.InfraPatEntry;
+import mx.gob.conaculta.msic.data.MSiCDBOper;
+import mx.gob.conaculta.msic.data.Recurso;
 
 /**
  * Created by alfonso on 24/02/15.
@@ -69,7 +74,6 @@ public void testSelectRec() throws Throwable{
     Cursor cursor=db.query(InfraPatEntry.TABLE_NAME,allColumns,sWhere,sArgs,null,null,null);
     cursor.moveToFirst();
 }
-
 
 
     static ContentValues createRecursoValues() {

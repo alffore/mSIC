@@ -52,14 +52,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MapaRecActivity"
+            android:name=".maps.MapaRecActivity"
             android:label="@string/activity_mapa_name"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="mx.gob.conaculta.msic.MainActivity" />
         </activity>
-
+        <activity
+            android:name=".maps.MapaMultiRecActivity"
+            android:label="@string/activity_mapa_name"
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mx.gob.conaculta.msic.MainActivity" />
+        </activity>
         <activity
             android:name=".ListadoRecActivity"
             android:label="@string/activity_listado_name"
@@ -89,4 +96,6 @@
     </application>
 
 </manifest>
+
+
 

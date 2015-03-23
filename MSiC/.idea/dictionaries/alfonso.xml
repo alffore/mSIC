@@ -4,15 +4,19 @@
       <w>abre</w>
       <w>acción</w>
       <w>adscripcion</w>
+      <w>agrega</w>
+      <w>bexiste</w>
       <w>borra</w>
       <w>carga</w>
       <w>centro</w>
+      <w>clase</w>
       <w>conaculta</w>
       <w>coord</w>
       <w>coords</w>
       <w>cuenta</w>
       <w>daux</w>
       <w>dbsic</w>
+      <w>entrada</w>
       <w>ficha</w>
       <w>galeria</w>
       <w>galerías</w>
@@ -20,6 +24,7 @@
       <w>infop</w>
       <w>infrapat</w>
       <w>inserta</w>
+      <w>itrec</w>
       <w>jrec</w>
       <w>latitud</w>
       <w>listado</w>
@@ -27,10 +32,12 @@
       <w>longitud</w>
       <w>lrec</w>
       <w>mapa</w>
+      <w>mapmulti</w>
       <w>mpref</w>
       <w>msic</w>
       <w>msicdbo</w>
       <w>msicpref</w>
+      <w>multimapa</w>
       <w>museo</w>
       <w>método</w>
       <w>nombre</w>
@@ -43,12 +50,15 @@
       <w>problema</w>
       <w>punto</w>
       <w>puntos</w>
+      <w>recal</w>
       <w>recaux</w>
       <w>recibio</w>
+      <w>recpt</w>
       <w>recupera</w>
       <w>recurso</w>
       <w>recursos</w>
       <w>recusos</w>
+      <w>resultados</w>
       <w>salida</w>
       <w>sdbsic</w>
       <w>servicio</w>

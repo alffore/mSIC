@@ -28,4 +28,6 @@ public class MSiCConst {
 
     public static final String SLAT="lat";
     public static final String SLON="lon";
+
+    public static final double D2R=Math.PI/180.0;
 }

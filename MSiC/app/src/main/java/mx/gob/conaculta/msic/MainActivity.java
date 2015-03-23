@@ -12,6 +12,7 @@ import android.view.MenuItem;
 
 import mx.gob.conaculta.msic.data.MSiCDBOper;
 import mx.gob.conaculta.msic.location.GeoLoc;
+import mx.gob.conaculta.msic.maps.MapaMultiRecActivity;
 import mx.gob.conaculta.msic.utils.MSiCConst;
 
 
@@ -61,6 +62,12 @@ public class MainActivity extends ActionBarActivity {
 
            /* Intent intent = new Intent(this, MapaActivity.class);
             startActivity(intent);*/
+            return true;
+        }
+
+        if(id==R.id.action_multimapa){
+            Intent intent = new Intent(this, MapaMultiRecActivity.class);
+            startActivity(intent);
             return true;
         }
 

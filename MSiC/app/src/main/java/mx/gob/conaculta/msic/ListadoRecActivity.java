@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import mx.gob.conaculta.msic.maps.MapaRecActivity;
 import mx.gob.conaculta.msic.utils.MSiCConst;
 
 /**

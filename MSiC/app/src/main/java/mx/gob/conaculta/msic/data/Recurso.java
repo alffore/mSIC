@@ -20,4 +20,6 @@ public class Recurso {
     public double lat;
 
     public double lon;
+
+    public int cuenta_imp;
 }

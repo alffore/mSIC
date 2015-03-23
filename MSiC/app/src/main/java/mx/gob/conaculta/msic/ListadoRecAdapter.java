@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,7 +20,7 @@ import mx.gob.conaculta.msic.utils.Utiles;
 public class ListadoRecAdapter extends CursorAdapter {
 
 
-float lat_pos;
+    float lat_pos;
     float lon_pos;
 
     /**
@@ -57,13 +56,12 @@ float lat_pos;
         super(context, c, flags);
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        lat_pos=preferences.getFloat(MSiCConst.SLAT,0.0f);
-        lon_pos=preferences.getFloat(MSiCConst.SLON,0.0f);
+        lat_pos = preferences.getFloat(MSiCConst.SLAT, 0.0f);
+        lon_pos = preferences.getFloat(MSiCConst.SLON, 0.0f);
     }
 
 
     /**
-     *
      * @param context
      * @param cursor
      * @param parent
@@ -81,7 +79,6 @@ float lat_pos;
     }
 
     /**
-     *
      * @param view
      * @param context
      * @param cursor
@@ -92,16 +89,14 @@ float lat_pos;
 
         String sNombreRec = cursor.getString(3);
 
-        double lat =cursor.getDouble(1);
-        double lon=cursor.getDouble(2);
+        double lat = cursor.getDouble(1);
+        double lon = cursor.getDouble(2);
 
-        if(lat>0.0 && lon!=0.0 && lat_pos!=0.0f && lon_pos!=0.0f) {
+        if (lat > 0.0 && lon != 0.0 && lat_pos != 0.0f && lon_pos != 0.0f) {
             sNombreRec += Utiles.salidaDist(Utiles.distPP(lat, lon, lat_pos, lon_pos));
         }
 
-
         viewHolder.textNombreRec.setText(sNombreRec);
-
 
 
         String sExtraRec = cursor.getString(6);
@@ -113,19 +108,15 @@ float lat_pos;
         viewHolder.iv_mapa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((OnImageClickListener)context).onClick(v,null);
+                ((OnImageClickListener) context).onClick(v, null);
             }
         });
-
 
 
     }
 
 
-
-
     /**
-     *
      * @return
      */
     @Override

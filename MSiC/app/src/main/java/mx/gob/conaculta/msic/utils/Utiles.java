@@ -1,5 +1,7 @@
 package mx.gob.conaculta.msic.utils;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.text.DecimalFormat;
 
 import mx.gob.conaculta.msic.data.Recurso;
@@ -43,6 +45,10 @@ public class Utiles {
         daux = MSiCConst.RT * Math.acos(daux);
 
         return daux;
+    }
+
+    public static double distRecPunto(Recurso rec, LatLng latLng){
+        return Utiles.distRecPunto(rec,latLng.latitude,latLng.longitude);
     }
 
     /**
