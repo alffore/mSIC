@@ -21,22 +21,26 @@ public class RecPuntosTask extends AsyncTask<ParamSol,Void,ArrayList<Recurso>> {
 
     private final MapaMultiRecActivity mActivity;
 
+    private final MSiCDBOper mSiCDBOper=null;
+
 
     public RecPuntosTask(MapaMultiRecActivity activity) {
+
         this.mActivity = activity;
+        //mSiCDBOper=new MSiCDBOper(mActivity);
     }
 
 
     @Override
     protected ArrayList<Recurso> doInBackground(ParamSol... params) {
 
-        MSiCDBOper mSiCDBOper=new MSiCDBOper(mActivity);
 
-        mSiCDBOper.openDB();
 
-        ArrayList<Recurso> aLRec= mSiCDBOper.obtenRLatLonTipoD(params[0].coords,params[0].stipo,params[0].dist);
+        //mSiCDBOper.openDB();
 
-        mSiCDBOper.closeDB();
+        //ArrayList<Recurso> aLRec = mSiCDBOper.obtenRLatLonTipoD2(params[0].coords,params[0].stipo,params[0].dist);
+        ArrayList<Recurso> aLRec=null;
+        //mSiCDBOper.closeDB();
 
         return aLRec;
     }
@@ -47,7 +51,7 @@ public class RecPuntosTask extends AsyncTask<ParamSol,Void,ArrayList<Recurso>> {
      */
     @Override
     protected void onPostExecute(ArrayList<Recurso> aLRec){
-
+if(aLRec==null || aLRec.size()==0 )return;
         /*Iterator itrec = aLRec.iterator();
 
         while(itrec.hasNext()){

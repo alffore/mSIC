@@ -32,15 +32,15 @@ public class Utiles {
     public static double distRecPunto(Recurso rec, double lat, double lon) {
 
         double lat0=rec.lat*MSiCConst.D2R;
-        double lon0=rec.lon*=MSiCConst.D2R;
-        lat*=MSiCConst.D2R;
-        lon*=MSiCConst.D2R;
+        double lon0=rec.lon*MSiCConst.D2R;
+        double lat1=lat*MSiCConst.D2R;
+        double lon1=lon*MSiCConst.D2R;
 
-        double daux = Math.sin(lat0) * Math.sin(lat);
+        double daux = Math.sin(lat0) * Math.sin(lat1);
 
-        daux += Math.cos(lat0) * Math.cos(lon0) * Math.cos(lat) * Math.cos(lon);
+        daux += Math.cos(lat0) * Math.cos(lon0) * Math.cos(lat1) * Math.cos(lon1);
 
-        daux += Math.cos(lat0) * Math.sin(lon0) * Math.cos(lat) * Math.sin(lon);
+        daux += Math.cos(lat0) * Math.sin(lon0) * Math.cos(lat1) * Math.sin(lon1);
 
         daux = MSiCConst.RT * Math.acos(daux);
 

@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -15,11 +16,14 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 import mx.gob.conaculta.msic.FichaActivity;
 import mx.gob.conaculta.msic.R;
 
+import mx.gob.conaculta.msic.data.MSiCDBOper;
 import mx.gob.conaculta.msic.data.Recurso;
 import mx.gob.conaculta.msic.utils.MSiCConst;
 
@@ -107,6 +111,22 @@ public class MapaMultiRecActivity extends FragmentActivity
      *
      */
     protected void pintaMarkers() {
+        MSiCDBOper mSiCDBOper = new MSiCDBOper(this);
+
+        mSiCDBOper.openDB();
+
+        ArrayList<Recurso> aLRec = mSiCDBOper.obtenRLatLonTipoD(posicionOri,stema,30000.0);
+
+        mSiCDBOper.closeDB();
+
+        Toast.makeText(this,"Recupera: "+String.valueOf(aLRec.size()),Toast.LENGTH_SHORT).show();
+
+        Iterator itrec = aLRec.iterator();
+
+        while(itrec.hasNext()){
+
+            agregaMarker((Recurso) itrec.next());
+        }
 
     }
 
@@ -157,12 +177,14 @@ public class MapaMultiRecActivity extends FragmentActivity
         ParamSol ps=new ParamSol();
 
         ps.coords=cameraPosition.target;
-        ps.dist=10000;
+        ps.dist=10000.0;
         ps.stipo=stema;
 
         if(recpt.getStatus().equals(AsyncTask.Status.FINISHED) ||
                 recpt.getStatus().equals(AsyncTask.Status.PENDING)) {
-            //recpt.execute(ps);
+            if(cameraPosition.zoom==14) {
+                //recpt.execute(ps);
+            }
         }
 
     }
@@ -195,12 +217,5 @@ public class MapaMultiRecActivity extends FragmentActivity
 
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
-        ParamSol ps=new ParamSol();
-
-        ps.coords=latLng;
-        ps.dist=10000;
-        ps.stipo=stema;
-
-        recpt.execute(ps);
     }
 }
