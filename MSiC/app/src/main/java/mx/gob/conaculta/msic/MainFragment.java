@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 
 
+import mx.gob.conaculta.msic.listado.ListadoRecActivity;
 import mx.gob.conaculta.msic.utils.MSiCConst;
 
 /**

@@ -1,4 +1,4 @@
-package mx.gob.conaculta.msic;
+package mx.gob.conaculta.msic.listado;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -11,6 +11,7 @@ import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import mx.gob.conaculta.msic.R;
 import mx.gob.conaculta.msic.utils.MSiCConst;
 import mx.gob.conaculta.msic.utils.Utiles;
 

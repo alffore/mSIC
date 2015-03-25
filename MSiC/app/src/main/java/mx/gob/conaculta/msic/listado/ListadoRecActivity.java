@@ -1,4 +1,4 @@
-package mx.gob.conaculta.msic;
+package mx.gob.conaculta.msic.listado;
 
 
 import android.content.Intent;
@@ -14,6 +14,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.model.LatLng;
+
+import mx.gob.conaculta.msic.FichaActivity;
+import mx.gob.conaculta.msic.R;
 import mx.gob.conaculta.msic.maps.MapaRecActivity;
 import mx.gob.conaculta.msic.utils.MSiCConst;
 
@@ -23,7 +27,7 @@ import mx.gob.conaculta.msic.utils.MSiCConst;
 public class ListadoRecActivity extends ActionBarActivity implements ListadoRecFragment.Callback, ListadoRecAdapter.OnImageClickListener {
 
     public static String stema;
-
+    public static LatLng posicionOri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +45,7 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         stema=preferences.getString(MSiCConst.STEMA,"museo");
+        posicionOri=new LatLng(preferences.getFloat(MSiCConst.SLAT,0.0f),preferences.getFloat(MSiCConst.SLON,0.0f));
 
 
         ListadoRecFragment listadoRecFragment = new ListadoRecFragment();

@@ -7,7 +7,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.support.v4.content.CursorLoader;
 
-import mx.gob.conaculta.msic.ListadoRecActivity;
+import mx.gob.conaculta.msic.listado.ListadoRecActivity;
 import mx.gob.conaculta.msic.utils.MSiCConst;
 
 /**
@@ -39,6 +39,9 @@ public class MSiCLoader extends CursorLoader {
         if(ListadoRecActivity.stema.isEmpty()) {
             return msicdbo.obtenCursorAll();
         }else{
+            if(ListadoRecActivity.posicionOri!=null){
+                return msicdbo.obtenCursor(ListadoRecActivity.stema,ListadoRecActivity.posicionOri);
+            }
             return msicdbo.obtenCursor(ListadoRecActivity.stema);
         }
     }

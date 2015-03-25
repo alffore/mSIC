@@ -115,16 +115,15 @@ public class MapaMultiRecActivity extends FragmentActivity
 
         mSiCDBOper.openDB();
 
-        ArrayList<Recurso> aLRec = mSiCDBOper.obtenRLatLonTipoD(posicionOri,stema,30000.0);
+        ArrayList<Recurso> aLRec = mSiCDBOper.obtenRLatLonTipoD2(posicionOri,stema,30000.0);
 
         mSiCDBOper.closeDB();
 
-        Toast.makeText(this,"Recupera: "+String.valueOf(aLRec.size()),Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Recupera: "+String.valueOf(aLRec.size()),Toast.LENGTH_LONG).show();
 
         Iterator itrec = aLRec.iterator();
 
         while(itrec.hasNext()){
-
             agregaMarker((Recurso) itrec.next());
         }
 
@@ -212,7 +211,7 @@ public class MapaMultiRecActivity extends FragmentActivity
     private void ponCentro(LatLng latLng){
         CameraPosition cameraPosition = new CameraPosition.Builder()
                 .target(latLng)
-                .zoom(14)
+                .zoom(15)
                 .build();
 
         mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));

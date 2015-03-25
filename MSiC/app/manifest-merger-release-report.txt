@@ -96,7 +96,7 @@ ADDED from AndroidManifest.xml:62:9
 		ADDED from AndroidManifest.xml:65:13
 	android:name
 		ADDED from AndroidManifest.xml:63:13
-activity#mx.gob.conaculta.msic.ListadoRecActivity
+activity#mx.gob.conaculta.msic.listado.ListadoRecActivity
 ADDED from AndroidManifest.xml:70:9
 	android:label
 		ADDED from AndroidManifest.xml:72:13

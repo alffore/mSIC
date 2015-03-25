@@ -83,7 +83,22 @@ public class MSiCDBOper {
         String sWhere = "tipo=?";
         String sArgs[] = {stema};
 
+
         return database.query(InfraPatEntry.TABLE_NAME, allColumns, sWhere, sArgs, null, null, null);
+    }
+
+
+    public Cursor obtenCursor(String stema, LatLng latLng){
+
+        String sWhere = "tipo=?";
+        String sArgs[] = {stema};
+
+
+
+        String sOrder="ABS(lat-"+String.valueOf(latLng.latitude)+") + ABS(lon+"+String.valueOf(-1*latLng.longitude)+") ASC";
+
+
+        return database.query(InfraPatEntry.TABLE_NAME, allColumns, sWhere, sArgs, null, null, sOrder);
     }
 
     /**
@@ -208,7 +223,7 @@ public class MSiCDBOper {
 
             Recurso recaux = cursor2recurso(cursor);
 
-            double daux = Utiles.distRecPunto(recaux, latLng.latitude, latLng.longitude);
+            double daux = Utiles.distRecPunto(recaux, latLng);
             if (daux <= dist) {
                 lrec.add(recaux);
             }
@@ -233,6 +248,7 @@ public class MSiCDBOper {
             sQUERY += " WHERE " + InfraPatEntry.COLUMN_TYPE + "='" + stipo + "'";
         }
 
+        Log.d(LOG_TAG,sQUERY);
         Cursor cursor = database.rawQuery(sQUERY, null);
 
 

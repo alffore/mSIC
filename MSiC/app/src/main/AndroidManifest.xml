@@ -68,7 +68,7 @@
                 android:value="mx.gob.conaculta.msic.MainActivity" />
         </activity>
         <activity
-            android:name=".ListadoRecActivity"
+            android:name=".listado.ListadoRecActivity"
             android:label="@string/activity_listado_name"
             android:parentActivityName=".MainActivity">
             <meta-data

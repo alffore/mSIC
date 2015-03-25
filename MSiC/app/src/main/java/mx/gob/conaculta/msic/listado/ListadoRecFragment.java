@@ -1,4 +1,4 @@
-package mx.gob.conaculta.msic;
+package mx.gob.conaculta.msic.listado;
 
 
 import android.database.Cursor;
@@ -10,13 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Toast;
 
+import mx.gob.conaculta.msic.R;
 import mx.gob.conaculta.msic.data.MSiCDBOper;
 import mx.gob.conaculta.msic.data.MSiCLoader;
-import mx.gob.conaculta.msic.utils.MSiCConst;
 
 
 /**
