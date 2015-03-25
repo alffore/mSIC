@@ -9,6 +9,7 @@ import android.view.MenuItem;
 
 
 import mx.gob.conaculta.msic.data.MSiCDBOper;
+import mx.gob.conaculta.msic.data.RecRecursosTask;
 import mx.gob.conaculta.msic.listado.ListadoRecActivity;
 import mx.gob.conaculta.msic.location.GeoLoc;
 import mx.gob.conaculta.msic.maps.MapaMultiRecActivity;

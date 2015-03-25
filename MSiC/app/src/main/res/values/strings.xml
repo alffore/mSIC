@@ -18,6 +18,7 @@
     <string name="title_activity_ficha">Record</string>
     <string name="action_problema">Problems</string>
     <string name="action_mmapa" translatable="false">MultiMapa</string>
+    <string name="action_share">Share</string>
 
 
 </resources>

@@ -1,4 +1,4 @@
-package mx.gob.conaculta.msic;
+package mx.gob.conaculta.msic.data;
 
 
 import android.content.Context;
@@ -17,7 +17,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-import mx.gob.conaculta.msic.data.MSiCDBOper;
 import mx.gob.conaculta.msic.utils.MSiCConst;
 
 

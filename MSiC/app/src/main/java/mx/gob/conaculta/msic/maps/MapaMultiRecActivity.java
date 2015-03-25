@@ -41,7 +41,7 @@ public class MapaMultiRecActivity extends FragmentActivity
     private String stema;
     private LatLng posicionOri;
 
-    private RecPuntosTask recpt;
+    private RecuperaPuntosTask recpt;
 
 
     protected int getLayoutId() {
@@ -58,7 +58,7 @@ public class MapaMultiRecActivity extends FragmentActivity
 
         hmMarker = new HashMap<>();
 
-        recpt = new RecPuntosTask(this);
+        recpt = new RecuperaPuntosTask(this);
 
         setContentView(getLayoutId());
         setUpMapIfNeeded();

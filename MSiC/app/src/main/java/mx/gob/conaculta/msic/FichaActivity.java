@@ -1,8 +1,11 @@
 package mx.gob.conaculta.msic;
 
+import android.content.Intent;
 import android.net.Uri;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.ShareActionProvider;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
@@ -15,15 +18,19 @@ import mx.gob.conaculta.msic.utils.MSiCConst;
 
 public class FichaActivity extends ActionBarActivity {
 
+    private ShareActionProvider mShareActionProvider;
+
+
+    private String sCadURL_share;
 
     /**
-     *
      * @param savedInstanceState
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ficha);
+        sCadURL_share = null;
 
         cargaFicha();
 
@@ -32,7 +39,7 @@ public class FichaActivity extends ActionBarActivity {
     /**
      *
      */
-    private void cargaFicha(){
+    private void cargaFicha() {
         Uri fichaUri = Uri.parse(MSiCConst.SFICHA_URL).buildUpon()
                 .appendQueryParameter(MSiCConst.STEMA, getIntent().getStringExtra(MSiCConst.STEMA))
                 .appendQueryParameter(MSiCConst.SIDSIC, getIntent().getStringExtra(MSiCConst.SIDSIC))
@@ -43,6 +50,7 @@ public class FichaActivity extends ActionBarActivity {
             WebView myWebView = (WebView) findViewById(R.id.webview);
             myWebView.loadUrl(url.toString());
 
+            sCadURL_share = url.toString();
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -51,7 +59,6 @@ public class FichaActivity extends ActionBarActivity {
     }
 
     /**
-     *
      * @param menu
      * @return
      */
@@ -59,11 +66,30 @@ public class FichaActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_ficha, menu);
+
+        MenuItem menuItem = menu.findItem(R.id.action_share);
+
+        mShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(menuItem);
+
+        if (sCadURL_share != null) {
+            mShareActionProvider.setShareIntent(createShareMSiCIntent());
+        }
+
         return true;
     }
 
     /**
-     *
+     * @return
+     */
+    private Intent createShareMSiCIntent() {
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(Intent.EXTRA_TEXT, sCadURL_share + MSiCConst.MSIC_SHARE_HASHTAG);
+        return shareIntent;
+    }
+
+    /**
      * @param item
      * @return
      */

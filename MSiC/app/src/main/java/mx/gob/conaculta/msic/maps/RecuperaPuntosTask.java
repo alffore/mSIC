@@ -17,30 +17,28 @@ import mx.gob.conaculta.msic.data.Recurso;
 /**
  * Created by alfonso on 16/03/15.
  */
-public class RecPuntosTask extends AsyncTask<ParamSol,Void,ArrayList<Recurso>> {
+public class RecuperaPuntosTask extends AsyncTask<ParamSol,Void,ArrayList<Recurso>> {
 
     private final MapaMultiRecActivity mActivity;
 
-    private final MSiCDBOper mSiCDBOper=null;
+    private  MSiCDBOper mSiCDBOper=null;
 
 
-    public RecPuntosTask(MapaMultiRecActivity activity) {
+    public RecuperaPuntosTask(MapaMultiRecActivity activity) {
 
         this.mActivity = activity;
-        //mSiCDBOper=new MSiCDBOper(mActivity);
+        mSiCDBOper=new MSiCDBOper(mActivity);
     }
 
 
     @Override
     protected ArrayList<Recurso> doInBackground(ParamSol... params) {
 
+        mSiCDBOper.openDB();
 
+        ArrayList<Recurso> aLRec = mSiCDBOper.obtenRLatLonTipoD2(params[0].coords,params[0].stipo,params[0].dist);
 
-        //mSiCDBOper.openDB();
-
-        //ArrayList<Recurso> aLRec = mSiCDBOper.obtenRLatLonTipoD2(params[0].coords,params[0].stipo,params[0].dist);
-        ArrayList<Recurso> aLRec=null;
-        //mSiCDBOper.closeDB();
+        mSiCDBOper.closeDB();
 
         return aLRec;
     }

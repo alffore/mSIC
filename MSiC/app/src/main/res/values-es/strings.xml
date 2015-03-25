@@ -8,4 +8,5 @@
     <string name="activity_listado_name">Listado</string>
     <string name="title_activity_ficha">Ficha</string>
     <string name="action_problema">Problemas</string>
+    <string name="action_share">Compartir</string>
 </resources>

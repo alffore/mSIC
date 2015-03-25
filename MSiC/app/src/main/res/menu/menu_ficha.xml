@@ -4,9 +4,18 @@
     tools:context="mx.gob.conaculta.msic.FichaActivity">
 
 
-    <item android:id="@+id/action_problema" android:title="@string/action_problema"
-        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_share"
+        android:title="@string/action_share"
+        app:showAsAction="always"
+        app:actionProviderClass="android.support.v7.widget.ShareActionProvider"
+        />
+
+    <item android:id="@+id/action_problema"
+        android:title="@string/action_problema"
+         app:showAsAction="never" />
 
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="200" app:showAsAction="never" />
+         app:showAsAction="never" />
+
+
 </menu>
