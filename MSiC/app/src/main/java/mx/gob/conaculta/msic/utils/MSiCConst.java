@@ -6,7 +6,7 @@ package mx.gob.conaculta.msic.utils;
 public class MSiCConst {
 
     //campos de preferencias
-    public static final String STEMA = "tabla";
+    public static final String STEMA = "tipo";
     public static final String SIDSIC = "id";
     public static final String SMSR = "msr";
     public static final String SID="sid";

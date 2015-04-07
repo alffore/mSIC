@@ -15,7 +15,9 @@ import java.net.URL;
 
 import mx.gob.conaculta.msic.utils.MSiCConst;
 
-
+/**
+ *
+ */
 public class FichaActivity extends ActionBarActivity {
 
     private ShareActionProvider mShareActionProvider;

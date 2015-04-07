@@ -35,7 +35,6 @@ public class RecRecursosTask extends AsyncTask<String, Void, String[]> {
 
 
     /**
-     *
      * @param context
      */
     public RecRecursosTask(Context context) {
@@ -61,10 +60,17 @@ public class RecRecursosTask extends AsyncTask<String, Void, String[]> {
 
         try {
 
-            Uri uriRec = Uri.parse(MSiCConst.SDBSIC_BASE_URL).buildUpon()
-                    .appendQueryParameter(MSiCConst.SMSR, params[0])
-                    .build();
+            Uri uriRec;
 
+            if (params[1] == null || params[1].isEmpty()) {
+                uriRec = Uri.parse(MSiCConst.SDBSIC_BASE_URL).buildUpon()
+                        .appendQueryParameter(MSiCConst.SMSR, params[0]).build();
+            } else {
+                uriRec = Uri.parse(MSiCConst.SDBSIC_BASE_URL).buildUpon()
+                        .appendQueryParameter(MSiCConst.SMSR, params[0])
+                        .appendQueryParameter(MSiCConst.STEMA, params[1]).build();
+            }
+            
             URL url = new URL(uriRec.toString());
 
             urlConnection = (HttpURLConnection) url.openConnection();
