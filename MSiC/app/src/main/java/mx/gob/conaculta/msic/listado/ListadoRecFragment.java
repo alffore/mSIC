@@ -72,7 +72,7 @@ public class ListadoRecFragment extends Fragment implements LoaderManager.Loader
        /* Bundle arguments = getArguments();
 
         if (arguments != null) {
-            this.stema = arguments.getString(MSiCConst.STEMA);
+            this.stabla = arguments.getString(MSiCConst.STEMA);
         }*/
 
 

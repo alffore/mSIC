@@ -28,8 +28,8 @@ public class MSiCDBOper {
     private Context context;
 
 
-    private String[] allColumns = {InfraPatEntry._ID, InfraPatEntry.COLUMN_LAT, InfraPatEntry.COLUMN_LON,
-            InfraPatEntry.COLUMN_NAME, InfraPatEntry.COLUMN_SRID, InfraPatEntry.COLUMN_TYPE, InfraPatEntry.COLUMN_ADS};
+    private String[] allColumns = {InfraPatEntry._ID, InfraPatEntry.COLUMNA_LAT, InfraPatEntry.COLUMNA_LON,
+            InfraPatEntry.COLUMNA_NOMBRE, InfraPatEntry.COLUMNA_SRID, InfraPatEntry.COLUMNA_TABLA, InfraPatEntry.COLUMNA_ADS};
 
     /**
      * @param context
@@ -61,7 +61,7 @@ public class MSiCDBOper {
 
         List<Recurso> lrec = new ArrayList<Recurso>();
 
-        Cursor cursor = database.query(InfraPatEntry.TABLE_NAME, allColumns, null, null, null, null, null);
+        Cursor cursor = database.query(InfraPatEntry.TABLA_NOMBRE, allColumns, null, null, null, null, null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             lrec.add(this.cursor2recurso(cursor));
@@ -75,22 +75,27 @@ public class MSiCDBOper {
      * @return
      */
     public Cursor obtenCursorAll() {
-        return database.query(InfraPatEntry.TABLE_NAME, allColumns, null, null, null, null, null);
+        return database.query(InfraPatEntry.TABLA_NOMBRE, allColumns, null, null, null, null, null);
     }
 
+    /**
+     *
+     * @param stema
+     * @return
+     */
     public Cursor obtenCursor(String stema) {
 
-        String sWhere = "tipo=?";
+        String sWhere = InfraPatEntry.COLUMNA_TABLA+"=?";
         String sArgs[] = {stema};
 
 
-        return database.query(InfraPatEntry.TABLE_NAME, allColumns, sWhere, sArgs, null, null, null);
+        return database.query(InfraPatEntry.TABLA_NOMBRE, allColumns, sWhere, sArgs, null, null, null);
     }
 
 
     public Cursor obtenCursor(String stema, LatLng latLng){
 
-        String sWhere = "tipo=?";
+        String sWhere = InfraPatEntry.COLUMNA_TABLA+"=?";
         String sArgs[] = {stema};
 
 
@@ -98,7 +103,7 @@ public class MSiCDBOper {
         String sOrder="ABS(lat-"+String.valueOf(latLng.latitude)+") + ABS(lon+"+String.valueOf(-1*latLng.longitude)+") ASC";
 
 
-        return database.query(InfraPatEntry.TABLE_NAME, allColumns, sWhere, sArgs, null, null, sOrder);
+        return database.query(InfraPatEntry.TABLA_NOMBRE, allColumns, sWhere, sArgs, null, null, sOrder);
     }
 
     /**
@@ -108,10 +113,10 @@ public class MSiCDBOper {
     public List<Recurso> obtenxTipo(String stipo) {
         List<Recurso> lrec = new ArrayList<Recurso>();
 
-        String sWhere = "tipo=?";
+        String sWhere = InfraPatEntry.COLUMNA_TABLA+"=?";
         String sArgs[] = {stipo};
 
-        Cursor cursor = database.query(InfraPatEntry.TABLE_NAME, allColumns, sWhere, sArgs, null, null, null);
+        Cursor cursor = database.query(InfraPatEntry.TABLA_NOMBRE, allColumns, sWhere, sArgs, null, null, null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             lrec.add(this.cursor2recurso(cursor));
@@ -143,7 +148,7 @@ public class MSiCDBOper {
         String sWhere = "lat <= ? AND lat >= ? AND lon <= ? AND lon >= ?";
         String sArgs[] = {String.valueOf(lat_max), String.valueOf(lat_min), String.valueOf(lon_max), String.valueOf(lon_min)};
 
-        Cursor cursor = database.query(InfraPatEntry.TABLE_NAME, allColumns, sWhere, sArgs, null, null, null);
+        Cursor cursor = database.query(InfraPatEntry.TABLA_NOMBRE, allColumns, sWhere, sArgs, null, null, null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             lrec.add(this.cursor2recurso(cursor));
@@ -179,7 +184,7 @@ public class MSiCDBOper {
         String sWhere = "lat <= ? AND lat >= ? AND lon <= ? AND lon >= ? AND tipo = ?";
         String sArgs[] = {String.valueOf(lat_max), String.valueOf(lat_min), String.valueOf(lon_max), String.valueOf(lon_min), stipo};
 
-        Cursor cursor = database.query(InfraPatEntry.TABLE_NAME, allColumns, sWhere, sArgs, null, null, null);
+        Cursor cursor = database.query(InfraPatEntry.TABLA_NOMBRE, allColumns, sWhere, sArgs, null, null, null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             lrec.add(this.cursor2recurso(cursor));
@@ -198,24 +203,24 @@ public class MSiCDBOper {
      * que las coordenadas <strong>latlng</strong>
      *
      * @param latLng
-     * @param stipo
+     * @param stabla
      * @param dist
      * @return
      */
-    public ArrayList<Recurso> obtenRLatLonTipoD(LatLng latLng, String stipo, double dist) {
+    public ArrayList<Recurso> obtenRLatLonTipoD(LatLng latLng, String stabla, double dist) {
 
         ArrayList<Recurso> lrec = new ArrayList<Recurso>();
 
 
-        String sWhere = "tipo = ?";
-        String sArgs[] = {stipo};
+        String sWhere = InfraPatEntry.COLUMNA_TABLA+"=?";
+        String sArgs[] = {stabla};
 
-        if (stipo == null) {
+        if (stabla == null) {
             sWhere = null;
             sArgs = null;
         }
 
-        Cursor cursor = database.query(InfraPatEntry.TABLE_NAME, allColumns, sWhere, sArgs, null, null, null);
+        Cursor cursor = database.query(InfraPatEntry.TABLA_NOMBRE, allColumns, sWhere, sArgs, null, null, null);
 
 
         cursor.moveToFirst();
@@ -238,14 +243,14 @@ public class MSiCDBOper {
     }
 
 
-    public ArrayList<Recurso> obtenRLatLonTipoD2(LatLng latLng, String stipo, double dist) {
+    public ArrayList<Recurso> obtenRLatLonTipoD2(LatLng latLng, String stabla, double dist) {
         ArrayList<Recurso> lrec = new ArrayList<Recurso>();
-        String sQUERY = "SELECT " + InfraPatEntry._ID + "," + InfraPatEntry.COLUMN_LAT + ", " + InfraPatEntry.COLUMN_LON + ", " +
-                InfraPatEntry.COLUMN_NAME + ", " + InfraPatEntry.COLUMN_SRID + ", " + InfraPatEntry.COLUMN_TYPE + ", " +
-                InfraPatEntry.COLUMN_ADS + " FROM " + InfraPatEntry.TABLE_NAME;
+        String sQUERY = "SELECT " + InfraPatEntry._ID + "," + InfraPatEntry.COLUMNA_LAT + ", " + InfraPatEntry.COLUMNA_LON + ", " +
+                InfraPatEntry.COLUMNA_NOMBRE + ", " + InfraPatEntry.COLUMNA_SRID + ", " + InfraPatEntry.COLUMNA_TABLA + ", " +
+                InfraPatEntry.COLUMNA_ADS + " FROM " + InfraPatEntry.TABLA_NOMBRE;
 
-        if (stipo != null) {
-            sQUERY += " WHERE " + InfraPatEntry.COLUMN_TYPE + "='" + stipo + "'";
+        if (stabla != null) {
+            sQUERY += " WHERE " + InfraPatEntry.COLUMNA_TABLA + "='" + stabla + "'";
         }
 
         Log.d(LOG_TAG,sQUERY);
@@ -277,7 +282,7 @@ public class MSiCDBOper {
      */
     public Recurso obtenRecId(String sid) {
 
-        final String SQUERY = "SELECT * FROM " + InfraPatEntry.TABLE_NAME + " WHERE " + InfraPatEntry._ID + "='" + sid + "'";
+        final String SQUERY = "SELECT * FROM " + InfraPatEntry.TABLA_NOMBRE + " WHERE " + InfraPatEntry._ID + "='" + sid + "'";
 
         Cursor cursor = database.rawQuery(SQUERY, null);
         cursor.moveToFirst();
@@ -293,12 +298,27 @@ public class MSiCDBOper {
         String sWhere = InfraPatEntry._ID + "=?";
         String sArgs[] = {sid};
 
-        Cursor cursor = database.query(InfraPatEntry.TABLE_NAME, allColumns, sWhere, sArgs, null, null, null);
+        Cursor cursor = database.query(InfraPatEntry.TABLA_NOMBRE, allColumns, sWhere, sArgs, null, null, null);
         cursor.moveToFirst();
 
         return cursor2recurso(cursor);
     }
 
+    /**
+     *
+     * @param stema
+     * @param sidsic
+     * @return
+     */
+    public Recurso obtenRecTeSic(String stema, String sidsic){
+        String sWhere = InfraPatEntry.COLUMNA_SRID + "=?"+InfraPatEntry.COLUMNA_TABLA +"=?";
+        String sArgs[] = {sidsic,stema};
+
+        Cursor cursor = database.query(InfraPatEntry.TABLA_NOMBRE, allColumns, sWhere, sArgs, null, null, null);
+        cursor.moveToFirst();
+
+        return cursor2recurso(cursor);
+    }
 
     /**
      * @param cu
@@ -314,7 +334,7 @@ public class MSiCDBOper {
 
         rec.sNombre = cu.getString(3);
         rec.srId = cu.getInt(4);
-        rec.sTipo = cu.getString(5);
+        rec.sTabla = cu.getString(5);
         rec.sAdscripcion = cu.getString(6);
 
         rec.cuenta_imp = 0;
@@ -331,38 +351,43 @@ public class MSiCDBOper {
      */
     public boolean guardaJSONRec(JSONObject jrec) throws JSONException {
 
+        int cantidad_insertados=0;
+
         //borramos
-        final String SQUERY_BORRA = "DELETE FROM " + InfraPatEntry.TABLE_NAME + " WHERE " +
-                InfraPatEntry.COLUMN_TYPE + "='" + jrec.getString(InfraPatEntry.COLUMN_TYPE) + "' AND " +
-                InfraPatEntry.COLUMN_SRID + "=" + jrec.getInt(InfraPatEntry.COLUMN_SRID);
+        final String SQUERY_BORRA = "DELETE FROM " + InfraPatEntry.TABLA_NOMBRE + " WHERE " +
+                InfraPatEntry.COLUMNA_TABLA + "='" + jrec.getString(InfraPatEntry.COLUMNA_TABLA) + "' AND " +
+                InfraPatEntry.COLUMNA_SRID + "=" + jrec.getInt(InfraPatEntry.COLUMNA_SRID);
 
         database.execSQL(SQUERY_BORRA);
         Log.d(LOG_TAG, "Borra: " + SQUERY_BORRA);
 
-        if (jrec.getBoolean(InfraPatEntry.COLUMN_INFOP)) {
+        if (jrec.getBoolean(InfraPatEntry.COLUMNA_INFOP)) {
 
             //insertamos
-            final String SQUERY_INSERTA = "INSERT INTO " + InfraPatEntry.TABLE_NAME + " (" +
-                    InfraPatEntry.COLUMN_ADS + "," +
-                    InfraPatEntry.COLUMN_MSR + "," +
-                    InfraPatEntry.COLUMN_SRID + "," +
-                    InfraPatEntry.COLUMN_TYPE + "," +
-                    InfraPatEntry.COLUMN_LON + "," +
-                    InfraPatEntry.COLUMN_LAT + "," +
-                    InfraPatEntry.COLUMN_NAME +
+            final String SQUERY_INSERTA = "INSERT INTO " + InfraPatEntry.TABLA_NOMBRE + " (" +
+                    InfraPatEntry.COLUMNA_ADS + "," +
+                    InfraPatEntry.COLUMNA_MSR + "," +
+                    InfraPatEntry.COLUMNA_SRID + "," +
+                    InfraPatEntry.COLUMNA_TABLA + "," +
+                    InfraPatEntry.COLUMNA_LON + "," +
+                    InfraPatEntry.COLUMNA_LAT + "," +
+                    InfraPatEntry.COLUMNA_NOMBRE +
                     ") VALUES ('" +
-                    jrec.getString(InfraPatEntry.COLUMN_ADS) + "'," +
-                    jrec.getInt(InfraPatEntry.COLUMN_MSR) + "," +
-                    jrec.getInt(InfraPatEntry.COLUMN_SRID) + ",'" +
-                    jrec.getString(InfraPatEntry.COLUMN_TYPE) + "','" +
-                    jrec.getString(InfraPatEntry.COLUMN_LON) + "','" +
-                    jrec.getString(InfraPatEntry.COLUMN_LAT) + "','" +
-                    jrec.getString(InfraPatEntry.COLUMN_NAME) + "')";
+                    jrec.getString(InfraPatEntry.COLUMNA_ADS) + "'," +
+                    jrec.getInt(InfraPatEntry.COLUMNA_MSR) + "," +
+                    jrec.getInt(InfraPatEntry.COLUMNA_SRID) + ",'" +
+                    jrec.getString(InfraPatEntry.COLUMNA_TABLA) + "','" +
+                    jrec.getString(InfraPatEntry.COLUMNA_LON) + "','" +
+                    jrec.getString(InfraPatEntry.COLUMNA_LAT) + "','" +
+                    jrec.getString(InfraPatEntry.COLUMNA_NOMBRE) + "')";
 
             database.execSQL(SQUERY_INSERTA);
             Log.d(LOG_TAG, "Inserta: " + SQUERY_INSERTA);
+
+            cantidad_insertados++;
         }
 
+        //Toast.makeText(context, "Se recuperan: " + cantidad_insertados, Toast.LENGTH_SHORT).show();
         return true;
     }
 
@@ -373,7 +398,7 @@ public class MSiCDBOper {
      */
     public boolean borraT() {
 
-        final String SQUERY_BORRAT = "DELETE FROM " + InfraPatEntry.TABLE_NAME;
+        final String SQUERY_BORRAT = "DELETE FROM " + InfraPatEntry.TABLA_NOMBRE;
 
         database.execSQL(SQUERY_BORRAT);
 
@@ -389,7 +414,7 @@ public class MSiCDBOper {
 
         long cuenta = 0;
 
-        Cursor cursor = database.rawQuery("SELECT COUNT(*) FROM " + InfraPatEntry.TABLE_NAME, null);
+        Cursor cursor = database.rawQuery("SELECT COUNT(*) FROM " + InfraPatEntry.TABLA_NOMBRE, null);
 
         if (cursor != null) {
             cursor.moveToFirst();
@@ -397,7 +422,7 @@ public class MSiCDBOper {
 
                 String[] sa = {"MAX(msr)"};
 
-                cursor = database.query(InfraPatEntry.TABLE_NAME, sa, null, null, null, null, null);
+                cursor = database.query(InfraPatEntry.TABLA_NOMBRE, sa, null, null, null, null, null);
                 cursor.moveToFirst();
 
                 cuenta = cursor.getLong(0);

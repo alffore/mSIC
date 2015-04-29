@@ -36,6 +36,8 @@ public class MapaRecActivity extends FragmentActivity implements OnInfoWindowCli
     private MSiCDBOper mSiCDBOper;
 
     private String sid;
+    private String stabla;
+    private String sidsic;
 
     private Recurso rec;
 
@@ -49,7 +51,8 @@ public class MapaRecActivity extends FragmentActivity implements OnInfoWindowCli
         super.onCreate(savedInstanceState);
 
         sid = this.getIntent().getStringExtra(MSiCConst.SID);
-
+        stabla = this.getIntent().getStringExtra(MSiCConst.STEMA);
+        sidsic = this.getIntent().getStringExtra(MSiCConst.SIDSIC);
 
         setContentView(getLayoutId());
         setUpMapIfNeeded();
@@ -71,7 +74,7 @@ public class MapaRecActivity extends FragmentActivity implements OnInfoWindowCli
 
 
         if (mMap != null) {
-           // Toast.makeText(this, "Listo para la acción", Toast.LENGTH_SHORT).show();
+            // Toast.makeText(this, "Listo para la acción", Toast.LENGTH_SHORT).show();
             pintaMarker();
         }
     }
@@ -92,8 +95,11 @@ public class MapaRecActivity extends FragmentActivity implements OnInfoWindowCli
         mSiCDBOper.openDB();
 
         //Toast.makeText(this, "SID: " + sid, Toast.LENGTH_LONG).show();
-
-        rec = mSiCDBOper.obtenRecId2(sid);
+        if (!sid.isEmpty()) {
+            rec = mSiCDBOper.obtenRecId2(sid);
+        } else {
+            rec = mSiCDBOper.obtenRecTeSic(stabla, sidsic);
+        }
 
 
         mMap.addMarker(new MarkerOptions()
@@ -111,14 +117,13 @@ public class MapaRecActivity extends FragmentActivity implements OnInfoWindowCli
     }
 
     /**
-     *
      * @param marker
      */
     @Override
     public void onInfoWindowClick(Marker marker) {
-        //Toast.makeText(this, rec.sTipo+" "+String.valueOf(rec.srId), Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, rec.sTabla+" "+String.valueOf(rec.srId), Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, FichaActivity.class);
-        intent.putExtra(MSiCConst.STEMA, rec.sTipo);
+        intent.putExtra(MSiCConst.STEMA, rec.sTabla);
         intent.putExtra(MSiCConst.SIDSIC, String.valueOf(rec.srId));
         startActivity(intent);
 

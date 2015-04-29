@@ -6,16 +6,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.test.AndroidTestCase;
 import android.util.Log;
 
-import com.google.android.gms.maps.model.LatLng;
-
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.Set;
 
 import mx.gob.conaculta.msic.data.MSiCDBHelper;
 import mx.gob.conaculta.msic.data.MSiCContract.InfraPatEntry;
-import mx.gob.conaculta.msic.data.MSiCDBOper;
-import mx.gob.conaculta.msic.data.Recurso;
 
 /**
  * Created by alfonso on 24/02/15.
@@ -40,14 +35,14 @@ public class TestDB extends AndroidTestCase {
         ContentValues testValues = createRecursoValues();
 
         long locationRowId;
-        locationRowId = db.insert(InfraPatEntry.TABLE_NAME, null, testValues);
+        locationRowId = db.insert(InfraPatEntry.TABLA_NOMBRE, null, testValues);
 
         // Verify we got a row back.
         assertTrue(locationRowId != -1);
         Log.d(LOG_TAG, "New row id: " + locationRowId);
 
         Cursor cursor = db.query(
-                InfraPatEntry.TABLE_NAME,  // Table to Query
+                InfraPatEntry.TABLA_NOMBRE,  // Table to Query
                 null, // all columns
                 null, // Columns for the "where" clause
                 null, // Values for the "where" clause
@@ -65,13 +60,13 @@ public void testSelectRec() throws Throwable{
     SQLiteDatabase db = dbHelper.getReadableDatabase();
 
 
-    String[] allColumns = {InfraPatEntry._ID, InfraPatEntry.COLUMN_LAT, InfraPatEntry.COLUMN_LON,
-            InfraPatEntry.COLUMN_NAME, InfraPatEntry.COLUMN_SRID, InfraPatEntry.COLUMN_TYPE, InfraPatEntry.COLUMN_ADS};
+    String[] allColumns = {InfraPatEntry._ID, InfraPatEntry.COLUMNA_LAT, InfraPatEntry.COLUMNA_LON,
+            InfraPatEntry.COLUMNA_NOMBRE, InfraPatEntry.COLUMNA_SRID, InfraPatEntry.COLUMNA_TABLA, InfraPatEntry.COLUMNA_ADS};
 
     String sWhere=InfraPatEntry._ID+"=?";
     String sArgs[]={"1"};
 
-    Cursor cursor=db.query(InfraPatEntry.TABLE_NAME,allColumns,sWhere,sArgs,null,null,null);
+    Cursor cursor=db.query(InfraPatEntry.TABLA_NOMBRE,allColumns,sWhere,sArgs,null,null,null);
     cursor.moveToFirst();
 }
 
@@ -81,13 +76,13 @@ public void testSelectRec() throws Throwable{
         ContentValues testValues = new ContentValues();
 
 
-        testValues.put(InfraPatEntry.COLUMN_ADS,"CONACULTA/INAH");
-        testValues.put(InfraPatEntry.COLUMN_LAT,"19.02");
-        testValues.put(InfraPatEntry.COLUMN_LON,"-98.3");
-        testValues.put(InfraPatEntry.COLUMN_MSR,1424379833);
-        testValues.put(InfraPatEntry.COLUMN_NAME,"Museo prueba para guardar");
-        testValues.put(InfraPatEntry.COLUMN_SRID,1234);
-        testValues.put(InfraPatEntry.COLUMN_TYPE,"museo");
+        testValues.put(InfraPatEntry.COLUMNA_ADS,"CONACULTA/INAH");
+        testValues.put(InfraPatEntry.COLUMNA_LAT,"19.02");
+        testValues.put(InfraPatEntry.COLUMNA_LON,"-98.3");
+        testValues.put(InfraPatEntry.COLUMNA_MSR,1424379833);
+        testValues.put(InfraPatEntry.COLUMNA_NOMBRE,"Museo prueba para guardar");
+        testValues.put(InfraPatEntry.COLUMNA_SRID,1234);
+        testValues.put(InfraPatEntry.COLUMNA_TABLA,"museo");
 
 
 

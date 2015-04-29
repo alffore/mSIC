@@ -11,7 +11,7 @@ public class Recurso {
 
     public String sAdscripcion;
 
-    public String sTipo;
+    public String sTabla;
 
     public int srId;
 

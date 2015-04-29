@@ -6,13 +6,16 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.ShareActionProvider;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
+import android.widget.Toast;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import mx.gob.conaculta.msic.maps.MapaRecActivity;
 import mx.gob.conaculta.msic.utils.MSiCConst;
 
 /**
@@ -22,6 +25,7 @@ public class FichaActivity extends ActionBarActivity {
 
     private ShareActionProvider mShareActionProvider;
 
+    public final String LOG_TAG = FichaActivity.class.getSimpleName();
 
     private String sCadURL_share;
 
@@ -53,6 +57,8 @@ public class FichaActivity extends ActionBarActivity {
             myWebView.loadUrl(url.toString());
 
             sCadURL_share = url.toString();
+
+            Log.d(LOG_TAG,sCadURL_share);
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -104,6 +110,15 @@ public class FichaActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            return true;
+        }
+
+        if(id==R.id.action_mapa){
+            Toast.makeText(this,"Mapa",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, MapaRecActivity.class);
+             intent.putExtra(MSiCConst.STEMA, getIntent().getStringExtra(MSiCConst.STEMA));
+        intent.putExtra(MSiCConst.SIDSIC, getIntent().getStringExtra(MSiCConst.SIDSIC));
+            startActivity(intent);
             return true;
         }
 

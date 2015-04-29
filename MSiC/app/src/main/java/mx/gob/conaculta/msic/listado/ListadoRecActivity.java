@@ -26,7 +26,7 @@ import mx.gob.conaculta.msic.utils.MSiCConst;
  */
 public class ListadoRecActivity extends ActionBarActivity implements ListadoRecFragment.Callback, ListadoRecAdapter.OnImageClickListener {
 
-    public static String stema;
+    public static String stabla;
     public static LatLng posicionOri;
 
     @Override
@@ -35,16 +35,16 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
         setContentView(R.layout.activity_listadorec);
 
 
-        /*stema = getIntent().getStringExtra(MSiCConst.STEMA);
-        if (stema.isEmpty()) {
-            stema = "museo";
+        /*stabla = getIntent().getStringExtra(MSiCConst.STEMA);
+        if (stabla.isEmpty()) {
+            stabla = "museo";
         }
         Bundle arguments = new Bundle();
-        arguments.putString(MSiCConst.STEMA, stema);*/
+        arguments.putString(MSiCConst.STEMA, stabla);*/
 
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        stema=preferences.getString(MSiCConst.STEMA,"museo");
+        stabla =preferences.getString(MSiCConst.STEMA,"museo");
         posicionOri=new LatLng(preferences.getFloat(MSiCConst.SLAT,0.0f),preferences.getFloat(MSiCConst.SLON,0.0f));
 
 

@@ -62,7 +62,7 @@ public class RecRecursosTask extends AsyncTask<String, Void, String[]> {
 
             Uri uriRec;
 
-            if (params[1] == null || params[1].isEmpty()) {
+            if (params.length==1) {
                 uriRec = Uri.parse(MSiCConst.SDBSIC_BASE_URL).buildUpon()
                         .appendQueryParameter(MSiCConst.SMSR, params[0]).build();
             } else {
@@ -70,7 +70,7 @@ public class RecRecursosTask extends AsyncTask<String, Void, String[]> {
                         .appendQueryParameter(MSiCConst.SMSR, params[0])
                         .appendQueryParameter(MSiCConst.STEMA, params[1]).build();
             }
-            
+
             URL url = new URL(uriRec.toString());
 
             urlConnection = (HttpURLConnection) url.openConnection();

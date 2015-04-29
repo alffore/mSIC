@@ -37,15 +37,15 @@ public class MSiCDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        final String SQL_CREATE_INFRAPAT_TABLE = "CREATE TABLE " + InfraPatEntry.TABLE_NAME + " (" +
+        final String SQL_CREATE_INFRAPAT_TABLE = "CREATE TABLE " + InfraPatEntry.TABLA_NOMBRE + " (" +
                 InfraPatEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-                InfraPatEntry.COLUMN_SRID + " INTEGER NOT NULL, " +
-                InfraPatEntry.COLUMN_TYPE + " TEXT NOT NULL, " +
-                InfraPatEntry.COLUMN_NAME + " TEXT NOT NULL, " +
-                InfraPatEntry.COLUMN_ADS + " TEXT, " +
-                InfraPatEntry.COLUMN_LAT + " REAL, " +
-                InfraPatEntry.COLUMN_MSR + " INTEGER NOT NULL, " +
-                InfraPatEntry.COLUMN_LON + " REAL );";
+                InfraPatEntry.COLUMNA_SRID + " INTEGER NOT NULL, " +
+                InfraPatEntry.COLUMNA_TABLA + " TEXT NOT NULL, " +
+                InfraPatEntry.COLUMNA_NOMBRE + " TEXT NOT NULL, " +
+                InfraPatEntry.COLUMNA_ADS + " TEXT, " +
+                InfraPatEntry.COLUMNA_LAT + " REAL, " +
+                InfraPatEntry.COLUMNA_MSR + " INTEGER NOT NULL, " +
+                InfraPatEntry.COLUMNA_LON + " REAL );";
 
         db.execSQL(SQL_CREATE_INFRAPAT_TABLE);
 
@@ -53,7 +53,7 @@ public class MSiCDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + InfraPatEntry.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + InfraPatEntry.TABLA_NOMBRE);
         onCreate(db);
     }
 

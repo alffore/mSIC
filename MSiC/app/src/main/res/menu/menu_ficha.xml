@@ -10,6 +10,9 @@
         app:actionProviderClass="android.support.v7.widget.ShareActionProvider"
         />
 
+    <item android:id="@+id/action_mapa"
+        android:title="@string/action_mapa" />
+
     <item android:id="@+id/action_problema"
         android:title="@string/action_problema"
          app:showAsAction="never" />

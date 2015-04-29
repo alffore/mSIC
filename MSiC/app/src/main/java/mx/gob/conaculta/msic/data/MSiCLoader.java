@@ -30,19 +30,19 @@ public class MSiCLoader extends CursorLoader {
         this.msicdbo = msicdbo;
 
         mpref=context.getSharedPreferences(MSiCConst.SSPREF,Context.MODE_MULTI_PROCESS);
-        //this.stema=mpref.getString(MSiCConst.STEMA,"");
+        //this.stabla=mpref.getString(MSiCConst.STEMA,"");
     }
 
 
     @Override
     public Cursor loadInBackground() {
-        if(ListadoRecActivity.stema.isEmpty()) {
+        if(ListadoRecActivity.stabla.isEmpty()) {
             return msicdbo.obtenCursorAll();
         }else{
             if(ListadoRecActivity.posicionOri!=null){
-                return msicdbo.obtenCursor(ListadoRecActivity.stema,ListadoRecActivity.posicionOri);
+                return msicdbo.obtenCursor(ListadoRecActivity.stabla,ListadoRecActivity.posicionOri);
             }
-            return msicdbo.obtenCursor(ListadoRecActivity.stema);
+            return msicdbo.obtenCursor(ListadoRecActivity.stabla);
         }
     }
 

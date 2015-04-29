@@ -142,7 +142,7 @@ public class MapaMultiRecActivity extends FragmentActivity
        Marker marker= mMap.addMarker(new MarkerOptions()
                 .position(new LatLng(rec.lat,rec.lon))
                 .title(rec.sNombre)
-                .snippet(rec.sTipo)
+                .snippet(rec.sTabla)
         );
 
         hmMarker.put(marker,rec);
@@ -159,7 +159,7 @@ public class MapaMultiRecActivity extends FragmentActivity
         Recurso rec=hmMarker.get(marker);
         if(rec!=null) {
             Intent intent = new Intent(this, FichaActivity.class);
-            intent.putExtra(MSiCConst.STEMA, rec.sTipo);
+            intent.putExtra(MSiCConst.STEMA, rec.sTabla);
             intent.putExtra(MSiCConst.SIDSIC, String.valueOf(rec.srId));
             startActivity(intent);
         }
