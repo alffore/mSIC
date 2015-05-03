@@ -36,7 +36,7 @@ public class MapaRecActivity extends FragmentActivity implements OnInfoWindowCli
     private MSiCDBOper mSiCDBOper;
 
     private String sid;
-    private String stabla;
+    private String stema;
     private String sidsic;
 
     private Recurso rec;
@@ -51,7 +51,7 @@ public class MapaRecActivity extends FragmentActivity implements OnInfoWindowCli
         super.onCreate(savedInstanceState);
 
         sid = this.getIntent().getStringExtra(MSiCConst.SID);
-        stabla = this.getIntent().getStringExtra(MSiCConst.STEMA);
+        stema = this.getIntent().getStringExtra(MSiCConst.STEMA);
         sidsic = this.getIntent().getStringExtra(MSiCConst.SIDSIC);
 
         setContentView(getLayoutId());
@@ -98,7 +98,7 @@ public class MapaRecActivity extends FragmentActivity implements OnInfoWindowCli
         if (!sid.isEmpty()) {
             rec = mSiCDBOper.obtenRecId2(sid);
         } else {
-            rec = mSiCDBOper.obtenRecTeSic(stabla, sidsic);
+            rec = mSiCDBOper.obtenRecTeSic(stema, sidsic);
         }
 
 

@@ -18,6 +18,8 @@ import com.google.android.gms.maps.model.LatLng;
 
 import mx.gob.conaculta.msic.FichaActivity;
 import mx.gob.conaculta.msic.R;
+import mx.gob.conaculta.msic.data.MSiCDBOper;
+import mx.gob.conaculta.msic.data.RecRecursosTask;
 import mx.gob.conaculta.msic.maps.MapaRecActivity;
 import mx.gob.conaculta.msic.utils.MSiCConst;
 
@@ -81,6 +83,19 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
 
             return true;
         }
+
+        if (id == R.id.action_refresh) {
+            //MSiCSyncAdapter.syncImmediately(this);
+
+            MSiCDBOper mSiCDBOper = new MSiCDBOper(this);
+            mSiCDBOper.openDB();
+            String msrMax = String.valueOf(mSiCDBOper.obtenMSRultimo(stabla));
+            mSiCDBOper.closeDB();
+
+            new RecRecursosTask(this).execute(msrMax);
+            return true;
+        }
+
 
         return super.onOptionsItemSelected(item);
     }

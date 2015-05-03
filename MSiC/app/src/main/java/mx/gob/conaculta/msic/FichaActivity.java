@@ -15,6 +15,8 @@ import android.widget.Toast;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import mx.gob.conaculta.msic.data.MSiCDBOper;
+import mx.gob.conaculta.msic.data.RecRecursosTask;
 import mx.gob.conaculta.msic.maps.MapaRecActivity;
 import mx.gob.conaculta.msic.utils.MSiCConst;
 
@@ -29,6 +31,9 @@ public class FichaActivity extends ActionBarActivity {
 
     private String sCadURL_share;
 
+    private String stema;
+    private String sidsic;
+
     /**
      * @param savedInstanceState
      */
@@ -37,7 +42,8 @@ public class FichaActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ficha);
         sCadURL_share = null;
-
+        stema = getIntent().getStringExtra(MSiCConst.STEMA);
+        sidsic = getIntent().getStringExtra(MSiCConst.SIDSIC);
         cargaFicha();
 
     }
@@ -47,8 +53,8 @@ public class FichaActivity extends ActionBarActivity {
      */
     private void cargaFicha() {
         Uri fichaUri = Uri.parse(MSiCConst.SFICHA_URL).buildUpon()
-                .appendQueryParameter(MSiCConst.STEMA, getIntent().getStringExtra(MSiCConst.STEMA))
-                .appendQueryParameter(MSiCConst.SIDSIC, getIntent().getStringExtra(MSiCConst.SIDSIC))
+                .appendQueryParameter(MSiCConst.STEMA, stema)
+                .appendQueryParameter(MSiCConst.SIDSIC, sidsic)
                 .build();
 
         try {
@@ -58,7 +64,7 @@ public class FichaActivity extends ActionBarActivity {
 
             sCadURL_share = url.toString();
 
-            Log.d(LOG_TAG,sCadURL_share);
+            Log.d(LOG_TAG, sCadURL_share);
 
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -113,14 +119,16 @@ public class FichaActivity extends ActionBarActivity {
             return true;
         }
 
-        if(id==R.id.action_mapa){
-            Toast.makeText(this,"Mapa",Toast.LENGTH_SHORT).show();
+        if (id == R.id.action_mapa) {
+            Toast.makeText(this, "Mapa", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, MapaRecActivity.class);
-             intent.putExtra(MSiCConst.STEMA, getIntent().getStringExtra(MSiCConst.STEMA));
-        intent.putExtra(MSiCConst.SIDSIC, getIntent().getStringExtra(MSiCConst.SIDSIC));
+            intent.putExtra(MSiCConst.STEMA, stema);
+            intent.putExtra(MSiCConst.SIDSIC, sidsic);
             startActivity(intent);
             return true;
         }
+
+
 
         return super.onOptionsItemSelected(item);
     }

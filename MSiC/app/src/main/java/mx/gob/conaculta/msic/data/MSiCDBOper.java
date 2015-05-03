@@ -435,4 +435,29 @@ public class MSiCDBOper {
     }
 
 
+    public long obtenMSRultimo(String stabla) {
+        String sWhere = InfraPatEntry.COLUMNA_TABLA +"=?";
+        String sArgs[] = {stabla};
+        long cuenta = 0;
+
+        Cursor cursor = database.rawQuery("SELECT COUNT(*) FROM " + InfraPatEntry.TABLA_NOMBRE+InfraPatEntry.COLUMNA_TABLA+"='"+stabla+"'", null);
+
+        if (cursor != null) {
+            cursor.moveToFirst();
+            if (cursor.getInt(0) > 0) {
+
+                String[] sa = {"MAX(msr)"};
+
+                cursor = database.query(InfraPatEntry.TABLA_NOMBRE, sa, sWhere, sArgs, null, null, null);
+                cursor.moveToFirst();
+
+                cuenta = cursor.getLong(0);
+            }
+        }
+
+        cursor.close();
+        return cuenta;
+
+    }
+
 }
