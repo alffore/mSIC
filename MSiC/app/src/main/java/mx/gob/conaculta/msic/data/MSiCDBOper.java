@@ -440,7 +440,7 @@ public class MSiCDBOper {
         String sArgs[] = {stabla};
         long cuenta = 0;
 
-        Cursor cursor = database.rawQuery("SELECT COUNT(*) FROM " + InfraPatEntry.TABLA_NOMBRE+InfraPatEntry.COLUMNA_TABLA+"='"+stabla+"'", null);
+        Cursor cursor = database.rawQuery("SELECT COUNT(*) FROM " + InfraPatEntry.TABLA_NOMBRE+" WHERE "+InfraPatEntry.COLUMNA_TABLA+"='"+stabla+"'", null);
 
         if (cursor != null) {
             cursor.moveToFirst();
