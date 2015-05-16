@@ -113,6 +113,7 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
         Intent intent = new Intent(this, FichaActivity.class);
         intent.putExtra(MSiCConst.STEMA, cursor.getString(5));
         intent.putExtra(MSiCConst.SIDSIC, cursor.getString(4));
+        intent.putExtra(MSiCConst.SID,cursor.getInt(0));
         startActivity(intent);
 
     }

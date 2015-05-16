@@ -15,8 +15,7 @@ import android.widget.Toast;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import mx.gob.conaculta.msic.data.MSiCDBOper;
-import mx.gob.conaculta.msic.data.RecRecursosTask;
+
 import mx.gob.conaculta.msic.maps.MapaRecActivity;
 import mx.gob.conaculta.msic.utils.MSiCConst;
 
@@ -33,6 +32,7 @@ public class FichaActivity extends ActionBarActivity {
 
     private String stema;
     private String sidsic;
+    private String sid;
 
     /**
      * @param savedInstanceState
@@ -44,6 +44,9 @@ public class FichaActivity extends ActionBarActivity {
         sCadURL_share = null;
         stema = getIntent().getStringExtra(MSiCConst.STEMA);
         sidsic = getIntent().getStringExtra(MSiCConst.SIDSIC);
+        sid = getIntent().getStringExtra(MSiCConst.SID);
+
+
         cargaFicha();
 
     }
@@ -122,12 +125,10 @@ public class FichaActivity extends ActionBarActivity {
         if (id == R.id.action_mapa) {
             Toast.makeText(this, "Mapa", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, MapaRecActivity.class);
-            intent.putExtra(MSiCConst.STEMA, stema);
-            intent.putExtra(MSiCConst.SIDSIC, sidsic);
+            intent.putExtra(MSiCConst.SIDSIC, sid);
             startActivity(intent);
             return true;
         }
-
 
 
         return super.onOptionsItemSelected(item);
