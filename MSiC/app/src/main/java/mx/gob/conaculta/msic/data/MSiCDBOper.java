@@ -379,7 +379,7 @@ public class MSiCDBOper {
                     jrec.getString(InfraPatEntry.COLUMNA_TABLA) + "','" +
                     jrec.getString(InfraPatEntry.COLUMNA_LON) + "','" +
                     jrec.getString(InfraPatEntry.COLUMNA_LAT) + "','" +
-                    jrec.getString(InfraPatEntry.COLUMNA_NOMBRE) + "')";
+                    jrec.getString(InfraPatEntry.COLUMNA_NOMBRE).replaceAll("'","\'") + "')";
 
             database.execSQL(SQUERY_INSERTA);
             Log.d(LOG_TAG, "Inserta: " + SQUERY_INSERTA);
