@@ -23,7 +23,10 @@ public class RecuperaPuntosTask extends AsyncTask<ParamSol,Void,ArrayList<Recurs
 
     private  MSiCDBOper mSiCDBOper=null;
 
-
+    /**
+     *
+     * @param activity
+     */
     public RecuperaPuntosTask(MapaMultiRecActivity activity) {
 
         this.mActivity = activity;
