@@ -123,7 +123,7 @@ public class FichaActivity extends ActionBarActivity {
         }
 
         if (id == R.id.action_mapa) {
-            Toast.makeText(this, "Mapa: "+sid+" "+stema+" "+sidsic, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Mapa: "+sid+" "+stema+" "+sidsic, Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, MapaRecActivity.class);
             intent.putExtra(MSiCConst.SIDSIC, sidsic);
             intent.putExtra(MSiCConst.STEMA,stema);

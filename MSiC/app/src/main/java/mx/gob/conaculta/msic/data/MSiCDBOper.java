@@ -98,8 +98,6 @@ public class MSiCDBOper {
         String sWhere = InfraPatEntry.COLUMNA_TABLA+"=?";
         String sArgs[] = {stema};
 
-
-
         String sOrder="ABS(lat-"+String.valueOf(latLng.latitude)+") + ABS(lon+"+String.valueOf(-1*latLng.longitude)+") ASC";
 
 
