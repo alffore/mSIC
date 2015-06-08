@@ -242,7 +242,13 @@ public class MSiCDBOper {
 
     }
 
-
+    /**
+     *
+     * @param latLng
+     * @param stabla
+     * @param dist
+     * @return
+     */
     public ArrayList<Recurso> obtenRLatLonTipoD2(LatLng latLng, String stabla, double dist) {
         ArrayList<Recurso> lrec = new ArrayList<Recurso>();
         String sQUERY = "SELECT " + InfraPatEntry._ID + "," + InfraPatEntry.COLUMNA_LAT + ", " + InfraPatEntry.COLUMNA_LON + ", " +
@@ -311,7 +317,7 @@ public class MSiCDBOper {
      * @return
      */
     public Recurso obtenRecTeSic(String stema, String sidsic){
-        String sWhere = InfraPatEntry.COLUMNA_SRID + "=?"+InfraPatEntry.COLUMNA_TABLA +"=?";
+        String sWhere = InfraPatEntry.COLUMNA_SRID + "=? AND "+InfraPatEntry.COLUMNA_TABLA +"=?";
         String sArgs[] = {sidsic,stema};
 
         Cursor cursor = database.query(InfraPatEntry.TABLA_NOMBRE, allColumns, sWhere, sArgs, null, null, null);
@@ -373,7 +379,7 @@ public class MSiCDBOper {
                     InfraPatEntry.COLUMNA_LAT + "," +
                     InfraPatEntry.COLUMNA_NOMBRE +
                     ") VALUES ('" +
-                    jrec.getString(InfraPatEntry.COLUMNA_ADS) + "'," +
+                    jrec.getString(InfraPatEntry.COLUMNA_ADS).replaceAll("'","\'") + "'," +
                     jrec.getInt(InfraPatEntry.COLUMNA_MSR) + "," +
                     jrec.getInt(InfraPatEntry.COLUMNA_SRID) + ",'" +
                     jrec.getString(InfraPatEntry.COLUMNA_TABLA) + "','" +

@@ -1,6 +1,8 @@
 -- Merging decision tree log ---
 manifest
 ADDED from AndroidManifest.xml:2:1
+	xmlns:android
+		ADDED from AndroidManifest.xml:2:11
 	package
 		ADDED from AndroidManifest.xml:3:5
 		INJECTED from AndroidManifest.xml:0:0
@@ -8,18 +10,16 @@ ADDED from AndroidManifest.xml:2:1
 	android:versionName
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
-	xmlns:android
-		ADDED from AndroidManifest.xml:2:11
 	android:versionCode
 		INJECTED from AndroidManifest.xml:0:0
 		INJECTED from AndroidManifest.xml:0:0
 meta-data#com.google.android.gms.version
 ADDED from AndroidManifest.xml:5:5
 MERGED from com.google.android.gms:play-services:6.5.87:21:9
-	android:value
-		ADDED from AndroidManifest.xml:7:9
 	android:name
 		ADDED from AndroidManifest.xml:6:9
+	android:value
+		ADDED from AndroidManifest.xml:7:9
 uses-permission#android.permission.INTERNET
 ADDED from AndroidManifest.xml:9:5
 	android:name
@@ -84,10 +84,10 @@ ADDED from AndroidManifest.xml:54:9
 		ADDED from AndroidManifest.xml:55:13
 meta-data#android.support.PARENT_ACTIVITY
 ADDED from AndroidManifest.xml:58:13
-	android:value
-		ADDED from AndroidManifest.xml:60:17
 	android:name
 		ADDED from AndroidManifest.xml:59:17
+	android:value
+		ADDED from AndroidManifest.xml:60:17
 activity#mx.gob.conaculta.msic.maps.MapaMultiRecActivity
 ADDED from AndroidManifest.xml:62:9
 	android:label
@@ -112,10 +112,10 @@ ADDED from AndroidManifest.xml:79:9
 		ADDED from AndroidManifest.xml:80:13
 meta-data#com.google.android.maps.v2.API_KEY
 ADDED from AndroidManifest.xml:91:9
-	android:value
-		ADDED from AndroidManifest.xml:93:13
 	android:name
 		ADDED from AndroidManifest.xml:92:13
+	android:value
+		ADDED from AndroidManifest.xml:93:13
 uses-sdk
 INJECTED from AndroidManifest.xml:0:0 reason: use-sdk injection requested
 MERGED from com.android.support:appcompat-v7:21.0.3:15:5

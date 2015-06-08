@@ -95,7 +95,7 @@ public class MapaRecActivity extends FragmentActivity implements OnInfoWindowCli
         mSiCDBOper.openDB();
 
         //Toast.makeText(this, "SID: " + sid, Toast.LENGTH_LONG).show();
-        if (!sid.isEmpty()) {
+        if (sid!=null && !sid.isEmpty()) {
             rec = mSiCDBOper.obtenRecId2(sid);
         } else {
             rec = mSiCDBOper.obtenRecTeSic(stema, sidsic);
