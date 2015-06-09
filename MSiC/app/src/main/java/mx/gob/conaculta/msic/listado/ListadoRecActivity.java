@@ -54,7 +54,7 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         stabla =preferences.getString(MSiCConst.STEMA,"museo");
         posicionOri=new LatLng(preferences.getFloat(MSiCConst.SLAT,0.0f),preferences.getFloat(MSiCConst.SLON,0.0f));
-
+        handleIntent(getIntent());
 
         ListadoRecFragment listadoRecFragment = new ListadoRecFragment();
         // listadoRecFragment.setArguments(arguments);
@@ -65,7 +65,7 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
                     .commit();
         }
 
-        handleIntent(getIntent());
+
 
     }
 
@@ -79,14 +79,13 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
         SearchManager searchManager =
                 (SearchManager) getSystemService(Context.SEARCH_SERVICE);
 
-       // Toast.makeText(this, "Componente:" + getComponentName()+" "+searchManager.getSearchableInfo(getComponentName()), Toast.LENGTH_LONG).show();
-       // Toast.makeText(this, "Componente:" + searchManager.getSearchableInfo(getComponentName()), Toast.LENGTH_LONG).show();
+
         SearchView searchView =
                 (SearchView) menu.findItem(R.id.search).getActionView();
        searchView.setSearchableInfo(
                searchManager.getSearchableInfo(getComponentName()));
 
-       // Toast.makeText(this, "Componente:" +R.id.search+" "+ searchView, Toast.LENGTH_LONG).show();
+
 
 
         return true;

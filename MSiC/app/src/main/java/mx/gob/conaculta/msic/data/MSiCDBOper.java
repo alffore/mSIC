@@ -93,6 +93,17 @@ public class MSiCDBOper {
     }
 
 
+    public Cursor obtenCursor(String stema,String squeryB) {
+
+        String sWhere = InfraPatEntry.COLUMNA_TABLA+"=? AND "+InfraPatEntry.COLUMNA_NOMBRE+" LIKE ?";
+        String sArgs[] = {stema,new String("%"+squeryB+"%")};
+
+
+        return database.query(InfraPatEntry.TABLA_NOMBRE, allColumns, sWhere, sArgs, null, null, null);
+    }
+
+
+
     public Cursor obtenCursor(String stema, LatLng latLng){
 
         String sWhere = InfraPatEntry.COLUMNA_TABLA+"=?";
@@ -103,6 +114,20 @@ public class MSiCDBOper {
 
         return database.query(InfraPatEntry.TABLA_NOMBRE, allColumns, sWhere, sArgs, null, null, sOrder);
     }
+
+
+    public Cursor obtenCursor(String stema, LatLng latLng,String squeryB){
+
+        String sWhere = InfraPatEntry.COLUMNA_TABLA+"=? AND "+InfraPatEntry.COLUMNA_NOMBRE+" LIKE ?";
+        String sArgs[] = {stema,new String("%"+squeryB+"%")};
+
+        String sOrder="ABS(lat-"+String.valueOf(latLng.latitude)+") + ABS(lon+"+String.valueOf(-1*latLng.longitude)+") ASC";
+
+
+        return database.query(InfraPatEntry.TABLA_NOMBRE, allColumns, sWhere, sArgs, null, null, sOrder);
+    }
+
+
 
     /**
      * @param stipo

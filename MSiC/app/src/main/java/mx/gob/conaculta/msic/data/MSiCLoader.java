@@ -40,7 +40,14 @@ public class MSiCLoader extends CursorLoader {
             return msicdbo.obtenCursorAll();
         }else{
             if(ListadoRecActivity.posicionOri!=null){
+                if(ListadoRecActivity.squeryB!=null && !ListadoRecActivity.squeryB.isEmpty()) {
+                    return msicdbo.obtenCursor(ListadoRecActivity.stabla,ListadoRecActivity.squeryB);
+                }
                 return msicdbo.obtenCursor(ListadoRecActivity.stabla,ListadoRecActivity.posicionOri);
+            }
+
+            if(ListadoRecActivity.squeryB!=null && !ListadoRecActivity.squeryB.isEmpty()) {
+                return msicdbo.obtenCursor(ListadoRecActivity.stabla,ListadoRecActivity.squeryB);
             }
             return msicdbo.obtenCursor(ListadoRecActivity.stabla);
         }

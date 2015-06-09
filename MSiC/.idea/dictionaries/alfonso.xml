@@ -7,6 +7,7 @@
       <w>guarda</w>
       <w>insertados</w>
       <w>listado</w>
+      <w>msicdbo</w>
       <w>método</w>
       <w>obten</w>
       <w>oper</w>
@@ -14,7 +15,9 @@
       <w>posicion</w>
       <w>puntos</w>
       <w>recurso</w>
+      <w>squery</w>
       <w>stabla</w>
+      <w>stema</w>
     </words>
   </dictionary>
 </component>

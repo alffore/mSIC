@@ -93,8 +93,6 @@ public class ListadoRecFragment extends Fragment implements LoaderManager.Loader
                             .onItemSelected(cursor);
                 }
 
-
-
                 mposition = position;
             }
         });
