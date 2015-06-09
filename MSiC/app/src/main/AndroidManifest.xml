@@ -67,14 +67,26 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="mx.gob.conaculta.msic.MainActivity" />
         </activity>
+
+
         <activity
             android:name=".listado.ListadoRecActivity"
             android:label="@string/activity_listado_name"
             android:parentActivityName=".MainActivity">
+
+            <meta-data android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="mx.gob.conaculta.msic.MainActivity" />
         </activity>
+
+
 
         <activity
             android:name=".FichaActivity"

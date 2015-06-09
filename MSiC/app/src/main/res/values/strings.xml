@@ -13,6 +13,9 @@
     <string name="action_listado">List</string>
     <string name="action_refresh" translatable="false">Refresh DB</string>
 
+    <string name="search_title">Search</string>
+    <string name="search_hint">common name</string>
+
     <string name="sync_account_type" translatable="false">msic.conaculta.gob.mx</string>
     <string name="content_authority" translatable="false">mx.gob.conaculta.msic.app</string>
     <string name="title_activity_ficha">Record</string>

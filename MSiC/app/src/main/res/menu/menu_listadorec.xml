@@ -2,12 +2,20 @@
 xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools" tools:context=".ListadoRecActivity">
 
-<item android:id="@+id/action_mapa" android:title="@string/action_mapa"
-    android:orderInCategory="100" app:showAsAction="never" />
 
-<item android:id="@+id/action_settings" android:title="@string/action_settings"
-    android:orderInCategory="200" app:showAsAction="never" />
+    <item android:id="@+id/search"
+        app:actionViewClass="android.support.v7.widget.SearchView"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="@string/search_title"
+        android:orderInCategory="50"
+        app:showAsAction="collapseActionView|ifRoom" />
 
-    <item android:id="@+id/action_refresh" android:title="@string/action_refresh"
-        android:orderInCategory="250" app:showAsAction="ifRoom" />
+    <item android:id="@+id/action_mapa" android:orderInCategory="100"
+        android:title="@string/action_mapa" app:showAsAction="never" />
+
+    <item android:id="@+id/action_settings" android:orderInCategory="200"
+        android:title="@string/action_settings" app:showAsAction="never" />
+
+    <item android:id="@+id/action_refresh" android:orderInCategory="250"
+        android:title="@string/action_refresh" app:showAsAction="never" />
 </menu>

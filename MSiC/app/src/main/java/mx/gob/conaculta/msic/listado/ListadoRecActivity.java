@@ -1,6 +1,8 @@
 package mx.gob.conaculta.msic.listado;
 
 
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -9,9 +11,12 @@ import android.support.v7.app.ActionBarActivity;
 
 import android.os.Bundle;
 
+
+import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
 import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
@@ -30,6 +35,7 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
 
     public static String stabla;
     public static LatLng posicionOri;
+    public static String squeryB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,12 +64,31 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
                     .add(R.id.container, listadoRecFragment)
                     .commit();
         }
+
+        handleIntent(getIntent());
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_listadorec, menu);
+
+
+        // Associate searchable configuration with the SearchView
+        SearchManager searchManager =
+                (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+
+       // Toast.makeText(this, "Componente:" + getComponentName()+" "+searchManager.getSearchableInfo(getComponentName()), Toast.LENGTH_LONG).show();
+       // Toast.makeText(this, "Componente:" + searchManager.getSearchableInfo(getComponentName()), Toast.LENGTH_LONG).show();
+        SearchView searchView =
+                (SearchView) menu.findItem(R.id.search).getActionView();
+       searchView.setSearchableInfo(
+               searchManager.getSearchableInfo(getComponentName()));
+
+       // Toast.makeText(this, "Componente:" +R.id.search+" "+ searchView, Toast.LENGTH_LONG).show();
+
+
         return true;
     }
 
@@ -121,10 +146,27 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
     @Override
     public void onClick(View view, Object data) {
         //Toast.makeText(this,"Se recibio objeto para Mapa:"+((Cursor)data).getPosition(),Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "Se recibio objeto para Mapa: " + view.getId(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Se recibio objeto para Mapa: " + view.getId(), Toast.LENGTH_SHORT).show();
 
         Intent intent = new Intent(this,MapaRecActivity.class);
-        intent.putExtra(MSiCConst.SID,String.valueOf(view.getId()));
+        intent.putExtra(MSiCConst.SID, String.valueOf(view.getId()));
         startActivity(intent);
+    }
+
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+
+        handleIntent(intent);
+    }
+
+    private void handleIntent(Intent intent) {
+
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+            squeryB = intent.getStringExtra(SearchManager.QUERY);
+            //use the query to search your data somehow
+
+            Toast.makeText(this, "El Query B: " + squeryB, Toast.LENGTH_SHORT).show();
+        }
     }
 }

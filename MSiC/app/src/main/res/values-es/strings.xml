@@ -9,4 +9,6 @@
     <string name="title_activity_ficha">Ficha</string>
     <string name="action_problema">Problemas</string>
     <string name="action_share">Compartir</string>
+    <string name="search_title">Buscar</string>
+    <string name="search_hint">nombre común</string>
 </resources>
