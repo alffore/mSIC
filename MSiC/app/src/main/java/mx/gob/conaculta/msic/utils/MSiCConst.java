@@ -12,6 +12,9 @@ public class MSiCConst {
     public static final String SID="sid";
 
 
+    public static final String SQUERYB="squeryb";
+
+
     //datos
     public static final String[] MT_ARRAY = {"Museo", "Teatro", "Casas y Centros Culturales", "Librerías", "Galerías", "Bibliotecas"};
     public static final String[] MT_ARRAY_MOD = {"museo", "teatro", "centro_cultural", "libreria", "galeria", "bibilioteca"};

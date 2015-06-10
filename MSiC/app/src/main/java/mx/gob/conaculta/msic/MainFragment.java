@@ -49,6 +49,7 @@ public class MainFragment extends Fragment {
                 editor.apply();
 
                 Intent intent = new Intent(getActivity(), ListadoRecActivity.class);
+                intent.putExtra(MSiCConst.SQUERYB,"");
                 startActivity(intent);
 
 

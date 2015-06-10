@@ -11,4 +11,5 @@
     <string name="action_share">Compartir</string>
     <string name="search_title">Buscar</string>
     <string name="search_hint">nombre común</string>
+    <string name="search_title_todos">Todos</string>
 </resources>

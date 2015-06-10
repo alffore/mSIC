@@ -72,6 +72,7 @@ public class MSiCDBOper {
     }
 
     /**
+     * Método que obtiene todos los resultados de la BD sin orden
      * @return
      */
     public Cursor obtenCursorAll() {
@@ -92,7 +93,12 @@ public class MSiCDBOper {
         return database.query(InfraPatEntry.TABLA_NOMBRE, allColumns, sWhere, sArgs, null, null, null);
     }
 
-
+    /**
+     *
+     * @param stema
+     * @param squeryB
+     * @return
+     */
     public Cursor obtenCursor(String stema,String squeryB) {
 
         String sWhere = InfraPatEntry.COLUMNA_TABLA+"=? AND "+InfraPatEntry.COLUMNA_NOMBRE+" LIKE ?";
@@ -103,7 +109,12 @@ public class MSiCDBOper {
     }
 
 
-
+    /**
+     *
+     * @param stema
+     * @param latLng
+     * @return
+     */
     public Cursor obtenCursor(String stema, LatLng latLng){
 
         String sWhere = InfraPatEntry.COLUMNA_TABLA+"=?";
@@ -115,7 +126,13 @@ public class MSiCDBOper {
         return database.query(InfraPatEntry.TABLA_NOMBRE, allColumns, sWhere, sArgs, null, null, sOrder);
     }
 
-
+    /**
+     *
+     * @param stema
+     * @param latLng
+     * @param squeryB
+     * @return
+     */
     public Cursor obtenCursor(String stema, LatLng latLng,String squeryB){
 
         String sWhere = InfraPatEntry.COLUMNA_TABLA+"=? AND "+InfraPatEntry.COLUMNA_NOMBRE+" LIKE ?";

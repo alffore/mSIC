@@ -37,34 +37,27 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
     public static LatLng posicionOri;
     public static String squeryB;
 
+    private String sqB;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listadorec);
 
 
-        /*stabla = getIntent().getStringExtra(MSiCConst.STEMA);
-        if (stabla.isEmpty()) {
-            stabla = "museo";
-        }
-        Bundle arguments = new Bundle();
-        arguments.putString(MSiCConst.STEMA, stabla);*/
-
-
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        stabla =preferences.getString(MSiCConst.STEMA,"museo");
-        posicionOri=new LatLng(preferences.getFloat(MSiCConst.SLAT,0.0f),preferences.getFloat(MSiCConst.SLON,0.0f));
+        stabla = preferences.getString(MSiCConst.STEMA, "museo");
+        posicionOri = new LatLng(preferences.getFloat(MSiCConst.SLAT, 0.0f), preferences.getFloat(MSiCConst.SLON, 0.0f));
         handleIntent(getIntent());
 
         ListadoRecFragment listadoRecFragment = new ListadoRecFragment();
-        // listadoRecFragment.setArguments(arguments);
+
 
         if (savedInstanceState == null) {
             int commit = getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, listadoRecFragment)
                     .commit();
         }
-
 
 
     }
@@ -78,15 +71,12 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
         // Associate searchable configuration with the SearchView
         SearchManager searchManager =
                 (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-
-
         SearchView searchView =
                 (SearchView) menu.findItem(R.id.search).getActionView();
-       searchView.setSearchableInfo(
-               searchManager.getSearchableInfo(getComponentName()));
+        searchView.setSearchableInfo(
+                searchManager.getSearchableInfo(getComponentName()));
 
-
-
+        // searchView.setOnQueryTextListener(this);
 
         return true;
     }
@@ -120,6 +110,10 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
             return true;
         }
 
+        if (id == R.id.search_todos) {
+            return true;
+        }
+
 
         return super.onOptionsItemSelected(item);
     }
@@ -129,25 +123,20 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
 
         Toast.makeText(this, "Se recibio objeto:" + cursor.getString(4) + " " + cursor.getString(5), Toast.LENGTH_SHORT).show();
 
-        /*String url = "http://sic.gob.mx/ficha.php?table="+cursor.getString(5)+"&table_id="+cursor.getString(4);
-        Intent i = new Intent(Intent.ACTION_VIEW);
-        i.setData(Uri.parse(url));
-        startActivity(i);*/
 
         Intent intent = new Intent(this, FichaActivity.class);
         intent.putExtra(MSiCConst.STEMA, cursor.getString(5));
         intent.putExtra(MSiCConst.SIDSIC, cursor.getString(4));
-        intent.putExtra(MSiCConst.SID,cursor.getInt(0));
+        intent.putExtra(MSiCConst.SID, cursor.getInt(0));
         startActivity(intent);
 
     }
 
     @Override
     public void onClick(View view, Object data) {
-        //Toast.makeText(this,"Se recibio objeto para Mapa:"+((Cursor)data).getPosition(),Toast.LENGTH_SHORT).show();
-        //Toast.makeText(this, "Se recibio objeto para Mapa: " + view.getId(), Toast.LENGTH_SHORT).show();
 
-        Intent intent = new Intent(this,MapaRecActivity.class);
+
+        Intent intent = new Intent(this, MapaRecActivity.class);
         intent.putExtra(MSiCConst.SID, String.valueOf(view.getId()));
         startActivity(intent);
     }
@@ -159,13 +148,27 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
         handleIntent(intent);
     }
 
+    /**
+     * Metodo para procesar el intent
+     * @param intent
+     */
     private void handleIntent(Intent intent) {
 
+        sqB=intent.getStringExtra(MSiCConst.SQUERYB);
+
+        if(squeryB!=null && !squeryB.isEmpty() && sqB!=null && sqB.equals("")){
+            squeryB="";
+        }
+
+
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+
             squeryB = intent.getStringExtra(SearchManager.QUERY);
+
+            //Toast.makeText(this, "A_S:" + squeryB + " " +sqB, Toast.LENGTH_SHORT).show();
+
             //use the query to search your data somehow
 
-            Toast.makeText(this, "El Query B: " + squeryB, Toast.LENGTH_SHORT).show();
         }
     }
 }

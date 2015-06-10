@@ -10,7 +10,11 @@ xmlns:tools="http://schemas.android.com/tools" tools:context=".ListadoRecActivit
         android:orderInCategory="50"
         app:showAsAction="collapseActionView|ifRoom" />
 
-    <item android:id="@+id/action_mapa" android:orderInCategory="100"
+    <item android:id="@+id/search_todos" android:orderInCategory="100"
+        android:icon="@android:drawable/ic_menu_revert"
+        android:title="@string/search_title_todos" app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/action_mapa" android:orderInCategory="150"
         android:title="@string/action_mapa" app:showAsAction="never" />
 
     <item android:id="@+id/action_settings" android:orderInCategory="200"
