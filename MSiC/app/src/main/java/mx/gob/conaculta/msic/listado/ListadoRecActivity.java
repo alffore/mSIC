@@ -27,6 +27,7 @@ import mx.gob.conaculta.msic.data.MSiCDBOper;
 import mx.gob.conaculta.msic.data.RecRecursosTask;
 import mx.gob.conaculta.msic.maps.MapaRecActivity;
 import mx.gob.conaculta.msic.utils.MSiCConst;
+import mx.gob.conaculta.msic.utils.Utiles;
 
 /**
  * Created by alfonso on 08/02/15.
@@ -52,7 +53,7 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
 
         ListadoRecFragment listadoRecFragment = new ListadoRecFragment();
 
-this.setTitle(stabla);
+        this.setTitle(Utiles.obtenT2NC(stabla));
 
         if (savedInstanceState == null) {
             int commit = getSupportFragmentManager().beginTransaction()

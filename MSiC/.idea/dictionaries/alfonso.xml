@@ -2,8 +2,11 @@
   <dictionary name="alfonso">
     <words>
       <w>agrega</w>
+      <w>calcular</w>
       <w>cantidad</w>
+      <w>distancia</w>
       <w>ficha</w>
+      <w>formatear</w>
       <w>guarda</w>
       <w>insertados</w>
       <w>listado</w>
@@ -17,6 +20,7 @@
       <w>puntos</w>
       <w>recibio</w>
       <w>recurso</w>
+      <w>salida</w>
       <w>squery</w>
       <w>stabla</w>
       <w>stema</w>

@@ -52,7 +52,7 @@ public class Utiles {
     }
 
     /**
-     * Metodo para calcular la distancia entre puntos en metros
+     * Método para calcular la distancia entre puntos en metros
      * @param lat0
      * @param lon0
      * @param lat
@@ -78,7 +78,7 @@ public class Utiles {
     }
 
     /**
-     * Metodo para formatear la salidad de distancias
+     * Método para formatear la salidad de distancias
      * @param dist
      * @return
      */
@@ -95,5 +95,22 @@ public class Utiles {
         }
 
         return sal;
+    }
+
+    /**
+     * Metodo que regresa el nombre comun de un modulo
+     * @param stabla
+     * @return
+     */
+    public static String obtenT2NC(String stabla){
+        int tam=MSiCConst.MT_ARRAY_MOD.length;
+        for(int i=0;i<tam;i++){
+
+            if(MSiCConst.MT_ARRAY_MOD[i].equals(stabla)){
+                return MSiCConst.MT_ARRAY[i];
+            }
+        }
+
+        return null;
     }
 }
