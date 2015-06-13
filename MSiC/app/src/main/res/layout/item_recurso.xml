@@ -53,7 +53,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/imageIconMapa"
             android:layout_weight="0.10"
-            android:src="@drawable/ic_launcher" />
+            android:src="@drawable/ic_place_black_48dp" />
 
         </FrameLayout>
 

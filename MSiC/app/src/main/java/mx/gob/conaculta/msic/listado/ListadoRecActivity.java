@@ -52,6 +52,7 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
 
         ListadoRecFragment listadoRecFragment = new ListadoRecFragment();
 
+this.setTitle(stabla);
 
         if (savedInstanceState == null) {
             int commit = getSupportFragmentManager().beginTransaction()
@@ -162,13 +163,7 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
 
 
         if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
-
             squeryB = intent.getStringExtra(SearchManager.QUERY);
-
-            //Toast.makeText(this, "A_S:" + squeryB + " " +sqB, Toast.LENGTH_SHORT).show();
-
-            //use the query to search your data somehow
-
         }
     }
 }
