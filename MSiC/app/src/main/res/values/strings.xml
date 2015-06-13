@@ -5,6 +5,7 @@
 
     <string name="activity_mapa_name">Location Map</string>
     <string name="activity_listado_name">List</string>
+    <string name="activity_preferences">Settings</string>
 
     <string name="hello_world" translatable="false">Hello world!</string>
 
@@ -23,6 +24,10 @@
     <string name="action_problema">Problems</string>
     <string name="action_mmapa" translatable="false">MultiMapa</string>
     <string name="action_share">Share</string>
+
+    <string name="pref_distance_key" >distance</string>
+    <string name="pref_distance_label">Search distance in km</string>
+    <string name="pref_distance_default" translatable="false">30</string>
 
 
 </resources>

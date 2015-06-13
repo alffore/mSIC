@@ -98,7 +98,7 @@ public class Utiles {
     }
 
     /**
-     * Metodo que regresa el nombre comun de un modulo
+     * Método que regresa el nombre común de un modulo
      * @param stabla
      * @return
      */

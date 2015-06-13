@@ -34,16 +34,6 @@ public class MenuTemasAdapter extends ArrayAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = convertView;
 
-     /*   if (row == null) {
-            LayoutInflater inflater = ((Activity) context).getLayoutInflater();
-            row = inflater.inflate(R.layout.grid_celda, parent, false);
-
-            TextView tv = (TextView) row.findViewById(R.id.textViewGM);
-
-            tv.setText(MSiCConst.MT_ARRAY[position]);
-
-        }*/
-
 
         if(row == null){
             LayoutInflater inflater = ((Activity) context).getLayoutInflater();
