@@ -15,7 +15,8 @@ xmlns:tools="http://schemas.android.com/tools" tools:context=".ListadoRecActivit
         android:title="@string/search_title_todos" app:showAsAction="ifRoom" />
 
     <item android:id="@+id/action_mapa" android:orderInCategory="150"
-        android:title="@string/action_mapa" app:showAsAction="never" />
+        android:icon="@drawable/ic_place_white_48dp"
+        android:title="@string/action_mapa" app:showAsAction="ifRoom" />
 
     <item android:id="@+id/action_settings" android:orderInCategory="200"
         android:title="@string/action_settings" app:showAsAction="never" />

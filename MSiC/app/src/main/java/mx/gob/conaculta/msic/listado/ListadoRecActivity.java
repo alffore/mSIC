@@ -25,6 +25,7 @@ import mx.gob.conaculta.msic.FichaActivity;
 import mx.gob.conaculta.msic.R;
 import mx.gob.conaculta.msic.data.MSiCDBOper;
 import mx.gob.conaculta.msic.data.RecRecursosTask;
+import mx.gob.conaculta.msic.maps.MapaMultiRecActivity;
 import mx.gob.conaculta.msic.maps.MapaRecActivity;
 import mx.gob.conaculta.msic.utils.MSiCConst;
 import mx.gob.conaculta.msic.utils.Utiles;
@@ -96,7 +97,8 @@ public class ListadoRecActivity extends ActionBarActivity implements ListadoRecF
         }
 
         if (id == R.id.action_mapa) {
-
+            Intent intent = new Intent(this, MapaMultiRecActivity.class);
+            startActivity(intent);
             return true;
         }
 

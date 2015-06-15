@@ -10,6 +10,14 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_gravity="center">
+
+        <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageVLSIC"
+            android:src="@drawable/logo_solo_sic"
+            android:layout_gravity="center" />
+
         <GridView
 
             android:id="@+id/gridView"
@@ -22,12 +30,14 @@
             android:stretchMode="columnWidth"
             android:gravity="center"/>
 
-        <Button
-            android:layout_width="wrap_content"
+
+
+        <ImageView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mapa"
-            android:id="@+id/button"
-            android:layout_gravity="center_horizontal" />
+            android:id="@+id/imageVLCNCA"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/logo_solo_sic" />
     </LinearLayout>
 
 </FrameLayout>
