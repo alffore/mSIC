@@ -94,7 +94,7 @@
 
 
         <activity
-            android:name=".FichaActivity"
+            android:name=".ficha.FichaActivity"
             android:label="@string/title_activity_ficha">
 
         </activity>

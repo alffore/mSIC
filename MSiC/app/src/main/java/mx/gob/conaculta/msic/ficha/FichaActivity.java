@@ -1,4 +1,4 @@
-package mx.gob.conaculta.msic;
+package mx.gob.conaculta.msic.ficha;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -10,12 +10,13 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
-import android.widget.Toast;
+
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
 
+import mx.gob.conaculta.msic.R;
 import mx.gob.conaculta.msic.maps.MapaRecActivity;
 import mx.gob.conaculta.msic.utils.MSiCConst;
 
@@ -33,6 +34,7 @@ public class FichaActivity extends ActionBarActivity {
     private String stema;
     private String sidsic;
     private String sid;
+
 
     /**
      * @param savedInstanceState

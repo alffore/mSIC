@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import mx.gob.conaculta.msic.FichaActivity;
+import mx.gob.conaculta.msic.ficha.FichaActivity;
 import mx.gob.conaculta.msic.R;
 
 import mx.gob.conaculta.msic.data.MSiCDBOper;

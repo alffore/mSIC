@@ -22,8 +22,6 @@ import mx.gob.conaculta.msic.utils.MSiCConst;
 public class MainFragment extends Fragment {
 
 
-
-
     public MainFragment() {
 
 
@@ -40,16 +38,16 @@ public class MainFragment extends Fragment {
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-               // Toast.makeText(getActivity(), "" + position, Toast.LENGTH_SHORT).show();
+                // Toast.makeText(getActivity(), "" + position, Toast.LENGTH_SHORT).show();
 
 
                 SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
                 SharedPreferences.Editor editor = preferences.edit();
-                editor.putString(MSiCConst.STEMA,MSiCConst.MT_ARRAY_MOD[position]);
+                editor.putString(MSiCConst.STEMA, MSiCConst.MT_ARRAY_MOD[position]);
                 editor.apply();
 
                 Intent intent = new Intent(getActivity(), ListadoRecActivity.class);
-                intent.putExtra(MSiCConst.SQUERYB,"");
+                intent.putExtra(MSiCConst.SQUERYB, "");
                 startActivity(intent);
 
 

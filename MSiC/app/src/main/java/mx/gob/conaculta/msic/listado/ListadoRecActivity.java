@@ -21,7 +21,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
 
-import mx.gob.conaculta.msic.FichaActivity;
+import mx.gob.conaculta.msic.ficha.FichaActivity;
 import mx.gob.conaculta.msic.R;
 import mx.gob.conaculta.msic.data.MSiCDBOper;
 import mx.gob.conaculta.msic.data.RecRecursosTask;
