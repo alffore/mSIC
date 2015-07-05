@@ -1,17 +1,18 @@
 package mx.gob.conaculta.msic;
 
 
+
+
+import android.app.Fragment;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-
 
 import mx.gob.conaculta.msic.listado.ListadoRecActivity;
 import mx.gob.conaculta.msic.utils.MSiCConst;
