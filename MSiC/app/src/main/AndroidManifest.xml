@@ -73,7 +73,8 @@
         <activity
             android:name=".listado.ListadoRecActivity"
             android:label="@string/activity_listado_name"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.AppCompat" >
 
             <meta-data android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
@@ -89,13 +90,15 @@
 
         <activity
             android:name=".PreferenciasActivity"
-            android:label="@string/activity_preferences">
+            android:label="@string/activity_preferences"
+            android:theme="@style/Theme.AppCompat" >
         </activity>
 
 
         <activity
             android:name=".ficha.FichaActivity"
-            android:label="@string/title_activity_ficha">
+            android:label="@string/title_activity_ficha"
+            android:theme="@style/Theme.AppCompat" >
 
         </activity>
 

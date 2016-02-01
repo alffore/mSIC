@@ -2,9 +2,12 @@ package mx.gob.conaculta.msic.data;
 
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,6 +33,7 @@ public class RecRecursosTask extends AsyncTask<String, Void, String[]> {
 
     private final Context mContext;
 
+    private SharedPreferences preferences;
 
     private MSiCDBOper msicdbo = null;
 
@@ -40,7 +44,7 @@ public class RecRecursosTask extends AsyncTask<String, Void, String[]> {
     public RecRecursosTask(Context context) {
         mContext = context;
         msicdbo = new MSiCDBOper(mContext);
-
+        preferences= PreferenceManager.getDefaultSharedPreferences(mContext);
     }
 
 
@@ -64,12 +68,20 @@ public class RecRecursosTask extends AsyncTask<String, Void, String[]> {
 
             if (params.length==1) {
                 uriRec = Uri.parse(MSiCConst.SDBSIC_BASE_URL).buildUpon()
-                        .appendQueryParameter(MSiCConst.SMSR, params[0]).build();
+                        .appendQueryParameter(MSiCConst.SMSR, params[0])
+                        .appendQueryParameter(MSiCConst.SLAT, Float.toString(preferences.getFloat(MSiCConst.SLAT, 0.0f)))
+                        .appendQueryParameter(MSiCConst.SLON, Float.toString(preferences.getFloat(MSiCConst.SLON, 0.0f)))
+                        .build();
             } else {
                 uriRec = Uri.parse(MSiCConst.SDBSIC_BASE_URL).buildUpon()
                         .appendQueryParameter(MSiCConst.SMSR, params[0])
-                        .appendQueryParameter(MSiCConst.STEMA, params[1]).build();
+                        .appendQueryParameter(MSiCConst.STEMA, params[1])
+                        .appendQueryParameter(MSiCConst.SLAT, Float.toString(preferences.getFloat(MSiCConst.SLAT, 0.0f)))
+                        .appendQueryParameter(MSiCConst.SLON, Float.toString(preferences.getFloat(MSiCConst.SLON, 0.0f)))
+                        .build();
             }
+
+            Log.d(LOG_TAG,uriRec.toString());
 
             URL url = new URL(uriRec.toString());
 

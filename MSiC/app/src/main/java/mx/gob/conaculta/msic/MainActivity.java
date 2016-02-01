@@ -2,20 +2,18 @@ package mx.gob.conaculta.msic;
 
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
 
 import mx.gob.conaculta.msic.data.MSiCDBOper;
 import mx.gob.conaculta.msic.data.RecRecursosTask;
@@ -91,9 +89,7 @@ public class MainActivity extends Activity {
 
             FragmentManager fragmentManager = getFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.container, new MainFragment()).commit();
-            /*int commit = getFragmentManager().beginTransaction()
-                    .add(R.id.container, new MainFragment())
-                    .commit();*/
+
         }
 
         buildGoogleApiClient();

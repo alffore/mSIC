@@ -1,7 +1,9 @@
 package mx.gob.conaculta.msic.ficha;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
+import android.preference.PreferenceManager;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -57,9 +59,14 @@ public class FichaActivity extends ActionBarActivity {
      *
      */
     private void cargaFicha() {
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+
         Uri fichaUri = Uri.parse(MSiCConst.SFICHA_URL).buildUpon()
                 .appendQueryParameter(MSiCConst.STEMA, stema)
                 .appendQueryParameter(MSiCConst.SIDSIC, sidsic)
+                .appendQueryParameter(MSiCConst.SLAT, Float.toString(preferences.getFloat(MSiCConst.SLAT, 0.0f)))
+                .appendQueryParameter(MSiCConst.SLON, Float.toString(preferences.getFloat(MSiCConst.SLON, 0.0f)))
                 .build();
 
         try {
